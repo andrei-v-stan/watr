@@ -1,0 +1,122 @@
+watr/
+├── node_modules/
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+├── src/
+│   ├── app/                   # Application layer
+│   │   ├── App.jsx            # Main application component
+│   │   ├── provider.jsx       # Global providers (e.g., context, theming)
+│   │   └── router.jsx         # Application routes configuration
+│   │
+│   ├── assets/                # Static assets (e.g., images, fonts, SVGs)
+│   │   ├── logo.svg
+│   │   └── styles/            # Shared styles
+│   │       ├── global.css
+│   │       ├── variables.css
+│   │       └── components/
+│   │           └── button.css
+│   │
+│   ├── components/            # Shared components
+│   │   ├── Header.jsx
+│   │   ├── Footer.jsx
+│   │   └── DataTable.jsx
+│   │
+│   ├── features/              # Feature-based modules (core functionality)
+│   │   ├── visualization/
+│   │   │   ├── Visualization.jsx
+│   │   │   ├── hooks/
+│   │   │   └── services/
+│   │   ├── classification/
+│   │   │   └── Classification.jsx
+│   │   └── comparison/
+│   │       └── Comparison.jsx
+│   │
+│   ├── hooks/                 # Shared hooks
+│   │   ├── useSPARQL.js
+│   │   └── useTheme.js
+│   │
+│   ├── lib/                   # Preconfigured reusable libraries
+│   │   └── sparqlClient.js    # SPARQL querying utilities
+│   │
+│   ├── pages/                 # Application pages
+│   │   ├── Home.jsx
+│   │   ├── About.jsx
+│   │   └── Documentation.jsx
+│   │
+│   ├── stores/                # Global state stores
+│   │   └── userStore.js       # E.g., Zustand/Redux setup
+│   │
+│   ├── utils/                 # Shared utility functions
+│   │   ├── formatData.js
+│   │   └── api.js
+│   │
+│   ├── types/                 # Shared TypeScript types (optional)
+│   └── tests/ or __tests__/   # Testing utilities and mocks
+│
+├── server/                    # Backend folder
+│   ├── routes/
+│   │   ├── classify.js
+│   │   └── visualize.js
+│   ├── utils/
+│   │   ├── sparqlClient.js
+│   │   └── rdfParser.js
+│   └── server.js              # Backend entry point
+│
+├── config/                    # Configuration files
+│   └── env.js                 # Centralized environment variables
+├── .gitignore
+├── package.json
+├── README.md
+└── vite.config.js
+
+
+[https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md]
+[https://medium.com/@megh16/setting-up-a-react-project-folder-structure-in-2024-best-practices-93c27a49bbfe]
+
+
+
+src (Frontend)
+Purpose: Handles everything related to the user interface and experience.
+Environment: Runs in the browser.
+Tech Stack: React, JavaScript/TypeScript, CSS, HTML, etc.
+Responsibilities:
+Rendering user interfaces (e.g., charts, tables, forms).
+Managing client-side logic (e.g., state with hooks or global stores).
+Communicating with the backend through APIs (via fetch or axios).
+Handling routes and navigation within the app.
+Optimized for client-side performance (e.g., Vite bundles everything for production).
+server (Backend)
+Purpose: Manages server-side logic, data processing, and acts as the middleman between the frontend and external resources (e.g., SPARQL endpoints).
+Environment: Runs in a Node.js environment on a server or local machine.
+Tech Stack: Express.js, libraries for querying SPARQL, etc.
+Responsibilities:
+Processing SPARQL queries and returning results.
+Exposing REST/GraphQL APIs for the frontend.
+Handling server-side tasks like authentication, validation, and complex computations.
+May use its own libraries or frameworks that aren't bundled into the frontend.
+Why Keep src and server Separate?
+Environment Differences:
+
+Code in src is browser-compatible, whereas server code is built for Node.js.
+Bundling server-side code into src would be unnecessary and inefficient, as it won't run in the browser.
+Scalability:
+
+As the app grows, the separation makes it easier to manage changes without confusion.
+Deployment:
+
+You might deploy src to a static hosting service (e.g., Vercel, Netlify), while server runs on a cloud platform (e.g., AWS, Heroku) or locally.
+Security:
+
+Keeping backend code separate ensures sensitive operations (e.g., authentication or SPARQL access) aren't exposed to the client.
+When Would You Combine Them?
+You can combine them in smaller, monolithic projects:
+
+Use Node.js frameworks like Next.js that allow you to write API routes and frontend code in one place (src folder).
+Embed backend services directly into the frontend for quick development or small-scale applications.
+For Watr
+Since we need:
+
+A React-based SPA (frontend).
+A backend for SPARQL queries and metadata processing.
+It's best to keep them separate. But if you'd prefer to combine them, we can explore something like Next.js. Let me know what you think!

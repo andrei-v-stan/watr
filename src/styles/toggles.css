@@ -1,0 +1,130 @@
+.toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .toggle-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .toggle-dataset-query {
+    width: 150px;
+    height: 50px;
+    background-image: linear-gradient(90deg, #000, #3c3c3c);
+    border: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: all 0.3s;
+  }
+  
+  .toggle-dataset-query:hover {
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388;
+  }
+  
+  .toggle-dataset-query:active {
+    outline: 0px;
+    background: #333;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3);
+    color: #f5f5f5;
+    text-decoration: none;
+  }
+  
+  .external-input-container {
+    position: relative;
+  }
+  
+  .external-input {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+  
+  .example-url-list {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .example-url-list li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .example-url-list li:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .upload-input {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .simple-query select,
+  .advanced-query {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+  }
+  
+  .simple-query select {
+    width: 200px;
+  }
+  
+  .advanced-query {
+    width: 100%;
+    height: 120px;
+    resize: vertical;
+  }
+  
+  .submit-button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  #submit-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  #submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  #submit-button:active {
+    transform: scale(0.95);
+  }
+  
