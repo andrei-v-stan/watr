@@ -1,0 +1,21 @@
+/* https://en.wikipedia.org/wiki/Main_Page */
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>. 
+
+<https://en.wikipedia.org/wiki/Main_Page#Article> <http://schema.org/sameAs> <http://www.wikidata.org/entity/Q5296> . 
+<https://en.wikipedia.org/wiki/Main_Page#Article> a <http://schema.org/Article> . 
+<https://en.wikipedia.org/wiki/Main_Page#Organization> a <http://schema.org/Organization> . 
+<https://en.wikipedia.org/wiki/Main_Page#Organization_1> a <http://schema.org/Organization> . 
+<https://en.wikipedia.org/wiki/Main_Page#ImageObject> a <http://schema.org/ImageObject> . 
+<https://en.wikipedia.org/wiki/Main_Page#Article> <http://schema.org/author> <https://en.wikipedia.org/wiki/Main_Page#Organization> . 
+<https://en.wikipedia.org/wiki/Main_Page#Article> <http://schema.org/dateModified> "2024-05-23T17:32:12Z"^^<http://schema.org/Date> . 
+<https://en.wikipedia.org/wiki/Main_Page#Article> <http://schema.org/datePublished> "2002-01-26T15:28:12Z"^^<http://schema.org/Date> . 
+<https://en.wikipedia.org/wiki/Main_Page#Article> <http://schema.org/headline> "Wikimedia project page" . 
+<https://en.wikipedia.org/wiki/Main_Page#Article> <http://schema.org/image> <https://upload.wikimedia.org/wikipedia/commons/1/16/Benty_grange_helm_crop.png> . 
+<https://en.wikipedia.org/wiki/Main_Page#Article> <http://schema.org/mainEntity> "http://www.wikidata.org/entity/Q5296" . 
+<https://en.wikipedia.org/wiki/Main_Page#Article> <http://schema.org/name> "Main Page" . 
+<https://en.wikipedia.org/wiki/Main_Page#Organization> <http://schema.org/name> "Contributors to Wikimedia projects" . 
+<https://en.wikipedia.org/wiki/Main_Page#Organization_1> <http://schema.org/name> "Wikimedia Foundation, Inc." . 
+<https://en.wikipedia.org/wiki/Main_Page#Article> <http://schema.org/publisher> <https://en.wikipedia.org/wiki/Main_Page#Organization_1> . 
+<https://en.wikipedia.org/wiki/Main_Page#Article> <http://schema.org/url> <https://en.wikipedia.org/wiki/Main_Page> . 
+<https://en.wikipedia.org/wiki/Main_Page#ImageObject> <http://schema.org/url> <https://www.wikimedia.org/static/images/wmf-hor-googpub.png> . 
+<https://en.wikipedia.org/wiki/Main_Page#Organization_1> <http://schema.org/logo> <https://en.wikipedia.org/wiki/Main_Page#ImageObject> . 

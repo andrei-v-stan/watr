@@ -1,0 +1,28 @@
+/* https://www.uaic.ro/ */
+<https://www.uaic.ro/> <http://ogp.me/ns#image:height> "723"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns#locale> "ro_RO"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns#type> "website"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns#type> "article"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns#title> "Universitatea Alexandru Ioan Cuza din Iași"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns#title> "Universitatea „Alexandru Ioan Cuza” din Iași"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns#description> "Site-ul oficial al primei universități a României"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns#description> "Noutăți și comunicate  
+Click aici pentru a vedea toate noutățile        
+
+Evenimente  
+Click aici pentru a vedea toate evenimentele             Legături utile 
+
+E-mail angajați 
+
+Agenda Rectorului 
+
+Plata"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns#url> "https://www.uaic.ro/"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns#site_name> "Universitatea „Alexandru Ioan Cuza” din Iași"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns/article#publisher> "https://www.facebook.com/UAICdinIASI"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns/article#modified_time> "2024-11-19T10:34:10+00:00"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns#image> "https://www.uaic.ro/wp-content/uploads/2013/12/10956364_932209000152777_7600848121358635445_o.jpg"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns#image> "http://www.uaic.ro/wp-content/uploads/2013/12/logouaic.png"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <http://ogp.me/ns#image:width> "1024"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> . 
+<https://www.uaic.ro/> <https://api.w.org/> <https://www.uaic.ro/wp-json/> . 
+<https://www.uaic.ro/> <https://theeventscalendar.com/> <https://www.uaic.ro/wp-json/tribe/events/v1/> . 
