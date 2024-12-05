@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import session from 'express-session';
 import cors from 'cors';
 import uploadRouter from './routes/upload.js';
+import filesRouter from './routes/files.js';
 import sparqlRouter from './routes/sparql.js';
 import config from '../src/config/config.js'; 
 
@@ -29,6 +30,7 @@ app.use(
 app.use(bodyParser.json());
 
 app.use(`/${API}/upload`, uploadRouter);
+app.use(`/${API}/files`, filesRouter);
 app.use(`/${API}/sparql`, sparqlRouter);
 
 app.get(`/${API}/status`, (req, res) => {
