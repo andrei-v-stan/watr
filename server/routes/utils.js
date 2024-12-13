@@ -6,7 +6,7 @@ import crypto from 'crypto';
 
 export const uploadsFolder = 'uploads';
 export const uploadsJsonPath = `${uploadsFolder}/uploads.json`;
-export const COOKIE_EXPIRY_HOURS = 24;
+export const COOKIE_EXPIRY_HOURS = 72;
 const COOKIE_SECRET = "watr_fii_stan&dascalu_andrei_2025";
 
 export const signUUID = (uuid) => {
@@ -40,6 +40,8 @@ export const createCookieIfMissing = (req, res) => {
     updateUploadsJson(uuid, signature);
   } else {
     updateUploadsJson(uuid, signature);
+    res.cookie('user_uuid', uuid, { httpOnly: true, maxAge: COOKIE_EXPIRY_HOURS * 60 * 60 * 1000 });
+    res.cookie('user_uuid_signature', signature, { httpOnly: true, maxAge: COOKIE_EXPIRY_HOURS * 60 * 60 * 1000 });
   }
 
   return uuid;

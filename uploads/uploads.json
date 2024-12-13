@@ -1,12 +1,1 @@
-{
-  "afe2b48b-ff94-4203-8862-a47c193e5422": {
-    "timestamp": 1734060814413,
-    "signature": "2854f03e54ca8d0391db3e5d2befb9ac656a4fb1863baa2b2c24327617604642",
-    "files": [
-      "uaic.ttl",
-      "wikpedia.ttl",
-      "test.txt",
-      "uaic-info.ttl"
-    ]
-  }
-}
+{}
