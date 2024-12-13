@@ -73,7 +73,7 @@ function Toggles() {
 
       const file = files[index];
       const formData = new FormData();
-      formData.append("files", file);
+      formData.append("file", file);
 
       const xhr = new XMLHttpRequest();
       const startTime = Date.now();
@@ -108,7 +108,7 @@ function Toggles() {
         setUploading(false);
       };
 
-      xhr.open("POST", `http://localhost:${PORT}/${API}/upload`);
+      xhr.open("POST", `http://localhost:${PORT}/${API}/files/upload`);
       xhr.withCredentials = true;
       xhr.send(formData);
     };

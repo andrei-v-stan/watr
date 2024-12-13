@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import config from '../config/config.js'; 
+
+const PORT = config.portAPI;
+const API = config.apiPath;
 
 const Files = () => {
   const [sessionData, setSessionData] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // Fetch session details
-    fetch("http://localhost:4000/api/files/session", { credentials: "include" })
+    fetch(`http://localhost:${PORT}/${API}/files/datasets`, { credentials: "include" })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch session data");
@@ -18,7 +21,7 @@ const Files = () => {
   }, []);
 
   const handleViewFile = (filename) => {
-    window.open(`http://localhost:4000/api/files/file/${filename}`, "_blank");
+    window.open(`http://localhost:${PORT}/${API}/files/${filename}`, "_blank");
   };
 
   return (
@@ -27,7 +30,7 @@ const Files = () => {
       {error && <p style={{ color: "red" }}>{error}</p>}
       {sessionData ? (
         <div>
-          <p><strong>Session ID:</strong> {sessionData.sessionId}</p>
+          <p><strong>Session ID:</strong> {sessionData.uuid}</p>
           <p><strong>Last Interaction:</strong> {sessionData.timestamp}</p>
           <h3>Files:</h3>
           <ul>

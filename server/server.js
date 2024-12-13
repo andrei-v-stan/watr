@@ -1,15 +1,15 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import session from 'express-session';
 import cors from 'cors';
-import uploadRouter from './routes/upload.js';
-import filesRouter from './routes/files.js';
-import sparqlRouter from './routes/sparql.js';
-import config from '../src/config/config.js'; 
+import cookieParser from 'cookie-parser';
+import fileUpload from 'express-fileupload';
+import { filesRouter, sparqlRouter, checkPrerequisites, config } from './routes/index.js'
 
 const app = express();
 const PORT = config.portAPI;
 const API = config.apiPath;
+
+checkPrerequisites();
 
 app.use(cors({
   origin: 'http://localhost:5173',
@@ -17,19 +17,15 @@ app.use(cors({
   credentials: true,
 }));
 
-app.use(
-  session({
-    secret: 'watr-fii-miss-standascalu-andrei',
-    resave: false,
-    saveUninitialized: true,
-    rolling: true,
-    cookie: { maxAge: 24 * 60 * 60 * 1000 },
-  })
-);
-
+app.use(cookieParser());
+app.use(fileUpload({
+  limits: { fileSize: 250 * 1024 * 1024 * 1024 },
+  abortOnLimit: true,
+  useTempFiles: true,
+  tempFileDir: './tmp',
+}));
 app.use(bodyParser.json());
 
-app.use(`/${API}/upload`, uploadRouter);
 app.use(`/${API}/files`, filesRouter);
 app.use(`/${API}/sparql`, sparqlRouter);
 
