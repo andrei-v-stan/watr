@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import config from '../config/config.js'; 
 import '../styles/toggles.css';
+import exampleUrlsData from '../config/urls.json';
 
 const PORT = config.portAPI;
 const API = config.apiPath;
@@ -35,13 +36,7 @@ function Toggles() {
   const [uploadStatus, setUploadStatus] = useState(null);
   const [uploading, setUploading] = useState(false);
 
-  const [exampleUrls] = useState([
-    'https://dbpedia.org/sparql',
-    'https://query.wikidata.org/sparql',
-    'https://data.bnf.fr/sparql',
-    'https://sparql.uniprot.org/sparql',
-    'https://linkeddata.uriburner.com/sparql',
-  ]);
+  const [exampleUrls] = useState(exampleUrlsData.map(item => item.url));
 
 
   const toggleDataset = () => setDatasetMode(datasetMode === 'upload' ? 'external' : 'upload');
@@ -213,15 +208,12 @@ function Toggles() {
     }
   };
 
-  
-
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, );
-  
 
   return (
     <section className="toggles">

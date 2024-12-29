@@ -1,0 +1,33 @@
+[
+    {
+      "url": "https://dbpedia.org/sparql",
+      "queries": [
+        { "title": "Dbpedia 1", "query": "None for now();" }
+      ]
+    },
+    {
+      "url": "https://query.wikidata.org/sparql",
+      "queries": [
+        { "title": "Wikidata 1", "query": "None for now();" }
+      ]
+    },
+    {
+      "url": "https://data.bnf.fr/sparql",
+      "queries": [
+        { "title": "Bnfr 1", "query": "None for now();" }
+      ]
+    },
+    {
+      "url": "https://sparql.uniprot.org/sparql",
+      "queries": [
+        { "title": "Uniprot 1", "query": "None for now();" }
+      ]
+    },
+    {
+      "url": "https://linkeddata.uriburner.com/sparql",
+      "queries": [
+        { "title": "Linkeddata 1", "query": "None for now();" }
+      ]
+    }
+  ]
+  

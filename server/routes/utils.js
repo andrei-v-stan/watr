@@ -74,20 +74,25 @@ export const saveUploadsData = (data) => {
   fs.writeFileSync(uploadsJsonPath, JSON.stringify(data, null, 2), 'utf8');
 };
 
+function clearExpiredUsersJson() {
+  const uploads = getUploadsData();
+  const now = Date.now();
+  for (const [uuid, session] of Object.entries(uploads)) {
+    if (now - session.timestamp > COOKIE_EXPIRY_HOURS * 60 * 60 * 1000) {
+      const userFolder = path.join(uploadsFolder, uuid);
+      if (fs.existsSync(userFolder)) fs.rmSync(userFolder, { recursive: true });
+      delete uploads[uuid];
+    }
+  }
+  saveUploadsData(uploads);
+}
+
 export const checkPrerequisites = () => {
   if (!fs.existsSync(uploadsFolder)) fs.mkdirSync(uploadsFolder);
   if (!fs.existsSync(uploadsJsonPath)) saveUploadsData({});
 
+  clearExpiredUsersJson();
   cron.schedule('0 */6 * * *', () => {
-    const uploads = getUploadsData();
-    const now = Date.now();
-    for (const [uuid, session] of Object.entries(uploads)) {
-      if (now - session.timestamp > COOKIE_EXPIRY_HOURS * 60 * 60 * 1000) {
-        const userFolder = path.join(uploadsFolder, uuid);
-        if (fs.existsSync(userFolder)) fs.rmSync(userFolder, { recursive: true });
-        delete uploads[uuid];
-      }
-    }
-    saveUploadsData(uploads);
+    clearExpiredUsersJson();
   });
 };

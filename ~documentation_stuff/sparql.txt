@@ -1,0 +1,59 @@
+
+
+Wikidata:
+
+// Essential Domains
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX wikidata: <https://www.wikidata.org/wiki/Special:EntityData/>
+PREFIX wdt: <https://www.wikidata.org/prop/direct/>
+
+// Additional Domains
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX wikidata: <http://www.wikidata.org/entity/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wds: <http://www.wikidata.org/entity/statement/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX geonames: <http://www.geonames.org/ontology#>
+PREFIX gr: <http://purl.org/goodrelations/v1#>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX event: <http://purl.org/NET/c4dm/event.owl#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX sioc: <http://rdfs.org/sioc/ns#>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX mo: <http://purl.org/ontology/mo/>
+PREFIX dcmi: <http://purl.org/dc/dcmitype/>
+PREFIX earl: <http://www.w3.org/ns/earl#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+
+// Specific Domains
+PREFIX bio: <http://purl.org/vocab/bio/0.1/>
+PREFIX dbtont: <http://dbtropes.org/ont/>
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX agrovoc: <http://aims.fao.org/aos/agrovoc/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX ex: <http://example.org/>
+PREFIX ont: <http://example.org/ont/>
+PREFIX med2rdf: <http://med2rdf.org/ontology/>
