@@ -31,7 +31,7 @@ export async function executeQuery(endpointUrl, query) {
  */
 export async function executeSPARQLQuery(query) {
   const endpointUrl = 'https://query.wikidata.org/sparql';
-  executeQuery(endpointUrl, query);
+  return await executeQuery(endpointUrl, query);
 }
 
 /**
@@ -40,7 +40,17 @@ export async function executeSPARQLQuery(query) {
  * @param {string} endpoint - The SPARQL endpoint URL (dataset).
  * @returns {Promise<Object>} - The query results.
  */
-export async function queryTriple(subject, predicate, object, dataset, page, limit) {
+export async function queryTriple(subjects, predicates, objects, dataset, page, limit) {
+  /*
+    Body example:
+    {
+      "subject": null,
+      "predicate": ["wdt:P31"],
+      "object": ["wd:Q146"],
+      "dataset": "https://query.wikidata.org/sparql"
+    }
+  */
+
   if(!page){
     page = 0;
   }
@@ -48,15 +58,23 @@ export async function queryTriple(subject, predicate, object, dataset, page, lim
     limit = 10;
   }
 
+  const subjectCondition = subjects ? `FILTER (?subject IN (${subjects.map(s => `${s}`).join(', ')}))` : '';
+  const predicateCondition = predicates ? `FILTER(?predicate IN (${predicates.map(p => `${p}`).join(', ')}))` : '';
+  const objectCondition = objects ? `FILTER(?object IN (${objects.map(o => `${o}`).join(', ')}))` : '';
+  
+
   const query = `
-    SELECT DISTINCT * 
+    SELECT DISTINCT *
     WHERE {
-      ${subject ? `<${subject}>` : '?s'} 
-      ${predicate ? `<${predicate}>` : '?p'} 
-      ${object ? `<${object}>` : '?o'} .
-    } LIMIT ${limit} OFFSET ${page}
+      ?subject ?predicate ?object .
+      ${subjectCondition}
+      ${predicateCondition}
+      ${objectCondition}
+    }
+    ORDER BY ?subject
+    LIMIT ${limit} OFFSET ${page}
   `;
-  return queryEntities(dataset, query);
+  return executeQuery(dataset, query);
 };
 
 export async function querySubjects(dataset, page, limit) {
@@ -73,7 +91,7 @@ export async function querySubjects(dataset, page, limit) {
     }
     LIMIT ${limit} OFFSET ${page}
   `;
-  return queryEntities(dataset, query);
+  return executeQuery(dataset, query);
 }
 
 export async function queryPredicates(dataset, page, limit) {
@@ -90,7 +108,7 @@ export async function queryPredicates(dataset, page, limit) {
     }
     LIMIT ${limit} OFFSET ${page}
   `;
-  return queryEntities(dataset, query);
+  return executeQuery(dataset, query);
 }
 
 export async function queryObjects(dataset, page, limit) {
@@ -107,12 +125,5 @@ export async function queryObjects(dataset, page, limit) {
     }
     LIMIT ${limit} OFFSET ${page}
   `;
-  return queryEntities(dataset, query);
-}
-
-async function queryEntities(dataset, query) {
-  if (!dataset) {
-    return res.status(400).json({ error: 'Dataset is required.' });
-  }
   return executeQuery(dataset, query);
 }
