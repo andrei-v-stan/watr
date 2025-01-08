@@ -3,6 +3,7 @@ import { Header, Toggles, Operations, Export, Footer, Files } from './components
 import './App.css'
 
 function App() {
+  
   return (
     <Router>
       <div className="app-container">
@@ -14,8 +15,10 @@ function App() {
               element={
                 <>
                   <Toggles />
+                  {/*
                   <Operations />
                   <Export />
+                  */}
                 </>
               }
             />

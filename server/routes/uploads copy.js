@@ -43,23 +43,6 @@ router.get('/datasets', (req, res) => {
   });
 });
 
-router.get('/:filename', (req, res) => {
-  const uuid = req.cookies['user_uuid'];
-  const signature = req.cookies['user_uuid_signature'];
-
-  if (!uuid || !signature || !verifyUUID(uuid, signature)) {
-    return res.status(400).json({ error: 'Invalid or missing UUID/signature' });
-  }
-
-  const sessionFolder = path.join(uploadsFolder, uuid);
-  const filePath = path.join(sessionFolder, req.params.filename);
-
-  if (!fs.existsSync(filePath)) {
-    return res.status(404).json({ error: 'File not found' });
-  }
-
-  res.sendFile(path.resolve(filePath));
-});
 
 router.delete('/:filename', (req, res) => {
   const uuid = req.cookies['user_uuid'];
@@ -76,8 +59,10 @@ router.delete('/:filename', (req, res) => {
     return res.status(404).json({ error: 'File not found' });
   }
 
+  // Delete the file from the filesystem
   fs.unlinkSync(filePath);
 
+  // Update the JSON to remove the file
   const uploads = getUploadsData();
   if (uploads[uuid]) {
     uploads[uuid].files = uploads[uuid].files.filter((file) => file !== req.params.filename);
@@ -103,8 +88,10 @@ router.put('/:filename', (req, res) => {
     return res.status(404).json({ error: 'File not found' });
   }
 
+  // Rename the file on the filesystem
   fs.renameSync(oldFilePath, newFilePath);
 
+  // Update the JSON to rename the file
   const uploads = getUploadsData();
   if (uploads[uuid]) {
     uploads[uuid].files = uploads[uuid].files.map((file) =>

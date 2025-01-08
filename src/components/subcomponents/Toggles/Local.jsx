@@ -1,18 +1,15 @@
 import { useState, useEffect, useRef } from "react";
-import '../styles/operations.css';
 
 const HOST = import.meta.env.VITE_HOST_ADDR;
 const PORT = import.meta.env.VITE_PORT_API;
 const API = import.meta.env.VITE_API_PATH;
 
-export default function Operations() {
+function TogglesLocalSection() {
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [filteredFiles, setFilteredFiles] = useState([]);
   const [selectedFile, setSelectedFile] = useState("");
-  const [downloadDropdownOpen, setDownloadDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const downloadDropdownRef = useRef(null);
 
   const fetchFiles = () => {
     fetch(`http://${HOST}:${PORT}/${API}/files/datasets`, { credentials: "include" })
@@ -56,9 +53,6 @@ export default function Operations() {
     if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
       setDropdownOpen(false);
     }
-    if (downloadDropdownRef.current && !downloadDropdownRef.current.contains(e.target)) {
-      setDownloadDropdownOpen(false);
-    }
   };
 
   useEffect(() => {
@@ -68,51 +62,31 @@ export default function Operations() {
     };
   }, []);
 
-  const handleDownloadSelect = (format) => {
-    console.log(`Downloading in ${format} format`);
-    setDownloadDropdownOpen(false);
-  };
 
   return (
-    <div className="operations">
-      <div className="op-external-input-container" ref={dropdownRef}>
+    <div id="toggles-local-section" ref={dropdownRef}>
+      <h2>Select a local dataset:</h2>
+      <div className="input-with-icon">
         <input
           type="text"
           placeholder="Search for a file"
-          className="op-external-input"
           onChange={handleFilterChange}
           onClick={toggleDropdown}
           value={selectedFile}
         />
-        {dropdownOpen && filteredFiles.length > 0 && (
-          <ul className="op-example-url-list">
-            {filteredFiles.map((file, index) => (
-              <li key={index} onClick={() => handleFileSelect(file)}>
-                {file}
-              </li>
-            ))}
-          </ul>
-        )}
+        <img src="/src/assets/cloud-search.png" alt="Search Image" className="search-image" />
       </div>
-
-      <div className="button-container">
-        <button>Visualize</button>
-        <button>Classify</button>
-        <button>Compare</button>
-        <button>Match/Align</button>
-
-        <div className="dropdown-container" ref={downloadDropdownRef}>
-          <button onClick={() => setDownloadDropdownOpen((prev) => !prev)}>Download</button>
-          {downloadDropdownOpen && (
-            <ul className="dropdown-options">
-              <li onClick={() => handleDownloadSelect("HTML")}>HTML</li>
-              <li onClick={() => handleDownloadSelect("JSON")}>JSON</li>
-              <li onClick={() => handleDownloadSelect("TSV")}>TSV</li>
-              <li onClick={() => handleDownloadSelect("CSV")}>CSV</li>
-            </ul>
-          )}
-        </div>
-      </div>
+      {dropdownOpen && filteredFiles.length > 0 && (
+        <ul>
+          {filteredFiles.map((file, index) => (
+            <li key={index} onClick={() => handleFileSelect(file)}>
+              {file}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
+
+export default TogglesLocalSection;

@@ -1,0 +1,141 @@
+#dataset-files-container {
+    padding: 10px;
+}
+
+#dataset-files-container > h2 {
+    font-size: 28px;
+    margin: -10px 0 35px 0;
+    flex: 0 0 auto;
+}
+
+#dataset-files-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+#dataset-files-section.fade-out {
+    opacity: 0;
+}
+
+#dataset-files-section.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
+
+#loader-dataset {
+    width: 280px;
+    height: auto;
+    border-radius: 8px;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+#dataset-files-section > .inline-container,
+#dataset-files-section > .inline-container-files {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#dataset-files-section > .inline-container-files {
+    margin-top: 10px;
+    margin-bottom: -25px;
+}
+
+#dataset-files-section > .inline-container h3,
+#dataset-files-section > .inline-container p {
+    margin: 0;
+    display: inline-block;
+}
+
+#dataset-files-section > .inline-container p {
+    font-weight: bold;
+}
+
+#dataset-files-section > .error-message {
+    color: red;
+}
+
+#dataset-files-section > ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+#dataset-files-section > ul > li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#dataset-files-section > ul > li > button {
+    height: 48px;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+#dataset-files-section > ul > li > button:nth-child(1),
+#dataset-files-section > ul > li > button:nth-child(2) {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+#dataset-files-section > ul > li > button img {
+    width: 65%;
+    height: 65%;
+    object-fit: contain;
+  }
+
+#dataset-files-section > ul > li > button:nth-child(1) {
+    background-color: rgb(255, 45, 45);
+    color: black;
+}
+
+#dataset-files-section > ul > li > button:nth-child(1):hover {
+    background-color: rgb(150, 45, 45);
+    color: white;
+    border: #ccc;
+}
+
+#dataset-files-section > ul > li > button:nth-child(2) {
+    background-color: rgb(255, 255, 45);
+    color: black;
+}
+
+#dataset-files-section > ul > li > button:nth-child(2):hover {
+    background-color: rgb(150, 150, 45);
+    color: white;
+    border: #ccc
+}
+
+#dataset-files-section > ul > li > button:nth-child(3) {
+    background-color: rgb(45, 75, 255);
+    color: black
+}
+
+#dataset-files-section > ul > li > button:nth-child(3):hover {
+    background-color: rgb(45, 75, 150);
+    color: white;
+    border: #ccc
+}
+
+
+#dataset-files-section > ul > li > button:hover {
+    color: darkblue;
+}
+
+#dataset-files-section > div > .filter-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    height: 20px;
+    font-size: 18px;
+  }

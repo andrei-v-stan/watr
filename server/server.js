@@ -3,17 +3,20 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
-import { filesRouter, sparqlRouter, checkPrerequisites, config } from './routes/index.js'
+import { filesRouter, sparqlRouter, checkPrerequisites } from './routes/index.js';
+import process  from 'process';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
-const PORT = config.portAPI;
-const API = config.apiPath;
-
+const HOST = process.env.VITE_HOST_ADDR;
+const PORT = process.env.VITE_PORT_API;
+const API = process.env.VITE_API_PATH;
 checkPrerequisites();
 
 app.use(cors({
-  origin: 'http://localhost:5173',
-  methods: ['GET', 'POST'],
+  origin: `http://${HOST}:5173`,
+  methods: ['GET', 'POST', 'DELETE', 'PUT'],
   credentials: true,
 }));
 
@@ -34,5 +37,5 @@ app.get(`/${API}/status`, (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://${HOST}:${PORT}`);
 });

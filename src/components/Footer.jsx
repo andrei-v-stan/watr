@@ -1,11 +1,11 @@
 import '../styles/footer.css';
-import config from '../config/config.js'; 
 
-const PORT = config.portAPI;
-const API = config.apiPath;
+const HOST = import.meta.env.VITE_HOST_ADDR;
+const PORT = import.meta.env.VITE_PORT_API;
+const API = import.meta.env.VITE_API_PATH;
 
 function callCookie() {
-  fetch(`http://localhost:${PORT}/${API}/files/cookie`, {
+  fetch(`http://${HOST}:${PORT}/${API}/files/cookie`, {
     method: 'GET',
     credentials: 'include',
   }).then(response => response.json())

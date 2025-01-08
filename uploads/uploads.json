@@ -1,1 +1,53 @@
-{}
+{
+  "ae290bb2-82aa-4ad9-9440-d49b858c7876": {
+    "timestamp": 1736306673765,
+    "signature": "8cbd35a70fcde1e304e240f35ed402b24b2be41b56df8464d4fc30760cc2c3a2",
+    "files": [
+      "uaic.ttl",
+      "wikpedia.ttl",
+      "VanillaTweaks_r484598_MC1.21.x.zip",
+      "tidal_1.3.4.zip",
+      "VanillaTweaks_r484598_MC1.21.x (1).zip",
+      "MasterCutter+v1.5-mc1.21.4.zip",
+      "never-to-expensive-v1-0-1.zip",
+      "Better+Bundle+v1.5.1-mc1.21.4.zip",
+      "qrafty's-bamboo-villages.zip",
+      "qrafty's-mushroom-villages.zip",
+      "qrafty's-japanese-villages.zip",
+      "01-black-cat_800x600_v1.gif",
+      "Stray---Cat-meeting-guardian-in-slum.avif",
+      "Dungeons and Taverns v4.6.zip",
+      "Remove_Terralith_Intro_Message_v1.1.zip",
+      "MasterCutter+v1.5-mc1.21.4.ttl",
+      "MasterCutter+v1.5-mc1.21.4 - Copy.ttl",
+      "connect.bat",
+      "Login - OpenStack Dashboard.url",
+      "Tutorial Apache Spark HDFS - finished.docx",
+      "cool_people.ttl"
+    ]
+  },
+  "b4153caa-8a35-4507-b610-48a57dd83ff5": {
+    "timestamp": 1736315075346,
+    "signature": "28ab1799fb76f1f4c5fdf4d33b0fb57b4ef2ec383e653dc83c9369c3abf99352",
+    "files": []
+  },
+  "3c1971b4-b8f3-4b06-99c8-c7aa274d2f96": {
+    "timestamp": 1736319853510,
+    "signature": "9c88257fbbea550abeca80805366087f2a66029a1f26e4a3bbc47d85f8b594cd",
+    "files": [
+      "sentiment.ipynb",
+      "cool_people.ttl",
+      "experimental.ipynb"
+    ]
+  },
+  "6b6149a1-4826-4b55-b758-7d80951b036a": {
+    "timestamp": 1736325259068,
+    "signature": "c808474dad70e298789c0cdbcfff2c0c7e5d2acfdfd10cee8867e168c0cc4b8a",
+    "files": [
+      "cool_people.ttl",
+      "test.ipynb",
+      "sentiment.ipynb",
+      "experimental.ipynb"
+    ]
+  }
+}
