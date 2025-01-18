@@ -292,33 +292,62 @@
   top: calc(100% + 5px);
   left: 0;
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  max-height: 150px;
-  overflow-y: scroll;
+  border: 2px solid rgb(66, 66, 66);
+  border-radius: 10px;
   z-index: 100;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   list-style: none;
   padding: 0;
   margin: 0;
-  width: auto;
-  min-width: 200px;
+  width: 400px;
+  min-width: 400px;
+  max-width: max-content;
+  height: 200px;
+  min-height: 50px;
+  max-height: max-content;
 }
 
-#toggles-local-section > ul::-webkit-scrollbar {
+#toggles-local-section > ul.scrollable {
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: auto;
+  resize: both;
+}
+
+#toggles-local-section > ul.scrollable::-webkit-scrollbar {
   width: 12px;
   height: 12px;
+  background-color: #ffffff00;
 }
 
-#toggles-local-section > ul::-webkit-scrollbar-track {
+#toggles-local-section > ul.scrollable::-webkit-scrollbar-track {
   box-shadow: inset 0 0 10px gray;
-  border-radius: 10px;
+  border-radius: 20px;
+  background-color: #fff;
 }
 
-#toggles-local-section > ul::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: gray;
+#toggles-local-section > ul.scrollable::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: rgb(170, 170, 170);
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+#toggles-local-section > ul.scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgb(119, 119, 119);
+  box-shadow: inset 0 0 6px rgba(110, 110, 110, 0.5);
+}
+
+
+#toggles-local-section > ul.scrollable::-webkit-scrollbar-thumb:active {
+  background: rgb(78, 78, 78);
+  box-shadow: inset 0 0 6px rgba(172, 172, 172, 0.5);
+}
+
+
+#toggles-local-section > ul.scrollable::-webkit-scrollbar-corner {
+  background-color: #585858;
+  border-radius: 0 10px 10px 15px;
+  border: none solid;
 }
 
 #toggles-local-section > ul > li {
@@ -327,14 +356,35 @@
   white-space: nowrap;
   color: #1a1a1a;
   font: 20px/28px sans-serif;
-  border: 1px solid #8f8f8f;
-  border-style: solid none;
+  border-bottom: 2px solid #8f8f8f;
+}
+
+#toggles-local-section > ul > li:last-child {
+  border-bottom: none;
 }
 
 #toggles-local-section > ul > li:hover {
   background-color: #d6d6d6;
 }
 
+#toggles-local-section > ul > li:hover:first-child {
+  border-radius: 15px 0 0 0;
+}
+
+#toggles-local-section > ul > li:hover:last-child {
+  border-radius: 0 0 0 15px;
+}
+
+#toggles-local-section > ul > li:hover:only-child {
+  border-radius: 15px;
+}
+
+.no-results {
+  color: #666;
+  font-style: italic;
+  cursor: default;
+  pointer-events: none;
+}
 
 
 

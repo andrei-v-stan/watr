@@ -10,6 +10,7 @@ function TogglesLocalSection() {
   const [filteredFiles, setFilteredFiles] = useState([]);
   const [selectedFile, setSelectedFile] = useState("");
   const dropdownRef = useRef(null);
+  const ulRef = useRef(null);
 
   const fetchFiles = () => {
     fetch(`http://${HOST}:${PORT}/${API}/files/datasets`, { credentials: "include" })
@@ -47,6 +48,11 @@ function TogglesLocalSection() {
     setSelectedFile(value);
     setFilteredFiles(uploadedFiles.filter((file) => file.toLowerCase().includes(value)));
     setDropdownOpen(true);
+    if (value.trim() !== '') {
+      ulRef.current.style.width = 'fit-content';
+    } else {
+      ulRef.current.style.width = '400px';
+    }
   };
 
   const handleClickOutside = (e) => {
@@ -62,7 +68,6 @@ function TogglesLocalSection() {
     };
   }, []);
 
-
   return (
     <div id="toggles-local-section" ref={dropdownRef}>
       <h2>Select a local dataset:</h2>
@@ -76,13 +81,17 @@ function TogglesLocalSection() {
         />
         <img src="/src/assets/cloud-search.png" alt="Search Image" className="search-image" />
       </div>
-      {dropdownOpen && filteredFiles.length > 0 && (
-        <ul>
-          {filteredFiles.map((file, index) => (
-            <li key={index} onClick={() => handleFileSelect(file)}>
-              {file}
-            </li>
-          ))}
+      {dropdownOpen && (
+        <ul ref={ulRef} className={filteredFiles.length > 5 ? "scrollable" : ""}>
+          {filteredFiles.length > 0 ? (
+            filteredFiles.map((file, index) => (
+              <li key={index} onClick={() => handleFileSelect(file)}>
+                {file}
+              </li>
+            ))
+          ) : (
+            <li className="no-results" onClick={(e) => e.preventDefault()}>No files found</li>
+          )}
         </ul>
       )}
     </div>
