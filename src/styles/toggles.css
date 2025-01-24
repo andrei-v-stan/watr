@@ -12,9 +12,11 @@
 
 #toggles-button-container {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 15px;
   flex: 1;
-  justify-content: flex-begin;
+  justify-content: flex-start;
 }
 
 #toggles-upload-section {
@@ -29,7 +31,8 @@
 
 
 .toggles-toggle-button {
-  width: 150px;
+  width: fit-content;
+  min-width: 150px;
   height: 50px;
   background-color: #3a3a3a;
   border: none;
@@ -54,7 +57,6 @@
 .toggles-toggle-button.active {
   background-color: #0061c9;
 }
-
 
 
 #toggles-upload-section {
@@ -288,6 +290,8 @@
 }
 
 #toggles-local-section > ul {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
@@ -299,16 +303,12 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  width: 400px;
-  min-width: 400px;
-  max-width: max-content;
+  width: fit-content;
+  min-width: 200px;
+  max-width: calc(100% - 25px);
   height: 200px;
-  min-height: 50px;
-  max-height: max-content;
-}
-
-#toggles-local-section > ul.scrollable {
-  padding: 0;
+  min-height: 55px;
+  max-height: fit-content;
   overflow-y: auto;
   overflow-x: auto;
   resize: both;
@@ -368,15 +368,15 @@
 }
 
 #toggles-local-section > ul > li:hover:first-child {
-  border-radius: 15px 0 0 0;
+  border-radius: 10px 0 0 0;
 }
 
 #toggles-local-section > ul > li:hover:last-child {
-  border-radius: 0 0 0 15px;
+  border-radius: 0 0 0 10px;
 }
 
 #toggles-local-section > ul > li:hover:only-child {
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .no-results {

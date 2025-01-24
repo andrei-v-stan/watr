@@ -1,8 +1,13 @@
 import { useState } from 'react';
-import { Upload, Local, External } from './subcomponents/Toggles/index'
+import { Upload, Local, External } from './subcomponents/Toggles/index';
 import '../styles/toggles.css';
+import PropTypes from "prop-types";
 
-function Toggles() {
+Toggles.propTypes = {
+  onFileSelect: PropTypes.func.isRequired,
+};
+
+function Toggles({ onFileSelect }) {
   const [mode, setMode] = useState('upload');
 
   const handleModeChange = (newMode) => {
@@ -33,8 +38,9 @@ function Toggles() {
         </button>
       </div>
 
-      {mode === 'upload' && <Upload  />}
-      {mode === 'local' && <Local />}
+      {mode === 'chanege' && <Upload />}
+      {mode === 'upload' && <Upload />}
+      {mode === 'local' && <Local onFileSelect={onFileSelect} />}
       {mode === 'external' && <External />}
     </section>
   );

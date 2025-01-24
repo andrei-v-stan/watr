@@ -24,6 +24,9 @@ dist-ssr
 *.sw?
 
 .codegpt
+
 /uploads/*
 !/uploads/examples
 !/uploads/uploads.json
+
+/tmp/*

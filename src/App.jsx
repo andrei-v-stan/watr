@@ -1,8 +1,17 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Header, Toggles, Operations, Export, Footer, Files } from './components';
+import { Header, Toggles, Operations, /*Export,*/ Footer, Files } from './components';
 import './App.css'
 
 function App() {
+
+  const [currentStep, setCurrentStep] = useState('selectFile');
+  const [selectedFile, setSelectedFile] = useState('');
+
+  const handleFileSelect = (file) => {
+    setSelectedFile(file);
+    setCurrentStep('selectOperation');
+  };
   
   return (
     <Router>
@@ -14,8 +23,8 @@ function App() {
               path="/"
               element={
                 <>
-                  <Toggles />
-                  <Operations />
+                  {<Toggles onFileSelect={handleFileSelect} />}
+                  {currentStep === 'selectOperation' && <Operations selectedFile={selectedFile} />}
                   {/*
                   <Export />
                   */}

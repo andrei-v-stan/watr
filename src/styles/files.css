@@ -71,7 +71,8 @@
 }
 
 #dataset-files-section > ul > li > button {
-    height: 48px;
+    height: fit-content;
+    width: 35%;
     font-weight: bold;
     font-size: 18px;
     margin: 10px 0;

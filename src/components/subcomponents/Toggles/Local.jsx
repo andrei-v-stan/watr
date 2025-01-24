@@ -1,10 +1,15 @@
 import { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+
+TogglesLocalSection.propTypes = {
+  onFileSelect: PropTypes.func.isRequired,
+};
 
 const HOST = import.meta.env.VITE_HOST_ADDR;
 const PORT = import.meta.env.VITE_PORT_API;
 const API = import.meta.env.VITE_API_PATH;
 
-function TogglesLocalSection() {
+function TogglesLocalSection({ onFileSelect }) {
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [filteredFiles, setFilteredFiles] = useState([]);
@@ -33,34 +38,36 @@ function TogglesLocalSection() {
     fetchFiles();
   }, []);
 
+
   const toggleDropdown = () => {
-    fetchFiles();
     setDropdownOpen((prev) => !prev);
   };
 
   const handleFileSelect = (file) => {
+    onFileSelect(file);
     setSelectedFile(file);
     setDropdownOpen(false);
   };
-
   const handleFilterChange = (e) => {
     const value = e.target.value.toLowerCase();
     setSelectedFile(value);
     setFilteredFiles(uploadedFiles.filter((file) => file.toLowerCase().includes(value)));
     setDropdownOpen(true);
-    if (value.trim() !== '') {
+    if (ulRef.current && value.trim() !== '') {
       ulRef.current.style.width = 'fit-content';
-    } else {
-      ulRef.current.style.width = '400px';
+    } else if (ulRef.current) {
+      ulRef.current.style.width = 'auto';
     }
   };
 
   const handleClickOutside = (e) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+    if (
+      (ulRef.current && !ulRef.current.contains(e.target)) &&
+      (dropdownRef.current && !dropdownRef.current.contains(e.target))
+    ) {
       setDropdownOpen(false);
     }
   };
-
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -69,9 +76,9 @@ function TogglesLocalSection() {
   }, []);
 
   return (
-    <div id="toggles-local-section" ref={dropdownRef}>
-      <h2>Select a local dataset:</h2>
-      <div className="input-with-icon">
+    <div id="toggles-local-section">
+      <h2>Select a local dataset</h2>
+      <div className="input-with-icon" ref={dropdownRef}>
         <input
           type="text"
           placeholder="Search for a file"

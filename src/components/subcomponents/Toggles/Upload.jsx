@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const HOST = import.meta.env.VITE_HOST_ADDR;
 const PORT = import.meta.env.VITE_PORT_API;
@@ -12,7 +11,6 @@ function TogglesUploadSection() {
   const [uploadStatus, setUploadStatus] = useState(null);
   const [uploading, setUploading] = useState(false);
   const fileRefs = useRef({});
-  const navigate = useNavigate();
 
   const formatSize = (bytes) => {
     if (bytes < 1024) return `${bytes} B`;
@@ -141,7 +139,6 @@ function TogglesUploadSection() {
   return (
     <section id="toggles-upload-section">
       <h2>Upload Files</h2>
-      <button onClick={() => navigate('/files')}>Change Files</button>
       <button onClick={() => document.getElementById('file-input').click()}>Choose Files</button>
       <input type="file" id="file-input" multiple onChange={handleFileChange} hidden></input>
       <div id="file-list">

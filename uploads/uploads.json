@@ -1,23 +1,14 @@
 {
-  "a0c9ca3e-8245-41f9-a08c-4eb9d32e336e": {
-    "timestamp": 1737205703444,
-    "signature": "0781786c9e76d8a18a5959ced802834b2f4b8a059f711d75d5e0290c83a0a5f8",
+  "6ac395bd-391c-4e05-b680-55e9712e4d78": {
+    "timestamp": 1737682024209,
+    "signature": "f5cad84c1bf2c2309589eba8705eb9702af5cb734ebd3e0165ac4db02ae08607",
     "files": [
-      "cool_people.ttl",
+      "short_video_games.ttl",
+      "pc_parts.ttl",
       "uaic.ttl",
-      "wikpedia.ttl",
-      "web00Introducere.pdf",
-      "web01Concepte.pdf",
-      "web02ServiciiWeb-REST-API.pdf",
-      "web03DezvoltareaAplicatiilorWeb-Servicii-API-Mashup-Arhitectura.pdf",
-      "web05ModelulRDF.pdf",
-      "web06ManagementulDatelorRDF-SPARQL.pdf",
-      "web07ArhitecturaAplicatiilorRDF-LinkedData.pdf",
-      "web08Taxonomie-RDFSchema-Lexicon-SKOS.pdf",
-      "web09SemanticWeb-Ontologii-OWL.pdf",
-      "web10SemanticWeb-Ontologii-OWL2-BazeDeCunostinte-LogicileDescrierii-Rationamente.pdf",
-      "web11SemanticWeb-InginerieOntologica.pdf",
-      "web12SemanticWeb-CunostinteWeb_UtilizariPragmatice.pdf"
+      "uaic-info.ttl",
+      "video_games.ttl",
+      "wikpedia.ttl"
     ]
   }
 }

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import '../styles/footer.css';
 
 const HOST = import.meta.env.VITE_HOST_ADDR;
@@ -19,10 +20,23 @@ setInterval(() => {
 callCookie();
 
 export default function Footer() {
+  const navigate = useNavigate();
   
     return (
-      <footer className="app-footer">
-        <p>© 2024 Watr. All rights reserved.</p>
+      <footer id="footer-section" className="app-footer">
+        <button
+          onClick={() => navigate('/files')}
+        >
+          Change Files
+        </button>
+
+          <h3>© 2024 Watr. All rights reserved</h3>
+
+          <button
+          onClick={() => navigate('/about')}
+        >
+          About Us
+        </button>
       </footer>
     );
   }

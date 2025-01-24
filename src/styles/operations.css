@@ -1,59 +1,77 @@
 .operations {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  button:active {
-    transform: scale(0.95);
-  }
-  
-  .op-external-input-container {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  
-  .op-external-input {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  .op-example-url-list {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    max-height: 150px;
-    overflow-y: auto;
-    z-index: 100;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .op-example-url-list li {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .op-example-url-list li:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .button-container {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-  
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.op-external-input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.op-external-input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.op-example-url-list {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  background-color: #fff; /* Updated to white background */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.op-example-url-list li {
+  padding: 10px;
+  cursor: pointer;
+  color: #333; /* Updated to dark gray text color */
+}
+
+.op-example-url-list li:hover {
+  background-color: #f1f1f1;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.operations-visualize-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.operations-visualize-section th,
+.operations-visualize-section td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.operations-visualize-section th {
+  background-color: #4e4e4e;
+  text-align: left;
+}
+
+.operations-visualize-section tr {
+  background-color: #4e4e4e;
+}

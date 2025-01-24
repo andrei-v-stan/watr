@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import { Visualize, Classify, Compare, MatchAlign } from './subcomponents/Operations/index'
 import '../styles/operations.css';
+import PropTypes from "prop-types";
 
-function Operations() {
-  const [mode, setMode] = useState('visualize');
+Operations.propTypes = {
+  selectedFile: PropTypes.string.isRequired,
+};
+
+
+function Operations({ selectedFile }) {
+  const [mode, setMode] = useState('');
 
   const handleModeChange = (newMode) => {
     setMode(newMode);
@@ -11,7 +17,7 @@ function Operations() {
 
   return (
     <div className="operations">
-      <h2>Operations</h2>
+      <h2>Operations ({selectedFile})</h2>
       <div className="operations-button-container">
         <button
           className={`operations-toggle-button ${mode === 'visualize' ? 'active' : ''}`}
@@ -39,10 +45,10 @@ function Operations() {
         </button>
       </div>
 
-      {mode === 'visualize' && <Visualize />}
-      {mode === 'classify' && <Classify />}
-      {mode === 'compare' && <Compare />}
-      {mode === 'match-align' && <MatchAlign />}
+      {mode === 'visualize' && <Visualize file={selectedFile} />}
+      {mode === 'classify' && <Classify file={selectedFile} />}
+      {mode === 'compare' && <Compare file={selectedFile} />}
+      {mode === 'match-align' && <MatchAlign file={selectedFile} />}
     </div>
   );
 }

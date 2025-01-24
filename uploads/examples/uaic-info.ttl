@@ -1,41 +1,42 @@
-/* https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/ */
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>. 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix schema: <http://schema.org/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#primaryimage> <http://schema.org/url> <http://www.uaic.ro/wp-content/uploads/2020/06/sigla-informatica-520x520-200x200.jpg> . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> <http://schema.org/dateModified> "2024-11-07T10:23:45+00:00"^^<http://schema.org/Date> . 
-<https://www.uaic.ro/#logo> a <http://schema.org/ImageObject> . 
-<https://www.uaic.ro/#organization> a <http://schema.org/Organization> . 
-<https://www.uaic.ro/#website> a <http://schema.org/WebSite> . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#SearchAction> a <http://schema.org/SearchAction> . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#primaryimage> a <http://schema.org/ImageObject> . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> a <http://schema.org/WebPage> . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#ReadAction> a <http://schema.org/ReadAction> . 
-<https://www.uaic.ro/#logo> <http://schema.org/caption> "Universitatea „Alexandru Ioan Cuza” din Iași" . 
-<https://www.uaic.ro/#logo> <http://schema.org/height> "332"^^<http://www.w3.org/2001/XMLSchema#integer> . 
-<https://www.uaic.ro/#logo> <http://schema.org/inLanguage> "ro-RO" . 
-<https://www.uaic.ro/#website> <http://schema.org/inLanguage> "ro-RO" . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#primaryimage> <http://schema.org/inLanguage> "ro-RO" . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> <http://schema.org/inLanguage> "ro-RO" . 
-<https://www.uaic.ro/#logo> <http://schema.org/url> <https://www.uaic.ro/wp-content/uploads/2018/06/sigla_uaic_ro_color3.png> . 
-<https://www.uaic.ro/#organization> <http://schema.org/url> <https://www.uaic.ro/> . 
-<https://www.uaic.ro/#website> <http://schema.org/url> <https://www.uaic.ro/> . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> <http://schema.org/url> <https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/> . 
-<https://www.uaic.ro/#logo> <http://schema.org/width> "465"^^<http://www.w3.org/2001/XMLSchema#integer> . 
-<https://www.uaic.ro/#organization> <http://schema.org/image> <https://www.uaic.ro/#logo> . 
-<https://www.uaic.ro/#organization> <http://schema.org/logo> <https://www.uaic.ro/#logo> . 
-<https://www.uaic.ro/#organization> <http://schema.org/name> "Universitatea „Alexandru Ioan Cuza” din Iași" . 
-<https://www.uaic.ro/#website> <http://schema.org/name> "Universitatea „Alexandru Ioan Cuza” din Iași" . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> <http://schema.org/name> "Facultatea de Informatică - Universitatea „Alexandru Ioan Cuza” din Iași" . 
-<https://www.uaic.ro/#organization> <http://schema.org/sameAs> <https://www.facebook.com/UAICdinIASI> . 
-<https://www.uaic.ro/#organization> <http://schema.org/sameAs> <https://www.instagram.com/uaiciasi/> . 
-<https://www.uaic.ro/#organization> <http://schema.org/sameAs> <https://www.youtube.com/channel/UCIC4oabf3QJHuCk9veUO86w> . 
-<https://www.uaic.ro/#website> <http://schema.org/description> "Per libertatem ad veritatem" . 
-<https://www.uaic.ro/#website> <http://schema.org/potentialAction> <https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#SearchAction> . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> <http://schema.org/potentialAction> <https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#ReadAction> . 
-<https://www.uaic.ro/#website> <http://schema.org/publisher> <https://www.uaic.ro/#organization> . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> <http://schema.org/datePublished> "2013-12-11T13:12:56+00:00"^^<http://schema.org/Date> . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> <http://schema.org/isPartOf> <https://www.uaic.ro/#website> . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> <http://schema.org/primaryImageOfPage> <https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#primaryimage> . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#SearchAction> <http://schema.org/query-input> "required name=search_term_string" . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#SearchAction> <http://schema.org/target> <https://www.uaic.ro/?s=%7Bsearch_term_string%7D> . 
-<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#ReadAction> <http://schema.org/target> <https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/> . 
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#primaryimage> schema:url <http://www.uaic.ro/wp-content/uploads/2020/06/sigla-informatica-520x520-200x200.jpg> .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> schema:dateModified "2024-11-07T10:23:45+00:00"^^xsd:dateTime .
+<https://www.uaic.ro/#logo> a schema:ImageObject .
+<https://www.uaic.ro/#organization> a schema:Organization .
+<https://www.uaic.ro/#website> a schema:WebSite .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#SearchAction> a schema:SearchAction .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#primaryimage> a schema:ImageObject .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> a schema:WebPage .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#ReadAction> a schema:ReadAction .
+<https://www.uaic.ro/#logo> schema:caption "Universitatea „Alexandru Ioan Cuza” din Iași" .
+<https://www.uaic.ro/#logo> schema:height "332"^^xsd:integer .
+<https://www.uaic.ro/#logo> schema:inLanguage "ro-RO" .
+<https://www.uaic.ro/#website> schema:inLanguage "ro-RO" .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#primaryimage> schema:inLanguage "ro-RO" .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> schema:inLanguage "ro-RO" .
+<https://www.uaic.ro/#logo> schema:url <https://www.uaic.ro/wp-content/uploads/2018/06/sigla_uaic_ro_color3.png> .
+<https://www.uaic.ro/#organization> schema:url <https://www.uaic.ro/> .
+<https://www.uaic.ro/#website> schema:url <https://www.uaic.ro/> .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> schema:url <https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/> .
+<https://www.uaic.ro/#logo> schema:width "465"^^xsd:integer .
+<https://www.uaic.ro/#organization> schema:image <https://www.uaic.ro/#logo> .
+<https://www.uaic.ro/#organization> schema:logo <https://www.uaic.ro/#logo> .
+<https://www.uaic.ro/#organization> schema:name "Universitatea „Alexandru Ioan Cuza” din Iași" .
+<https://www.uaic.ro/#website> schema:name "Universitatea „Alexandru Ioan Cuza” din Iași" .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> schema:name "Facultatea de Informatică - Universitatea „Alexandru Ioan Cuza” din Iași" .
+<https://www.uaic.ro/#organization> schema:sameAs <https://www.facebook.com/UAICdinIASI> .
+<https://www.uaic.ro/#organization> schema:sameAs <https://www.instagram.com/uaiciasi/> .
+<https://www.uaic.ro/#organization> schema:sameAs <https://www.youtube.com/channel/UCIC4oabf3QJHuCk9veUO86w> .
+<https://www.uaic.ro/#website> schema:description "Per libertatem ad veritatem" .
+<https://www.uaic.ro/#website> schema:potentialAction <https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#SearchAction> .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> schema:potentialAction <https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#ReadAction> .
+<https://www.uaic.ro/#website> schema:publisher <https://www.uaic.ro/#organization> .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> schema:datePublished "2013-12-11T13:12:56+00:00"^^xsd:dateTime .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> schema:isPartOf <https://www.uaic.ro/#website> .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#webpage> schema:primaryImageOfPage <https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#primaryimage> .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#SearchAction> schema:query-input "required name=search_term_string" .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#SearchAction> schema:target <https://www.uaic.ro/?s=%7Bsearch_term_string%7D> .
+<https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/#ReadAction> schema:target <https://www.uaic.ro/studii/facultati-2/facultatea-de-informatica/> .
