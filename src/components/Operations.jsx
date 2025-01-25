@@ -1,56 +1,48 @@
-import { useState } from 'react';
-import { Visualize, Classify, Compare, MatchAlign } from './subcomponents/Operations/index'
+import { Visualize, Classify, Compare, MatchAlign } from './subcomponents/index';
+import PropTypes from 'prop-types';
 import '../styles/operations.css';
-import PropTypes from "prop-types";
 
-Operations.propTypes = {
-  selectedFile: PropTypes.string.isRequired,
-};
+function Operations({ selectedFile, results, setResults }) {
+  const handleAddResult = (resultType) => {
+    let operationResult;
 
+    switch (resultType) {
+      case 'Visualize':
+        operationResult = <Visualize file={selectedFile} />;
+        break;
+      case 'Classify':
+        operationResult = <Classify file={selectedFile} />;
+        break;
+      case 'Compare':
+        operationResult = <Compare file={selectedFile} />;
+        break;
+      case 'Match-Align':
+        operationResult = <MatchAlign file={selectedFile} />;
+        break;
+      default:
+        return;
+    }
 
-function Operations({ selectedFile }) {
-  const [mode, setMode] = useState('');
-
-  const handleModeChange = (newMode) => {
-    setMode(newMode);
+    setResults([...results, { id: Date.now(), type: resultType, file: selectedFile, component: operationResult }]);
   };
 
   return (
-    <div className="operations">
+    <div id="operations-section">
       <h2>Operations ({selectedFile})</h2>
-      <div className="operations-button-container">
-        <button
-          className={`operations-toggle-button ${mode === 'visualize' ? 'active' : ''}`}
-          onClick={() => handleModeChange('visualize')}
-        >
-          Visualize
-        </button>
-        <button
-          className={`operations-toggle-button ${mode === 'classify' ? 'active' : ''}`}
-          onClick={() => handleModeChange('classify')}
-        >
-          Classify
-        </button>
-        <button
-          className={`operations-toggle-button ${mode === 'compare' ? 'active' : ''}`}
-          onClick={() => handleModeChange('compare')}
-        >
-          Compare
-        </button>
-        <button
-          className={`operations-toggle-button ${mode === 'match-align' ? 'active' : ''}`}
-          onClick={() => handleModeChange('match-align')}
-        >
-          Match/Align
-        </button>
+      <div id="operations-button-container">
+        <button onClick={() => handleAddResult('Visualize')}>Visualize</button>
+        <button onClick={() => handleAddResult('Classify')}>Classify</button>
+        <button onClick={() => handleAddResult('Compare')}>Compare</button>
+        <button onClick={() => handleAddResult('Match-Align')}>Match/Align</button>
       </div>
-
-      {mode === 'visualize' && <Visualize file={selectedFile} />}
-      {mode === 'classify' && <Classify file={selectedFile} />}
-      {mode === 'compare' && <Compare file={selectedFile} />}
-      {mode === 'match-align' && <MatchAlign file={selectedFile} />}
     </div>
   );
 }
+
+Operations.propTypes = {
+  selectedFile: PropTypes.string.isRequired,
+  results: PropTypes.array.isRequired,
+  setResults: PropTypes.func.isRequired,
+};
 
 export default Operations;

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
@@ -39,7 +38,9 @@ function OperationsVisualizeSection({ file }) {
   }, [file]);
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
   };
 
   const handleElementsPerPageChange = (event) => {
@@ -63,8 +64,8 @@ function OperationsVisualizeSection({ file }) {
     try {
       new URL(url);
       return true;
+    // eslint-disable-next-line no-unused-vars
     } catch (error) {
-      // console.error('Invalid URL:', error);
       return false;
     }
   };
@@ -88,23 +89,22 @@ function OperationsVisualizeSection({ file }) {
 
   return (
     <div className="operations-visualize-section">
-      <h2>Visualize Data</h2>
-      <p>
-        Your selected file: <strong>{file}</strong>
-      </p>
       <table>
         <thead>
           <tr>
             <th onClick={() => handleSort('subject')}>
-              Subject
+              {sortBy === 'subject' && <span>{sortOrder === 'asc' ? '▲' : '▼'}</span>}
+              Subject 
               {sortBy === 'subject' && <span>{sortOrder === 'asc' ? '▲' : '▼'}</span>}
             </th>
             <th onClick={() => handleSort('predicate')}>
-              Predicate
+              {sortBy === 'predicate' && <span>{sortOrder === 'asc' ? '▲' : '▼'}</span>}
+              Predicate 
               {sortBy === 'predicate' && <span>{sortOrder === 'asc' ? '▲' : '▼'}</span>}
             </th>
             <th onClick={() => handleSort('object')}>
-              Object
+              {sortBy === 'object' && <span>{sortOrder === 'asc' ? '▲' : '▼'}</span>}
+              Object 
               {sortBy === 'object' && <span>{sortOrder === 'asc' ? '▲' : '▼'}</span>}
             </th>
           </tr>
@@ -144,28 +144,44 @@ function OperationsVisualizeSection({ file }) {
       </tbody>
       </table>
       <div className="pagination">
-        <button disabled={currentPage === 1} onClick={() => handlePageChange(1)}>
-          First
-        </button>
-        <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
-          Previous
-        </button>
-        <span>
-          Showing {indexOfFirstTriple + 1} to {sortedTriples.length}
-        </span>
-        <input
-          type="number"
-          min={1}
-          max={totalPages}
-          value={elementsPerPage}
-          onChange={handleElementsPerPageChange}
+        <img
+          src="/src/assets/arrow2.png"
+          alt="Arrow_First"
+          className={`pagination-arrow ${currentPage === 1 ? 'disabled' : ''}`}
+          onClick={() => handlePageChange(1)}
+          style={{ transform: 'scaleX(-1)' }}
         />
-        <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
-          Next
-        </button>
-        <button disabled={currentPage === totalPages} onClick={() => handlePageChange(totalPages)}>
-          Last
-        </button>
+        <img
+          src="/src/assets/arrow.png"
+          alt="Arrow_Previous"
+          className={`pagination-arrow ${currentPage === 1 ? 'disabled' : ''}`}
+          onClick={() => handlePageChange(currentPage - 1)}
+          style={{ transform: 'scaleX(-1)' }}
+        />
+        <div className="pagination-numbers">
+          <span>
+            Showing {indexOfFirstTriple + 1} to {sortedTriples.length}
+          </span>
+          <input
+            type="number"
+            min={1}
+            max={sortedTriples.length}
+            value={elementsPerPage}
+            onChange={handleElementsPerPageChange}
+          />
+        </div>
+        <img
+        src="/src/assets/arrow.png"
+        alt="Arrow_Next"
+        className={`pagination-arrow ${currentPage === totalPages ? 'disabled' : ''}`}
+        onClick={() => handlePageChange(currentPage + 1)}
+        />
+        <img
+          src="/src/assets/arrow2.png"
+          alt="Arrow_Last"
+          className={`pagination-arrow ${currentPage === totalPages ? 'disabled' : ''}`}
+          onClick={() => handlePageChange(totalPages)}
+        />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Upload, Local, External } from './subcomponents/Toggles/index';
+import { Upload, Local, External } from './subcomponents/index';
 import '../styles/toggles.css';
 import PropTypes from "prop-types";
 
