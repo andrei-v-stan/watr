@@ -15,6 +15,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@rdfjs/parser-n3": "^2.0.2",
     "axios": "^1.7.8",
     "body-parser": "^1.20.3",
     "cookie-parser": "^1.4.7",
@@ -28,6 +29,8 @@
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.2",
+    "react-select": "^5.10.0",
+    "recharts": "^2.15.0",
     "stream-to-array": "^2.3.0",
     "uuid": "^11.0.3",
     "watr": "file:"

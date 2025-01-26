@@ -11,7 +11,14 @@ const API = import.meta.env.VITE_API_PATH;
 
 const ItemType = 'RESULT';
 
-function DraggableResult({ result, index, moveResult, deleteResult, setFullScreen }) {
+function DraggableResult({
+  result,
+  index,
+  moveResult,
+  deleteResult,
+  toggleMinimize,
+  setFullScreen,
+}) {
   const [, ref] = useDrag({
     type: ItemType,
     item: { index },
@@ -27,23 +34,21 @@ function DraggableResult({ result, index, moveResult, deleteResult, setFullScree
     },
   });
 
-  const [isMinimized, setIsMinimized] = useState(false);
-
-  const toggleMinimize = () => {
-    setIsMinimized(!isMinimized);
-  };
-
   return (
     <div ref={(node) => ref(drop(node))} className="result-window">
       <div className="result-bar">
         <span>
           <h3>{result.type}</h3>
-          <h4><a href={`http://${HOST}:${PORT}/${API}/files/${result.file}`} target="_blank">{'['+ result.file +']'}</a></h4>
-          <h4>{'{'+ new Date(result.id).toLocaleString() +'}'}</h4>
+          <h4>
+            <a href={`http://${HOST}:${PORT}/${API}/files/${result.file}`} target="_blank">
+              {'[' + result.file + ']'}
+            </a>
+          </h4>
+          <h4>{'{' + new Date(result.id).toLocaleString() + '}'}</h4>
         </span>
         <div className="result-controls">
-          <button onClick={toggleMinimize} title="Minimize">
-            {isMinimized ? '+' : '−'}
+          <button onClick={() => toggleMinimize(result.id)} title="Minimize">
+            {result.isMinimized ? '+' : '−'}
           </button>
           <button onClick={() => setFullScreen(result)} title="Maximize">
             ☐
@@ -53,10 +58,8 @@ function DraggableResult({ result, index, moveResult, deleteResult, setFullScree
           </button>
         </div>
       </div>
-      {!isMinimized && (
-        <div className={`result-box ${result.type}`}>
-          {result.component}
-        </div>
+      {!result.isMinimized && (
+        <div className={`result-box ${result.type}`}>{result.component}</div>
       )}
     </div>
   );
@@ -67,6 +70,7 @@ DraggableResult.propTypes = {
   index: PropTypes.number.isRequired,
   moveResult: PropTypes.func.isRequired,
   deleteResult: PropTypes.func.isRequired,
+  toggleMinimize: PropTypes.func.isRequired,
   setFullScreen: PropTypes.func.isRequired,
 };
 
@@ -76,17 +80,18 @@ function FullScreenResult({ result, exitFullScreen }) {
       <div className="full-screen-bar">
         <span>
           <h3>{result.type}</h3>
-          <h4><a href={`http://${HOST}:${PORT}/${API}/files/${result.file}`} target="_blank">{'['+ result.file +']'}</a></h4>
-          <h4>{'{'+ new Date(result.id).toLocaleString() +'}'}</h4>
+          <h4>
+            <a href={`http://${HOST}:${PORT}/${API}/files/${result.file}`} target="_blank">
+              {'[' + result.file + ']'}
+            </a>
+          </h4>
+          <h4>{'{' + new Date(result.id).toLocaleString() + '}'}</h4>
         </span>
-
-        <button onClick={exitFullScreen} title="Exit Full Screen" className={"full-screen-bar-button"}>
+        <button onClick={exitFullScreen} title="Exit Full Screen" className="full-screen-bar-button">
           ✕
         </button>
       </div>
-      <div className="full-screen-content">
-        {result.component}
-      </div>
+      <div className="full-screen-content">{result.component}</div>
     </div>,
     document.getElementById('portal-root')
   );
@@ -120,6 +125,14 @@ function Results({ results, setResults }) {
     setResults(results.filter((result) => result.id !== id));
   };
 
+  const toggleMinimize = (id) => {
+    setResults(
+      results.map((result) =>
+        result.id === id ? { ...result, isMinimized: !result.isMinimized } : result
+      )
+    );
+  };
+
   const setFullScreen = (result) => {
     setFullScreenResult(result);
   };
@@ -139,6 +152,7 @@ function Results({ results, setResults }) {
             index={index}
             moveResult={moveResult}
             deleteResult={deleteResult}
+            toggleMinimize={toggleMinimize}
             setFullScreen={setFullScreen}
           />
         ))}
