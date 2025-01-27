@@ -6,3 +6,5 @@ export { default as Footer } from './Footer';
 export { default as Results } from './Results';
 
 export { default as Files } from './Files';
+
+export { default as About } from './About';

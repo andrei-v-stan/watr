@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Header, Toggles, Operations, /*Export,*/ Footer, Files, Results } from './components';
+import { Header, Toggles, Operations, /*Export,*/ Footer, Files, Results, About } from './components';
 import './App.css'
 
 function App() {
@@ -34,6 +34,7 @@ function App() {
               }
             />
             <Route path="/files" element={<Files />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </main>
         <Footer />
