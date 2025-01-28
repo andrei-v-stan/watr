@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { Parser } from 'n3';
+import fs from 'fs/promises';
 
 /**
  * Executes a SPARQL query against the given endpoint.
@@ -126,4 +128,42 @@ export async function queryObjects(dataset, page, limit) {
     LIMIT ${limit} OFFSET ${page}
   `;
   return executeQuery(dataset, query);
+}
+
+export async function getPredicatesFromFile(file) {
+  const data = await fs.readFile(file, 'utf8');
+  const quads = parser.parse(data);
+  const predicates = new Set();
+
+  quads.forEach(quad => {
+    predicates.add(quad.predicate.value);
+  });
+
+  return Array.from(predicates);
+}
+
+export async function getAttributesFromFile(file) {
+  const data = await fs.readFile(file, 'utf8');
+  const quads = parser.parse(data);
+  const attributes = new Set();
+
+  quads.forEach(quad => {
+    attributes.add(quad.object.value);
+  });
+
+  return Array.from(attributes);
+}
+
+export async function getSubjectsByPredicateAndAttribute(file, predicate, attribute) {
+const data = await fs.readFile(file, 'utf8');
+const quads = parser.parse(data);
+const subjects = new Set();
+
+quads.forEach(quad => {
+  if (quad.predicate.value === predicate && quad.object.value === attribute) {
+    subjects.add(quad.subject.value);
+  }
+});
+
+return Array.from(subjects);
 }

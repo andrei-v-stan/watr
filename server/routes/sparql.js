@@ -5,7 +5,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import { uploadsFolder } from './utils.js';
-
+import sparqlClient from '../utils/sparqlClient';
 
 const router = express.Router();
 router.use(cookieParser());
@@ -20,6 +20,27 @@ router.get('/triples', async (req, res) => {
   } catch (error) {
     console.error('Error parsing the dataset:', error);
     res.status(500).json({ error: 'Error parsing the dataset' });
+  }
+});
+
+router.get('/sparql/predicates-attributes', async (req, res) => {
+  const { file } = req.query;
+  try {
+    const predicates = await sparqlClient.getPredicatesFromFile(file);
+    const attributes = await sparqlClient.getAttributesFromFile(file);
+    res.json({ predicates, attributes });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+router.get('/sparql/classify', async (req, res) => {
+  const { file, predicate, attribute } = req.query;
+  try {
+    const subjects = await sparqlClient.getSubjectsByPredicateAndAttribute(file, predicate, attribute);
+    res.json({ subjects });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 });
 
