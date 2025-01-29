@@ -1,4 +1,55 @@
 import axios from 'axios';
+import N3Parser from '@rdfjs/parser-n3';
+import { createReadStream } from 'fs';
+import streamToArray from 'stream-to-array';
+
+export async function parseAndOrganizeDataset(filePath) {
+  const parser = new N3Parser();
+  const rdfStream = createReadStream(filePath);
+  const quadStream = parser.import(rdfStream);
+  const quads = await streamToArray(quadStream);
+  const triples = [];
+
+  quads.forEach((quad) => {
+    triples.push({
+      subject: quad.subject.value,
+      predicate: quad.predicate.value,
+      object: quad.object.value,
+    });
+  });
+
+  return triples;
+}
+
+export async function getDistinctPredicates(filePath) {
+  const parser = new N3Parser();
+  const rdfStream = createReadStream(filePath);
+  const quadStream = parser.import(rdfStream);
+  const quads = await streamToArray(quadStream);
+  const predicates = new Set();
+
+  quads.forEach((quad) => {
+    predicates.add(quad.predicate.value);
+  });
+
+  return Array.from(predicates);
+}
+
+export async function getDistinctAttributes(filePath, predicate) {
+  const parser = new N3Parser();
+  const rdfStream = createReadStream(filePath);
+  const quadStream = parser.import(rdfStream);
+  const quads = await streamToArray(quadStream);
+  const attributes = new Set();
+
+  quads.forEach((quad) => {
+    if (quad.predicate.value === predicate) {
+      attributes.add(quad.object.value);
+    }
+  });
+
+  return Array.from(attributes);
+}
 
 /**
  * Executes a SPARQL query against the given endpoint.
