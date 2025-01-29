@@ -86,7 +86,7 @@ function TogglesLocalSection({ onFileSelect }) {
           onClick={toggleDropdown}
           value={selectedFile}
         />
-        <img src="/src/assets/cloud-search.png" alt="Search Image" className="search-image" />
+        <img src="/assets/cloud-search.png" alt="Search Image" className="search-image" />
       </div>
       {dropdownOpen && (
         <ul ref={ulRef} className={filteredFiles.length > 5 ? "scrollable" : ""}>

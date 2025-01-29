@@ -7,10 +7,8 @@
   "license": "UAIC, FII",
   "description": "A web data commons analyzer",
   "scripts": {
-    "dev-client": "vite",
+    "start": "node index.js",
     "build": "vite build",
-    "dev-server": "node server/server.js",
-    "dev-server-watch": "nodemon server/server.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -46,6 +44,6 @@
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
     "nodemon": "^3.1.9",
-    "vite": "^5.4.10"
+    "vite": "^5.4.14"
   }
 }

@@ -145,14 +145,14 @@ function OperationsVisualizeSection({ file }) {
       </table>
       <div className="pagination">
         <img
-          src="/src/assets/arrow2.png"
+          src="/assets/arrow2.png"
           alt="Arrow_First"
           className={`pagination-arrow ${currentPage === 1 ? 'disabled' : ''}`}
           onClick={() => handlePageChange(1)}
           style={{ transform: 'scaleX(-1)' }}
         />
         <img
-          src="/src/assets/arrow.png"
+          src="/assets/arrow.png"
           alt="Arrow_Previous"
           className={`pagination-arrow ${currentPage === 1 ? 'disabled' : ''}`}
           onClick={() => handlePageChange(currentPage - 1)}
@@ -171,13 +171,13 @@ function OperationsVisualizeSection({ file }) {
           />
         </div>
         <img
-        src="/src/assets/arrow.png"
+        src="/assets/arrow.png"
         alt="Arrow_Next"
         className={`pagination-arrow ${currentPage === totalPages ? 'disabled' : ''}`}
         onClick={() => handlePageChange(currentPage + 1)}
         />
         <img
-          src="/src/assets/arrow2.png"
+          src="/assets/arrow2.png"
           alt="Arrow_Last"
           className={`pagination-arrow ${currentPage === totalPages ? 'disabled' : ''}`}
           onClick={() => handlePageChange(totalPages)}

@@ -103,7 +103,7 @@ function Files() {
       {error && <p className="error-message">{error}</p>}
       {isLoading ? (
         <div id="dataset-files-section" className={isFadingOut ? "fade-out" : ""}>
-          <img src='/src/assets/dataset.gif' alt="Loading..." id="loader-dataset" />
+          <img src='/assets/dataset.gif' alt="Loading..." id="loader-dataset" />
         </div>
       ) : (
         <div id="dataset-files-section" className={isFadingIn ? "fade-in" : ""}>
@@ -132,10 +132,10 @@ function Files() {
                 .map((file, index) => (
                   <li key={index}>
                     <button onClick={() => handleDeleteFile(file)}>
-                      <img src="/src/assets/trashbin-symbol.png" alt="Delete" />
+                      <img src="/assets/trashbin-symbol.png" alt="Delete" />
                     </button>
                     <button onClick={() => handleRenameFile(file)}>
-                      <img src="/src/assets/rename-symbol.png" alt="Rename" />
+                      <img src="/assets/rename-symbol.png" alt="Rename" />
                     </button>
                     <button onClick={() => handleViewFile(file)}>
                       {file}
