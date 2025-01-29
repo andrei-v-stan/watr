@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
 import { filesRouter, sparqlRouter, checkPrerequisites } from './server/routes/index.js';
+import cors from 'cors';
 import process from 'process';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -18,6 +19,7 @@ checkPrerequisites();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(fileUpload({
