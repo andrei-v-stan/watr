@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
-import { filesRouter, sparqlRouter, checkPrerequisites } from './routes/index.js';
+import { filesRouter, sparqlRouter, utilsService } from './routes/index.js';
 import process  from 'process';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -12,7 +12,7 @@ const app = express();
 const HOST = process.env.VITE_HOST_ADDR;
 const PORT = process.env.VITE_PORT_API;
 const API = process.env.VITE_API_PATH;
-checkPrerequisites();
+utilsService.checkPrerequisites();
 
 app.use(cors({
   origin: `http://${HOST}:5173`,

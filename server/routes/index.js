@@ -1,10 +1,10 @@
 
-import filesRouter from './uploads.js';
-import sparqlRouter from './sparql.js';
-import { checkPrerequisites } from './utils.js';
+import filesRouter from './uploadsRoutes.js';
+import sparqlRouter from './sparqlRoutes.js';
+import { utilsService } from '../services/utilsService.js';
 
 export {
     filesRouter,
     sparqlRouter,
-    checkPrerequisites,
+    utilsService,
 };
