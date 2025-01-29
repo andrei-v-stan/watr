@@ -14,7 +14,7 @@
   justify-content: flex-start;
 }
 
-#operations-button-container > button,
+#operations-button-container>button,
 .operations-compare-section button {
   background-color: #3f3f3f;
   cursor: pointer;
@@ -24,13 +24,13 @@
   font-weight: bold;
 }
 
-#operations-button-container > button:hover,
-.operations-compare-section > button:hover {
+#operations-button-container>button:hover,
+.operations-compare-section>button:hover {
   background-color: rgb(51, 116, 255);
 }
 
-#operations-button-container > button:active,
-.operations-compare-section > button:active {
+#operations-button-container>button:active,
+.operations-compare-section>button:active {
   background-color: rgb(0, 44, 138);
 }
 
@@ -40,7 +40,8 @@
   font-size: 16px;
 }
 
-.operations-compare-section > .dropdown-container {
+.operations-compare-section>.dropdown-container,
+.operations-classify-section .dropdown-container {
   margin-bottom: 25px;
   color: black;
   font-weight: bold;
@@ -48,7 +49,8 @@
 
 
 .operations-visualize-section table,
-.operations-compare-section table {
+.operations-compare-section table,
+.operations-classify-section table {
   width: 100%;
   border-collapse: collapse;
   border: 4px solid rgb(215, 215, 215);
@@ -62,7 +64,9 @@
 .operations-visualize-section th,
 .operations-visualize-section td,
 .operations-compare-section th,
-.operations-compare-section td {
+.operations-compare-section td,
+.operations-classify-section th,
+.operations-classify-section td {
   padding: 7px;
   border: 2px solid rgb(215, 215, 215);
 }
@@ -75,7 +79,7 @@
   font-size: 18px;
 }
 
-.operations-visualize-section th > span {
+.operations-visualize-section th>span {
   margin: 3px;
 }
 
@@ -88,7 +92,8 @@
   background-color: #4e4e4e;
 }
 
-.operations-visualize-section .pagination {
+.operations-visualize-section .pagination,
+.operations-classify-section .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,27 +101,32 @@
   margin: 20px 0 10px 0;
 }
 
-.operations-visualize-section .pagination-arrow {
+.operations-visualize-section .pagination-arrow,
+.operations-classify-section .pagination-arrow {
   cursor: pointer;
   height: 50px;
   width: 50px;
   filter: brightness(100%) sepia(100%) hue-rotate(190deg) saturate(500%);
 }
 
-.operations-visualize-section .pagination-arrow:hover {
+.operations-visualize-section  .pagination-arrow:hover,
+.operations-classify-section .pagination-arrow:hover {
   filter: brightness(125%) sepia(100%) hue-rotate(190deg) saturate(500%);
 }
 
-.operations-visualize-section .pagination-arrow:active {
+.operations-visualize-section .pagination-arrow:active,
+.operations-classify-section .pagination-arrow:active {
   filter: brightness(75%) sepia(100%) hue-rotate(190deg) saturate(500%);
 }
 
-.operations-visualize-section .pagination-arrow.disabled {
+.operations-visualize-section .pagination-arrow.disabled,
+.operations-classify-section .pagination-arrow.disabled {
   cursor: not-allowed;
   filter: brightness(75%);
 }
 
-.operations-visualize-section .pagination .pagination-numbers {
+.operations-visualize-section .pagination .pagination-numbers,
+.operations-classify-section .pagination .pagination-numbers {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,14 +134,89 @@
   gap: 2px;
 }
 
-.operations-visualize-section .pagination .pagination-numbers span {
+.operations-visualize-section .pagination .pagination-numbers span,
+.operations-classify-section .pagination .pagination-numbers span {
   font-weight: bold;
 }
 
-.operations-visualize-section .pagination .pagination-numbers input {
+.operations-visualize-section .pagination .pagination-numbers input,
+.operations-classify-section .pagination .pagination-numbers input {
   width: 75%;
   height: 20px;
   border-radius: 5px;
   font-size: 16px;
   text-align: center;
+}
+
+.pair-container {
+  display: flex;
+  align-items: stretch;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.pair-container>.dropdown-container {
+  margin: 0px;
+  width: 45%;
+  margin-right: 10px;
+}
+
+.pair-container>.delete-button {
+  margin-right: 10px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.pair-container>.clause-operator {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.operator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clause-operator {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+
+  button {
+    margin: 0 20px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+    font-weight: bold;
+
+    &.add-button {
+      background-color: darkgreen;
+    }
+
+    &.switch-button {
+      background-color: darkorange;
+    }
+
+    &.classify-button {
+      background-color: darkblue;
+    }
+  }
+}
+
+.results-container {
+  margin-top: 20px;
 }

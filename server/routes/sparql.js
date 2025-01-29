@@ -7,4 +7,10 @@ router.use(cookieParser());
 
 router.get('/triples', sparqlController.getTriples);
 
+router.get('/predicates', sparqlController.getDistinctPredicates);
+
+router.get('/attributes', sparqlController.getDistinctAttributes);
+
+router.post('/classify', sparqlController.classify);
+
 export default router;
