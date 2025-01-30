@@ -1,0 +1,170 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+
+_:N66f2788b37f34b29b6b97c05d97ccb3e {
+    dbr:AMD_Radeon_RX_7900_XTX dbo:category dbr:GPU ;
+        dbo:interface "PCIe 4.0" ;
+        dbo:manufacturer dbr:AMD ;
+        dbo:memorySize "24 GB" ;
+        dbo:memoryType "GDDR6" ;
+        dbo:releaseDate "2022-12-13" .
+
+    dbr:AMD_Ryzen_9_7950X dbo:category dbr:CPU ;
+        dbo:clockSpeed "5.7 GHz" ;
+        dbo:coreCount "16" ;
+        dbo:manufacturer dbr:AMD ;
+        dbo:releaseDate "2022-09-27" ;
+        dbo:socketType "AM5" ;
+        dbo:threadCount "32" .
+
+    dbr:ASUS_ROG_Maximus_Z790_Hero dbo:category dbr:Motherboard ;
+        dbo:chipset "Z790" ;
+        dbo:formFactor "ATX" ;
+        dbo:manufacturer dbr:ASUS ;
+        dbo:releaseDate "2022-11-01" ;
+        dbo:socketType "LGA 1700" .
+
+    dbr:Cooler_Master_HAF_700 dbo:category dbr:Case ;
+        dbo:color "Black" ;
+        dbo:formFactor "E-ATX" ;
+        dbo:manufacturer dbr:Cooler_Master ;
+        dbo:releaseDate "2022-11-10" .
+
+    dbr:Corsair_RMX_1000W dbo:category dbr:PSU ;
+        dbo:efficiencyRating "80 PLUS Gold" ;
+        dbo:manufacturer dbr:Corsair ;
+        dbo:powerOutput "1000W" ;
+        dbo:releaseDate "2022-03-01" .
+
+    dbr:Corsair_Vengeance_DDR5_32GB dbo:category dbr:RAM ;
+        dbo:clockSpeed "5600 MHz" ;
+        dbo:manufacturer dbr:Corsair ;
+        dbo:memorySize "32 GB" ;
+        dbo:memoryType "DDR5" ;
+        dbo:releaseDate "2022-09-15" .
+
+    dbr:Corsair_iCUE_H150i_Elite_Capellix dbo:category dbr:Cooling_Solution ;
+        dbo:coolingType "Liquid" ;
+        dbo:fanCount "3" ;
+        dbo:manufacturer dbr:Corsair ;
+        dbo:releaseDate "2020-10-05" .
+
+    dbr:Crucial_P5_Plus_1TB dbo:category dbr:SSD ;
+        dbo:interface "NVMe PCIe 4.0" ;
+        dbo:manufacturer dbr:Crucial ;
+        dbo:releaseDate "2021-06-01" ;
+        dbo:storageCapacity "1 TB" .
+
+    dbr:EVGA_SuperNOVA_850_GA dbo:category dbr:PSU ;
+        dbo:efficiencyRating "80 PLUS Gold" ;
+        dbo:manufacturer dbr:EVGA ;
+        dbo:powerOutput "850W" ;
+        dbo:releaseDate "2020-08-15" .
+
+    dbr:Fractal_Design_Define_7 dbo:category dbr:Case ;
+        dbo:color "Black" ;
+        dbo:formFactor "ATX" ;
+        dbo:manufacturer dbr:Fractal_Design ;
+        dbo:releaseDate "2020-02-20" .
+
+    dbr:G_Skill_Trident_Z5_RGB dbo:category dbr:RAM ;
+        dbo:clockSpeed "6000 MHz" ;
+        dbo:manufacturer dbr:G_Skill ;
+        dbo:memorySize "16 GB" ;
+        dbo:memoryType "DDR5" ;
+        dbo:releaseDate "2022-08-01" .
+
+    dbr:Gigabyte_Aorus_X570_Master dbo:category dbr:Motherboard ;
+        dbo:chipset "X570" ;
+        dbo:formFactor "ATX" ;
+        dbo:manufacturer dbr:Gigabyte ;
+        dbo:releaseDate "2020-07-01" ;
+        dbo:socketType "AM4" .
+
+    dbr:Intel_Core_i7-13700K dbo:category dbr:CPU ;
+        dbo:clockSpeed "5.4 GHz" ;
+        dbo:coreCount "16" ;
+        dbo:manufacturer dbr:Intel ;
+        dbo:releaseDate "2022-10-20" ;
+        dbo:socketType "LGA 1700" ;
+        dbo:threadCount "24" .
+
+    dbr:Intel_Core_i9-13900K dbo:category dbr:CPU ;
+        dbo:clockSpeed "5.8 GHz" ;
+        dbo:coreCount "24" ;
+        dbo:manufacturer dbr:Intel ;
+        dbo:releaseDate "2022-10-20" ;
+        dbo:socketType "LGA 1700" ;
+        dbo:threadCount "32" .
+
+    dbr:Kingston_FURY_Beast_DDR4 dbo:category dbr:RAM ;
+        dbo:clockSpeed "3600 MHz" ;
+        dbo:manufacturer dbr:Kingston ;
+        dbo:memorySize "16 GB" ;
+        dbo:memoryType "DDR4" ;
+        dbo:releaseDate "2021-05-15" .
+
+    dbr:Lian_Li_PC-O11_Dynamic dbo:category dbr:Case ;
+        dbo:color "White" ;
+        dbo:formFactor "ATX" ;
+        dbo:manufacturer dbr:Lian_Li ;
+        dbo:releaseDate "2019-03-15" .
+
+    dbr:MSI_MAG_B650M_Mortar dbo:category dbr:Motherboard ;
+        dbo:chipset "B650" ;
+        dbo:formFactor "Micro-ATX" ;
+        dbo:manufacturer dbr:MSI ;
+        dbo:releaseDate "2022-10-04" ;
+        dbo:socketType "AM5" .
+
+    dbr:NVIDIA_GeForce_RTX_4070_Ti dbo:category dbr:GPU ;
+        dbo:interface "PCIe 4.0" ;
+        dbo:manufacturer dbr:NVIDIA ;
+        dbo:memorySize "12 GB" ;
+        dbo:memoryType "GDDR6X" ;
+        dbo:releaseDate "2023-01-05" .
+
+    dbr:NVIDIA_GeForce_RTX_4090 dbo:category dbr:GPU ;
+        dbo:interface "PCIe 4.0" ;
+        dbo:manufacturer dbr:NVIDIA ;
+        dbo:memorySize "24 GB" ;
+        dbo:memoryType "GDDR6X" ;
+        dbo:releaseDate "2022-10-12" .
+
+    dbr:NZXT_C850 dbo:category dbr:PSU ;
+        dbo:efficiencyRating "80 PLUS Gold" ;
+        dbo:manufacturer dbr:NZXT ;
+        dbo:powerOutput "850W" ;
+        dbo:releaseDate "2021-06-10" .
+
+    dbr:NZXT_Kraken_X73 dbo:category dbr:Cooling_Solution ;
+        dbo:coolingType "Liquid" ;
+        dbo:fanCount "3" ;
+        dbo:manufacturer dbr:NZXT ;
+        dbo:releaseDate "2020-01-31" .
+
+    dbr:Noctua_NH-D15 dbo:category dbr:Cooling_Solution ;
+        dbo:coolingType "Air" ;
+        dbo:fanCount "2" ;
+        dbo:manufacturer dbr:Noctua ;
+        dbo:releaseDate "2014-05-06" .
+
+    dbr:Samsung_990_PRO_2TB dbo:category dbr:SSD ;
+        dbo:interface "NVMe PCIe 4.0" ;
+        dbo:manufacturer dbr:Samsung ;
+        dbo:releaseDate "2022-10-20" ;
+        dbo:storageCapacity "2 TB" .
+
+    dbr:Seasonic_Prime_TX-750 dbo:category dbr:PSU ;
+        dbo:efficiencyRating "80 PLUS Titanium" ;
+        dbo:manufacturer dbr:Seasonic ;
+        dbo:powerOutput "750W" ;
+        dbo:releaseDate "2021-04-01" .
+
+    dbr:Western_Digital_Black_SN850X dbo:category dbr:SSD ;
+        dbo:interface "NVMe PCIe 4.0" ;
+        dbo:manufacturer dbr:Western_Digital ;
+        dbo:releaseDate "2022-07-01" ;
+        dbo:storageCapacity "1 TB" .
+}
+

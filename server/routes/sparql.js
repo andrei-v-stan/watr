@@ -7,6 +7,8 @@ router.use(cookieParser());
 
 router.get('/triples', sparqlController.getTriples);
 
+router.get('/validate', sparqlController.getValidation);
+
 router.get('/predicates', sparqlController.getDistinctPredicates);
 
 router.get('/attributes', sparqlController.getDistinctAttributes);

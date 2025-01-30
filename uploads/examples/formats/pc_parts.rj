@@ -1,0 +1,777 @@
+[
+  {
+    "@id": "http://dbpedia.org/resource/NVIDIA_GeForce_RTX_4090",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/GPU"
+      }
+    ],
+    "http://dbpedia.org/ontology/interface": [
+      {
+        "@value": "PCIe 4.0"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/NVIDIA"
+      }
+    ],
+    "http://dbpedia.org/ontology/memorySize": [
+      {
+        "@value": "24 GB"
+      }
+    ],
+    "http://dbpedia.org/ontology/memoryType": [
+      {
+        "@value": "GDDR6X"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2022-10-12"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/EVGA_SuperNOVA_850_GA",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/PSU"
+      }
+    ],
+    "http://dbpedia.org/ontology/efficiencyRating": [
+      {
+        "@value": "80 PLUS Gold"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/EVGA"
+      }
+    ],
+    "http://dbpedia.org/ontology/powerOutput": [
+      {
+        "@value": "850W"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2020-08-15"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/NZXT_C850",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/PSU"
+      }
+    ],
+    "http://dbpedia.org/ontology/efficiencyRating": [
+      {
+        "@value": "80 PLUS Gold"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/NZXT"
+      }
+    ],
+    "http://dbpedia.org/ontology/powerOutput": [
+      {
+        "@value": "850W"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2021-06-10"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/MSI_MAG_B650M_Mortar",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/Motherboard"
+      }
+    ],
+    "http://dbpedia.org/ontology/chipset": [
+      {
+        "@value": "B650"
+      }
+    ],
+    "http://dbpedia.org/ontology/formFactor": [
+      {
+        "@value": "Micro-ATX"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/MSI"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2022-10-04"
+      }
+    ],
+    "http://dbpedia.org/ontology/socketType": [
+      {
+        "@value": "AM5"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Corsair_RMX_1000W",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/PSU"
+      }
+    ],
+    "http://dbpedia.org/ontology/efficiencyRating": [
+      {
+        "@value": "80 PLUS Gold"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Corsair"
+      }
+    ],
+    "http://dbpedia.org/ontology/powerOutput": [
+      {
+        "@value": "1000W"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2022-03-01"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Western_Digital_Black_SN850X",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/SSD"
+      }
+    ],
+    "http://dbpedia.org/ontology/interface": [
+      {
+        "@value": "NVMe PCIe 4.0"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Western_Digital"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2022-07-01"
+      }
+    ],
+    "http://dbpedia.org/ontology/storageCapacity": [
+      {
+        "@value": "1 TB"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Corsair_Vengeance_DDR5_32GB",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/RAM"
+      }
+    ],
+    "http://dbpedia.org/ontology/clockSpeed": [
+      {
+        "@value": "5600 MHz"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Corsair"
+      }
+    ],
+    "http://dbpedia.org/ontology/memorySize": [
+      {
+        "@value": "32 GB"
+      }
+    ],
+    "http://dbpedia.org/ontology/memoryType": [
+      {
+        "@value": "DDR5"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2022-09-15"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Corsair_iCUE_H150i_Elite_Capellix",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/Cooling_Solution"
+      }
+    ],
+    "http://dbpedia.org/ontology/coolingType": [
+      {
+        "@value": "Liquid"
+      }
+    ],
+    "http://dbpedia.org/ontology/fanCount": [
+      {
+        "@value": "3"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Corsair"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2020-10-05"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Gigabyte_Aorus_X570_Master",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/Motherboard"
+      }
+    ],
+    "http://dbpedia.org/ontology/chipset": [
+      {
+        "@value": "X570"
+      }
+    ],
+    "http://dbpedia.org/ontology/formFactor": [
+      {
+        "@value": "ATX"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Gigabyte"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2020-07-01"
+      }
+    ],
+    "http://dbpedia.org/ontology/socketType": [
+      {
+        "@value": "AM4"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Intel_Core_i9-13900K",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/CPU"
+      }
+    ],
+    "http://dbpedia.org/ontology/clockSpeed": [
+      {
+        "@value": "5.8 GHz"
+      }
+    ],
+    "http://dbpedia.org/ontology/coreCount": [
+      {
+        "@value": "24"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Intel"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2022-10-20"
+      }
+    ],
+    "http://dbpedia.org/ontology/socketType": [
+      {
+        "@value": "LGA 1700"
+      }
+    ],
+    "http://dbpedia.org/ontology/threadCount": [
+      {
+        "@value": "32"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/ASUS_ROG_Maximus_Z790_Hero",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/Motherboard"
+      }
+    ],
+    "http://dbpedia.org/ontology/chipset": [
+      {
+        "@value": "Z790"
+      }
+    ],
+    "http://dbpedia.org/ontology/formFactor": [
+      {
+        "@value": "ATX"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/ASUS"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2022-11-01"
+      }
+    ],
+    "http://dbpedia.org/ontology/socketType": [
+      {
+        "@value": "LGA 1700"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Kingston_FURY_Beast_DDR4",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/RAM"
+      }
+    ],
+    "http://dbpedia.org/ontology/clockSpeed": [
+      {
+        "@value": "3600 MHz"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Kingston"
+      }
+    ],
+    "http://dbpedia.org/ontology/memorySize": [
+      {
+        "@value": "16 GB"
+      }
+    ],
+    "http://dbpedia.org/ontology/memoryType": [
+      {
+        "@value": "DDR4"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2021-05-15"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/G_Skill_Trident_Z5_RGB",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/RAM"
+      }
+    ],
+    "http://dbpedia.org/ontology/clockSpeed": [
+      {
+        "@value": "6000 MHz"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/G_Skill"
+      }
+    ],
+    "http://dbpedia.org/ontology/memorySize": [
+      {
+        "@value": "16 GB"
+      }
+    ],
+    "http://dbpedia.org/ontology/memoryType": [
+      {
+        "@value": "DDR5"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2022-08-01"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/AMD_Radeon_RX_7900_XTX",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/GPU"
+      }
+    ],
+    "http://dbpedia.org/ontology/interface": [
+      {
+        "@value": "PCIe 4.0"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/AMD"
+      }
+    ],
+    "http://dbpedia.org/ontology/memorySize": [
+      {
+        "@value": "24 GB"
+      }
+    ],
+    "http://dbpedia.org/ontology/memoryType": [
+      {
+        "@value": "GDDR6"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2022-12-13"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Noctua_NH-D15",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/Cooling_Solution"
+      }
+    ],
+    "http://dbpedia.org/ontology/coolingType": [
+      {
+        "@value": "Air"
+      }
+    ],
+    "http://dbpedia.org/ontology/fanCount": [
+      {
+        "@value": "2"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Noctua"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2014-05-06"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Cooler_Master_HAF_700",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/Case"
+      }
+    ],
+    "http://dbpedia.org/ontology/color": [
+      {
+        "@value": "Black"
+      }
+    ],
+    "http://dbpedia.org/ontology/formFactor": [
+      {
+        "@value": "E-ATX"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Cooler_Master"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2022-11-10"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/AMD_Ryzen_9_7950X",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/CPU"
+      }
+    ],
+    "http://dbpedia.org/ontology/clockSpeed": [
+      {
+        "@value": "5.7 GHz"
+      }
+    ],
+    "http://dbpedia.org/ontology/coreCount": [
+      {
+        "@value": "16"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/AMD"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2022-09-27"
+      }
+    ],
+    "http://dbpedia.org/ontology/socketType": [
+      {
+        "@value": "AM5"
+      }
+    ],
+    "http://dbpedia.org/ontology/threadCount": [
+      {
+        "@value": "32"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/NZXT_Kraken_X73",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/Cooling_Solution"
+      }
+    ],
+    "http://dbpedia.org/ontology/coolingType": [
+      {
+        "@value": "Liquid"
+      }
+    ],
+    "http://dbpedia.org/ontology/fanCount": [
+      {
+        "@value": "3"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/NZXT"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2020-01-31"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Crucial_P5_Plus_1TB",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/SSD"
+      }
+    ],
+    "http://dbpedia.org/ontology/interface": [
+      {
+        "@value": "NVMe PCIe 4.0"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Crucial"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2021-06-01"
+      }
+    ],
+    "http://dbpedia.org/ontology/storageCapacity": [
+      {
+        "@value": "1 TB"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Seasonic_Prime_TX-750",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/PSU"
+      }
+    ],
+    "http://dbpedia.org/ontology/efficiencyRating": [
+      {
+        "@value": "80 PLUS Titanium"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Seasonic"
+      }
+    ],
+    "http://dbpedia.org/ontology/powerOutput": [
+      {
+        "@value": "750W"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2021-04-01"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Lian_Li_PC-O11_Dynamic",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/Case"
+      }
+    ],
+    "http://dbpedia.org/ontology/color": [
+      {
+        "@value": "White"
+      }
+    ],
+    "http://dbpedia.org/ontology/formFactor": [
+      {
+        "@value": "ATX"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Lian_Li"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2019-03-15"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Intel_Core_i7-13700K",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/CPU"
+      }
+    ],
+    "http://dbpedia.org/ontology/clockSpeed": [
+      {
+        "@value": "5.4 GHz"
+      }
+    ],
+    "http://dbpedia.org/ontology/coreCount": [
+      {
+        "@value": "16"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Intel"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2022-10-20"
+      }
+    ],
+    "http://dbpedia.org/ontology/socketType": [
+      {
+        "@value": "LGA 1700"
+      }
+    ],
+    "http://dbpedia.org/ontology/threadCount": [
+      {
+        "@value": "24"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/NVIDIA_GeForce_RTX_4070_Ti",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/GPU"
+      }
+    ],
+    "http://dbpedia.org/ontology/interface": [
+      {
+        "@value": "PCIe 4.0"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/NVIDIA"
+      }
+    ],
+    "http://dbpedia.org/ontology/memorySize": [
+      {
+        "@value": "12 GB"
+      }
+    ],
+    "http://dbpedia.org/ontology/memoryType": [
+      {
+        "@value": "GDDR6X"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2023-01-05"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Fractal_Design_Define_7",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/Case"
+      }
+    ],
+    "http://dbpedia.org/ontology/color": [
+      {
+        "@value": "Black"
+      }
+    ],
+    "http://dbpedia.org/ontology/formFactor": [
+      {
+        "@value": "ATX"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Fractal_Design"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2020-02-20"
+      }
+    ]
+  },
+  {
+    "@id": "http://dbpedia.org/resource/Samsung_990_PRO_2TB",
+    "http://dbpedia.org/ontology/category": [
+      {
+        "@id": "http://dbpedia.org/resource/SSD"
+      }
+    ],
+    "http://dbpedia.org/ontology/interface": [
+      {
+        "@value": "NVMe PCIe 4.0"
+      }
+    ],
+    "http://dbpedia.org/ontology/manufacturer": [
+      {
+        "@id": "http://dbpedia.org/resource/Samsung"
+      }
+    ],
+    "http://dbpedia.org/ontology/releaseDate": [
+      {
+        "@value": "2022-10-20"
+      }
+    ],
+    "http://dbpedia.org/ontology/storageCapacity": [
+      {
+        "@value": "2 TB"
+      }
+    ]
+  }
+]

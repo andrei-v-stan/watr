@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:dbo="http://dbpedia.org/ontology/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/AMD_Radeon_RX_7900_XTX">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/GPU"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/AMD"/>
+    <dbo:releaseDate>2022-12-13</dbo:releaseDate>
+    <dbo:memorySize>24 GB</dbo:memorySize>
+    <dbo:memoryType>GDDR6</dbo:memoryType>
+    <dbo:interface>PCIe 4.0</dbo:interface>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/NVIDIA_GeForce_RTX_4090">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/GPU"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/NVIDIA"/>
+    <dbo:releaseDate>2022-10-12</dbo:releaseDate>
+    <dbo:memorySize>24 GB</dbo:memorySize>
+    <dbo:memoryType>GDDR6X</dbo:memoryType>
+    <dbo:interface>PCIe 4.0</dbo:interface>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/MSI_MAG_B650M_Mortar">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/Motherboard"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/MSI"/>
+    <dbo:releaseDate>2022-10-04</dbo:releaseDate>
+    <dbo:socketType>AM5</dbo:socketType>
+    <dbo:chipset>B650</dbo:chipset>
+    <dbo:formFactor>Micro-ATX</dbo:formFactor>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Western_Digital_Black_SN850X">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/SSD"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Western_Digital"/>
+    <dbo:releaseDate>2022-07-01</dbo:releaseDate>
+    <dbo:storageCapacity>1 TB</dbo:storageCapacity>
+    <dbo:interface>NVMe PCIe 4.0</dbo:interface>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Kingston_FURY_Beast_DDR4">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/RAM"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Kingston"/>
+    <dbo:releaseDate>2021-05-15</dbo:releaseDate>
+    <dbo:memorySize>16 GB</dbo:memorySize>
+    <dbo:memoryType>DDR4</dbo:memoryType>
+    <dbo:clockSpeed>3600 MHz</dbo:clockSpeed>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Crucial_P5_Plus_1TB">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/SSD"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Crucial"/>
+    <dbo:releaseDate>2021-06-01</dbo:releaseDate>
+    <dbo:storageCapacity>1 TB</dbo:storageCapacity>
+    <dbo:interface>NVMe PCIe 4.0</dbo:interface>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Noctua_NH-D15">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/Cooling_Solution"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Noctua"/>
+    <dbo:releaseDate>2014-05-06</dbo:releaseDate>
+    <dbo:coolingType>Air</dbo:coolingType>
+    <dbo:fanCount>2</dbo:fanCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Lian_Li_PC-O11_Dynamic">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/Case"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Lian_Li"/>
+    <dbo:releaseDate>2019-03-15</dbo:releaseDate>
+    <dbo:formFactor>ATX</dbo:formFactor>
+    <dbo:color>White</dbo:color>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Intel_Core_i7-13700K">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/CPU"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Intel"/>
+    <dbo:releaseDate>2022-10-20</dbo:releaseDate>
+    <dbo:clockSpeed>5.4 GHz</dbo:clockSpeed>
+    <dbo:coreCount>16</dbo:coreCount>
+    <dbo:threadCount>24</dbo:threadCount>
+    <dbo:socketType>LGA 1700</dbo:socketType>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Corsair_iCUE_H150i_Elite_Capellix">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/Cooling_Solution"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Corsair"/>
+    <dbo:releaseDate>2020-10-05</dbo:releaseDate>
+    <dbo:coolingType>Liquid</dbo:coolingType>
+    <dbo:fanCount>3</dbo:fanCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Intel_Core_i9-13900K">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/CPU"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Intel"/>
+    <dbo:releaseDate>2022-10-20</dbo:releaseDate>
+    <dbo:clockSpeed>5.8 GHz</dbo:clockSpeed>
+    <dbo:coreCount>24</dbo:coreCount>
+    <dbo:threadCount>32</dbo:threadCount>
+    <dbo:socketType>LGA 1700</dbo:socketType>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/AMD_Ryzen_9_7950X">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/CPU"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/AMD"/>
+    <dbo:releaseDate>2022-09-27</dbo:releaseDate>
+    <dbo:clockSpeed>5.7 GHz</dbo:clockSpeed>
+    <dbo:coreCount>16</dbo:coreCount>
+    <dbo:threadCount>32</dbo:threadCount>
+    <dbo:socketType>AM5</dbo:socketType>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/ASUS_ROG_Maximus_Z790_Hero">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/Motherboard"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/ASUS"/>
+    <dbo:releaseDate>2022-11-01</dbo:releaseDate>
+    <dbo:socketType>LGA 1700</dbo:socketType>
+    <dbo:chipset>Z790</dbo:chipset>
+    <dbo:formFactor>ATX</dbo:formFactor>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Samsung_990_PRO_2TB">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/SSD"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Samsung"/>
+    <dbo:releaseDate>2022-10-20</dbo:releaseDate>
+    <dbo:storageCapacity>2 TB</dbo:storageCapacity>
+    <dbo:interface>NVMe PCIe 4.0</dbo:interface>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/NZXT_C850">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/PSU"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/NZXT"/>
+    <dbo:releaseDate>2021-06-10</dbo:releaseDate>
+    <dbo:powerOutput>850W</dbo:powerOutput>
+    <dbo:efficiencyRating>80 PLUS Gold</dbo:efficiencyRating>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Fractal_Design_Define_7">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/Case"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Fractal_Design"/>
+    <dbo:releaseDate>2020-02-20</dbo:releaseDate>
+    <dbo:formFactor>ATX</dbo:formFactor>
+    <dbo:color>Black</dbo:color>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Seasonic_Prime_TX-750">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/PSU"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Seasonic"/>
+    <dbo:releaseDate>2021-04-01</dbo:releaseDate>
+    <dbo:powerOutput>750W</dbo:powerOutput>
+    <dbo:efficiencyRating>80 PLUS Titanium</dbo:efficiencyRating>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/NVIDIA_GeForce_RTX_4070_Ti">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/GPU"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/NVIDIA"/>
+    <dbo:releaseDate>2023-01-05</dbo:releaseDate>
+    <dbo:memorySize>12 GB</dbo:memorySize>
+    <dbo:memoryType>GDDR6X</dbo:memoryType>
+    <dbo:interface>PCIe 4.0</dbo:interface>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Corsair_Vengeance_DDR5_32GB">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/RAM"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Corsair"/>
+    <dbo:releaseDate>2022-09-15</dbo:releaseDate>
+    <dbo:memorySize>32 GB</dbo:memorySize>
+    <dbo:memoryType>DDR5</dbo:memoryType>
+    <dbo:clockSpeed>5600 MHz</dbo:clockSpeed>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Gigabyte_Aorus_X570_Master">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/Motherboard"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Gigabyte"/>
+    <dbo:releaseDate>2020-07-01</dbo:releaseDate>
+    <dbo:socketType>AM4</dbo:socketType>
+    <dbo:chipset>X570</dbo:chipset>
+    <dbo:formFactor>ATX</dbo:formFactor>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/G_Skill_Trident_Z5_RGB">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/RAM"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/G_Skill"/>
+    <dbo:releaseDate>2022-08-01</dbo:releaseDate>
+    <dbo:memorySize>16 GB</dbo:memorySize>
+    <dbo:memoryType>DDR5</dbo:memoryType>
+    <dbo:clockSpeed>6000 MHz</dbo:clockSpeed>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/EVGA_SuperNOVA_850_GA">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/PSU"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/EVGA"/>
+    <dbo:releaseDate>2020-08-15</dbo:releaseDate>
+    <dbo:powerOutput>850W</dbo:powerOutput>
+    <dbo:efficiencyRating>80 PLUS Gold</dbo:efficiencyRating>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Corsair_RMX_1000W">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/PSU"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Corsair"/>
+    <dbo:releaseDate>2022-03-01</dbo:releaseDate>
+    <dbo:powerOutput>1000W</dbo:powerOutput>
+    <dbo:efficiencyRating>80 PLUS Gold</dbo:efficiencyRating>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/NZXT_Kraken_X73">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/Cooling_Solution"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/NZXT"/>
+    <dbo:releaseDate>2020-01-31</dbo:releaseDate>
+    <dbo:coolingType>Liquid</dbo:coolingType>
+    <dbo:fanCount>3</dbo:fanCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Cooler_Master_HAF_700">
+    <dbo:category rdf:resource="http://dbpedia.org/resource/Case"/>
+    <dbo:manufacturer rdf:resource="http://dbpedia.org/resource/Cooler_Master"/>
+    <dbo:releaseDate>2022-11-10</dbo:releaseDate>
+    <dbo:formFactor>E-ATX</dbo:formFactor>
+    <dbo:color>Black</dbo:color>
+  </rdf:Description>
+</rdf:RDF>

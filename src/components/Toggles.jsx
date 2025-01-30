@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Upload, Local, External } from './subcomponents/index';
+import { Upload, Local, /* External */ } from './subcomponents/index';
 import '../styles/toggles.css';
 import PropTypes from "prop-types";
 
@@ -30,18 +30,20 @@ function Toggles({ onFileSelect }) {
         >
           Local
         </button>
+        {/*}
         <button
           className={`toggles-toggle-button ${mode === 'external' ? 'active' : ''}`}
           onClick={() => handleModeChange('external')}
         >
           External
         </button>
+        */}
       </div>
 
       {mode === 'chanege' && <Upload />}
       {mode === 'upload' && <Upload />}
       {mode === 'local' && <Local onFileSelect={onFileSelect} />}
-      {mode === 'external' && <External />}
+      {/* {mode === 'external' && <External />} */}
     </section>
   );
 }

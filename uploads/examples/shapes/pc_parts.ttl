@@ -1,0 +1,78 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Shape for CPU
+dbo:CPUShape a sh:NodeShape ;
+    sh:targetClass dbo:CPU ;
+
+    # Manufacturer must be an IRI
+    sh:property [
+        sh:path dbo:manufacturer ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A CPU must have exactly one manufacturer." ;
+    ] ;
+
+    # Release date must be a valid date
+    sh:property [
+        sh:path dbo:releaseDate ;
+        sh:datatype xsd:date ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A CPU must have exactly one valid release date." ;
+    ] ;
+
+    # Clock speed must be a valid string containing GHz
+    sh:property [
+        sh:path dbo:clockSpeed ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[0-9]+(\\.[0-9]+)? GHz$" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A CPU must have exactly one clock speed in GHz." ;
+    ] ;
+
+    # Core count must be an integer
+    sh:property [
+        sh:path dbo:coreCount ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A CPU must have exactly one core count as an integer." ;
+    ] .
+
+# Shape for GPU
+dbo:GPUShape a sh:NodeShape ;
+    sh:targetClass dbo:GPU ;
+
+    # Manufacturer must be an IRI
+    sh:property [
+        sh:path dbo:manufacturer ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A GPU must have exactly one manufacturer." ;
+    ] ;
+
+    # Memory size must be a valid string with GB
+    sh:property [
+        sh:path dbo:memorySize ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[0-9]+ GB$" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A GPU must have exactly one memory size in GB." ;
+    ] ;
+
+    # Memory type must be a string
+    sh:property [
+        sh:path dbo:memoryType ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A GPU must have exactly one memory type as a string." ;
+    ] .
+

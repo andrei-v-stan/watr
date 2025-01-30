@@ -1,6 +1,0 @@
-? Use RDF not RDFa (convert / build using sparql)
-
-Efficiently perform various processing tasks regarding the meta-data available in RDFa and HTML5 microdata formats provided by the Web Data Commons (see also Empirical Best Practices On Using Product-Specific Schema.org)
-The user can give a RDF and use either their own dataset or use a external endpoint
-The user can use simple or advanced mode (a simple ui of dropdowns that simplifies the query for the user) or advanced mode to simply enter the query
-Modeling using RDF Data Cube Vocabulary

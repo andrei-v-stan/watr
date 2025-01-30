@@ -15,6 +15,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@rdfjs/dataset": "^2.0.2",
     "@rdfjs/parser-n3": "^2.0.2",
     "axios": "^1.7.8",
     "body-parser": "^1.20.3",
@@ -23,7 +24,14 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-fileupload": "^1.5.1",
+    "jsonld": "^8.3.3",
     "node-cron": "^3.0.3",
+    "rdf": "^4.1.1",
+    "rdf-ext": "^2.5.2",
+    "rdf-utils-fs": "^3.0.0",
+    "rdf-validate-shacl": "^0.5.6",
+    "rdflib": "^2.2.35",
+    "rdfxml-streaming-parser": "^3.0.1",
     "react": "^18.3.1",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",

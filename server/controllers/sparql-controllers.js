@@ -1,6 +1,7 @@
 import path from 'path';
+import fs from 'fs';
 import { uploadsFolder } from '../services/uploads-service.js';
-import { getClassifiedSubjects, getDistinctAttributes, getDistinctPredicates, parseAndOrganizeDataset } from '../services/sparql-service.js';
+import { getClassifiedSubjects, getDistinctAttributes, getDistinctPredicates, parseAndOrganizeDataset, validateDataset } from '../services/sparql-service.js';
 
 export const sparqlController = {
     async getTriples(req, res) {
@@ -13,6 +14,27 @@ export const sparqlController = {
         } catch (error) {
             console.error('Error parsing the dataset:', error);
             res.status(500).json({ error: 'Error parsing the dataset' });
+        }
+    },
+
+    async getValidation(req, res) {
+        const sessionFolder = path.join(uploadsFolder, req.cookies['user_uuid']);
+        const filePath = path.join(sessionFolder, req.query.file);
+        const shapesPath = path.join('uploads/examples/shapes/', path.basename(filePath));
+
+        if (!fs.existsSync(shapesPath)) {
+            console.error('Shapes file not found:', shapesPath);
+            res.status(404).json({ error: 'Shapes file not found' });
+            return;
+        }
+        else {
+            try {
+                const validationReport = await validateDataset(filePath, shapesPath);
+                res.json(validationReport);
+            } catch (error) {
+                console.error('Error parsing the dataset:', error);
+                res.status(500).json({ error: 'Error parsing the dataset' });
+            }
         }
     },
 

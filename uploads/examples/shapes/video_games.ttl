@@ -1,0 +1,53 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix vgc: <http://example.org/videoGameCategory/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Shape for Video Games
+vgc:VideoGameShape a sh:NodeShape ;
+    sh:targetClass dbo:VideoGame ;
+    
+    # Ensure category exists and is from vgc namespace
+    sh:property [
+        sh:path dbo:category ;
+        sh:class vgc:Category ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A video game must have exactly one category from the vgc namespace." ;
+    ] ;
+
+    # Ensure developer exists and is a resource
+    sh:property [
+        sh:path dbo:developer ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A video game must have exactly one developer." ;
+    ] ;
+
+    # Ensure releaseDate is a valid date
+    sh:property [
+        sh:path dbo:releaseDate ;
+        sh:datatype xsd:date ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A video game must have exactly one valid release date." ;
+    ] ;
+
+    # Ensure at least one platform is defined
+    sh:property [
+        sh:path dbo:platform ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "A video game must have at least one platform." ;
+    ] ;
+
+    # Ensure genre is a string
+    sh:property [
+        sh:path dbo:genre ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A video game must have exactly one genre as a string." ;
+    ] .

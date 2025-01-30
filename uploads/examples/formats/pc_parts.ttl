@@ -1,0 +1,168 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+
+dbr:Intel_Core_i9-13900K dbo:category dbr:CPU .
+dbr:Intel_Core_i9-13900K dbo:manufacturer dbr:Intel .
+dbr:Intel_Core_i9-13900K dbo:releaseDate "2022-10-20" .
+dbr:Intel_Core_i9-13900K dbo:clockSpeed "5.8 GHz" .
+dbr:Intel_Core_i9-13900K dbo:coreCount "24" .
+dbr:Intel_Core_i9-13900K dbo:threadCount "32" .
+dbr:Intel_Core_i9-13900K dbo:socketType "LGA 1700" .
+
+dbr:AMD_Ryzen_9_7950X dbo:category dbr:CPU .
+dbr:AMD_Ryzen_9_7950X dbo:manufacturer dbr:AMD .
+dbr:AMD_Ryzen_9_7950X dbo:releaseDate "2022-09-27" .
+dbr:AMD_Ryzen_9_7950X dbo:clockSpeed "5.7 GHz" .
+dbr:AMD_Ryzen_9_7950X dbo:coreCount "16" .
+dbr:AMD_Ryzen_9_7950X dbo:threadCount "32" .
+dbr:AMD_Ryzen_9_7950X dbo:socketType "AM5" .
+
+dbr:Intel_Core_i7-13700K dbo:category dbr:CPU .
+dbr:Intel_Core_i7-13700K dbo:manufacturer dbr:Intel .
+dbr:Intel_Core_i7-13700K dbo:releaseDate "2022-10-20" .
+dbr:Intel_Core_i7-13700K dbo:clockSpeed "5.4 GHz" .
+dbr:Intel_Core_i7-13700K dbo:coreCount "16" .
+dbr:Intel_Core_i7-13700K dbo:threadCount "24" .
+dbr:Intel_Core_i7-13700K dbo:socketType "LGA 1700" .
+
+dbr:NVIDIA_GeForce_RTX_4090 dbo:category dbr:GPU .
+dbr:NVIDIA_GeForce_RTX_4090 dbo:manufacturer dbr:NVIDIA .
+dbr:NVIDIA_GeForce_RTX_4090 dbo:releaseDate "2022-10-12" .
+dbr:NVIDIA_GeForce_RTX_4090 dbo:memorySize "24 GB" .
+dbr:NVIDIA_GeForce_RTX_4090 dbo:memoryType "GDDR6X" .
+dbr:NVIDIA_GeForce_RTX_4090 dbo:interface "PCIe 4.0" .
+
+dbr:AMD_Radeon_RX_7900_XTX dbo:category dbr:GPU .
+dbr:AMD_Radeon_RX_7900_XTX dbo:manufacturer dbr:AMD .
+dbr:AMD_Radeon_RX_7900_XTX dbo:releaseDate "2022-12-13" .
+dbr:AMD_Radeon_RX_7900_XTX dbo:memorySize "24 GB" .
+dbr:AMD_Radeon_RX_7900_XTX dbo:memoryType "GDDR6" .
+dbr:AMD_Radeon_RX_7900_XTX dbo:interface "PCIe 4.0" .
+
+dbr:NVIDIA_GeForce_RTX_4070_Ti dbo:category dbr:GPU .
+dbr:NVIDIA_GeForce_RTX_4070_Ti dbo:manufacturer dbr:NVIDIA .
+dbr:NVIDIA_GeForce_RTX_4070_Ti dbo:releaseDate "2023-01-05" .
+dbr:NVIDIA_GeForce_RTX_4070_Ti dbo:memorySize "12 GB" .
+dbr:NVIDIA_GeForce_RTX_4070_Ti dbo:memoryType "GDDR6X" .
+dbr:NVIDIA_GeForce_RTX_4070_Ti dbo:interface "PCIe 4.0" .
+
+dbr:ASUS_ROG_Maximus_Z790_Hero dbo:category dbr:Motherboard .
+dbr:ASUS_ROG_Maximus_Z790_Hero dbo:manufacturer dbr:ASUS .
+dbr:ASUS_ROG_Maximus_Z790_Hero dbo:releaseDate "2022-11-01" .
+dbr:ASUS_ROG_Maximus_Z790_Hero dbo:socketType "LGA 1700" .
+dbr:ASUS_ROG_Maximus_Z790_Hero dbo:chipset "Z790" .
+dbr:ASUS_ROG_Maximus_Z790_Hero dbo:formFactor "ATX" .
+
+dbr:MSI_MAG_B650M_Mortar dbo:category dbr:Motherboard .
+dbr:MSI_MAG_B650M_Mortar dbo:manufacturer dbr:MSI .
+dbr:MSI_MAG_B650M_Mortar dbo:releaseDate "2022-10-04" .
+dbr:MSI_MAG_B650M_Mortar dbo:socketType "AM5" .
+dbr:MSI_MAG_B650M_Mortar dbo:chipset "B650" .
+dbr:MSI_MAG_B650M_Mortar dbo:formFactor "Micro-ATX" .
+
+dbr:Gigabyte_Aorus_X570_Master dbo:category dbr:Motherboard .
+dbr:Gigabyte_Aorus_X570_Master dbo:manufacturer dbr:Gigabyte .
+dbr:Gigabyte_Aorus_X570_Master dbo:releaseDate "2020-07-01" .
+dbr:Gigabyte_Aorus_X570_Master dbo:socketType "AM4" .
+dbr:Gigabyte_Aorus_X570_Master dbo:chipset "X570" .
+dbr:Gigabyte_Aorus_X570_Master dbo:formFactor "ATX" .
+
+dbr:Corsair_Vengeance_DDR5_32GB dbo:category dbr:RAM .
+dbr:Corsair_Vengeance_DDR5_32GB dbo:manufacturer dbr:Corsair .
+dbr:Corsair_Vengeance_DDR5_32GB dbo:releaseDate "2022-09-15" .
+dbr:Corsair_Vengeance_DDR5_32GB dbo:memorySize "32 GB" .
+dbr:Corsair_Vengeance_DDR5_32GB dbo:memoryType "DDR5" .
+dbr:Corsair_Vengeance_DDR5_32GB dbo:clockSpeed "5600 MHz" .
+
+dbr:G_Skill_Trident_Z5_RGB dbo:category dbr:RAM .
+dbr:G_Skill_Trident_Z5_RGB dbo:manufacturer dbr:G_Skill .
+dbr:G_Skill_Trident_Z5_RGB dbo:releaseDate "2022-08-01" .
+dbr:G_Skill_Trident_Z5_RGB dbo:memorySize "16 GB" .
+dbr:G_Skill_Trident_Z5_RGB dbo:memoryType "DDR5" .
+dbr:G_Skill_Trident_Z5_RGB dbo:clockSpeed "6000 MHz" .
+
+dbr:Kingston_FURY_Beast_DDR4 dbo:category dbr:RAM .
+dbr:Kingston_FURY_Beast_DDR4 dbo:manufacturer dbr:Kingston .
+dbr:Kingston_FURY_Beast_DDR4 dbo:releaseDate "2021-05-15" .
+dbr:Kingston_FURY_Beast_DDR4 dbo:memorySize "16 GB" .
+dbr:Kingston_FURY_Beast_DDR4 dbo:memoryType "DDR4" .
+dbr:Kingston_FURY_Beast_DDR4 dbo:clockSpeed "3600 MHz" .
+
+dbr:Samsung_990_PRO_2TB dbo:category dbr:SSD .
+dbr:Samsung_990_PRO_2TB dbo:manufacturer dbr:Samsung .
+dbr:Samsung_990_PRO_2TB dbo:releaseDate "2022-10-20" .
+dbr:Samsung_990_PRO_2TB dbo:storageCapacity "2 TB" .
+dbr:Samsung_990_PRO_2TB dbo:interface "NVMe PCIe 4.0" .
+
+dbr:Western_Digital_Black_SN850X dbo:category dbr:SSD .
+dbr:Western_Digital_Black_SN850X dbo:manufacturer dbr:Western_Digital .
+dbr:Western_Digital_Black_SN850X dbo:releaseDate "2022-07-01" .
+dbr:Western_Digital_Black_SN850X dbo:storageCapacity "1 TB" .
+dbr:Western_Digital_Black_SN850X dbo:interface "NVMe PCIe 4.0" .
+
+dbr:Crucial_P5_Plus_1TB dbo:category dbr:SSD .
+dbr:Crucial_P5_Plus_1TB dbo:manufacturer dbr:Crucial .
+dbr:Crucial_P5_Plus_1TB dbo:releaseDate "2021-06-01" .
+dbr:Crucial_P5_Plus_1TB dbo:storageCapacity "1 TB" .
+dbr:Crucial_P5_Plus_1TB dbo:interface "NVMe PCIe 4.0" .
+
+dbr:Corsair_RMX_1000W dbo:category dbr:PSU .
+dbr:Corsair_RMX_1000W dbo:manufacturer dbr:Corsair .
+dbr:Corsair_RMX_1000W dbo:releaseDate "2022-03-01" .
+dbr:Corsair_RMX_1000W dbo:powerOutput "1000W" .
+dbr:Corsair_RMX_1000W dbo:efficiencyRating "80 PLUS Gold" .
+
+dbr:Seasonic_Prime_TX-750 dbo:category dbr:PSU .
+dbr:Seasonic_Prime_TX-750 dbo:manufacturer dbr:Seasonic .
+dbr:Seasonic_Prime_TX-750 dbo:releaseDate "2021-04-01" .
+dbr:Seasonic_Prime_TX-750 dbo:powerOutput "750W" .
+dbr:Seasonic_Prime_TX-750 dbo:efficiencyRating "80 PLUS Titanium" .
+
+dbr:EVGA_SuperNOVA_850_GA dbo:category dbr:PSU .
+dbr:EVGA_SuperNOVA_850_GA dbo:manufacturer dbr:EVGA .
+dbr:EVGA_SuperNOVA_850_GA dbo:releaseDate "2020-08-15" .
+dbr:EVGA_SuperNOVA_850_GA dbo:powerOutput "850W" .
+dbr:EVGA_SuperNOVA_850_GA dbo:efficiencyRating "80 PLUS Gold" .
+
+dbr:NZXT_C850 dbo:category dbr:PSU .
+dbr:NZXT_C850 dbo:manufacturer dbr:NZXT .
+dbr:NZXT_C850 dbo:releaseDate "2021-06-10" .
+dbr:NZXT_C850 dbo:powerOutput "850W" .
+dbr:NZXT_C850 dbo:efficiencyRating "80 PLUS Gold" .
+
+dbr:Fractal_Design_Define_7 dbo:category dbr:Case .
+dbr:Fractal_Design_Define_7 dbo:manufacturer dbr:Fractal_Design .
+dbr:Fractal_Design_Define_7 dbo:releaseDate "2020-02-20" .
+dbr:Fractal_Design_Define_7 dbo:formFactor "ATX" .
+dbr:Fractal_Design_Define_7 dbo:color "Black" .
+
+dbr:Cooler_Master_HAF_700 dbo:category dbr:Case .
+dbr:Cooler_Master_HAF_700 dbo:manufacturer dbr:Cooler_Master .
+dbr:Cooler_Master_HAF_700 dbo:releaseDate "2022-11-10" .
+dbr:Cooler_Master_HAF_700 dbo:formFactor "E-ATX" .
+dbr:Cooler_Master_HAF_700 dbo:color "Black" .
+
+dbr:Lian_Li_PC-O11_Dynamic dbo:category dbr:Case .
+dbr:Lian_Li_PC-O11_Dynamic dbo:manufacturer dbr:Lian_Li .
+dbr:Lian_Li_PC-O11_Dynamic dbo:releaseDate "2019-03-15" .
+dbr:Lian_Li_PC-O11_Dynamic dbo:formFactor "ATX" .
+dbr:Lian_Li_PC-O11_Dynamic dbo:color "White" .
+
+dbr:Noctua_NH-D15 dbo:category dbr:Cooling_Solution .
+dbr:Noctua_NH-D15 dbo:manufacturer dbr:Noctua .
+dbr:Noctua_NH-D15 dbo:releaseDate "2014-05-06" .
+dbr:Noctua_NH-D15 dbo:coolingType "Air" .
+dbr:Noctua_NH-D15 dbo:fanCount "2" .
+
+dbr:Corsair_iCUE_H150i_Elite_Capellix dbo:category dbr:Cooling_Solution .
+dbr:Corsair_iCUE_H150i_Elite_Capellix dbo:manufacturer dbr:Corsair .
+dbr:Corsair_iCUE_H150i_Elite_Capellix dbo:releaseDate "2020-10-05" .
+dbr:Corsair_iCUE_H150i_Elite_Capellix dbo:coolingType "Liquid" .
+dbr:Corsair_iCUE_H150i_Elite_Capellix dbo:fanCount "3" .
+
+dbr:NZXT_Kraken_X73 dbo:category dbr:Cooling_Solution .
+dbr:NZXT_Kraken_X73 dbo:manufacturer dbr:NZXT .
+dbr:NZXT_Kraken_X73 dbo:releaseDate "2020-01-31" .
+dbr:NZXT_Kraken_X73 dbo:coolingType "Liquid" .
+dbr:NZXT_Kraken_X73 dbo:fanCount "3" .

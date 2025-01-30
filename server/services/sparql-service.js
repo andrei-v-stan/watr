@@ -1,15 +1,48 @@
 import axios from 'axios';
-import N3Parser from '@rdfjs/parser-n3';
-import { createReadStream } from 'fs';
+import fs from 'fs';
+import { createReadStream} from 'fs';
+import { Readable } from 'stream';
 import streamToArray from 'stream-to-array';
+import N3Parser from '@rdfjs/parser-n3';
+import jsonld from 'jsonld';
+import { fromFile } from 'rdf-utils-fs';
+import {RdfXmlParser} from 'rdfxml-streaming-parser';
+
 
 async function getQuads(filePath) {
-  const parser = new N3Parser();
+  const extension = filePath.substring(filePath.lastIndexOf('.')).trim().toLowerCase();
   const rdfStream = createReadStream(filePath);
-  const quadStream = parser.import(rdfStream);
 
-  return await streamToArray(quadStream);
+  if (['.jsonld', '.rj'].includes(extension)) {
+    const data = JSON.parse(await fs.promises.readFile(filePath, 'utf-8'));
+    return await jsonld.toRDF(data);
+  } 
+  else if (['.owl', '.trix'].includes(extension)) {
+    const parser = new RdfXmlParser();
+    const quadStream = parser.import(rdfStream);
+    return await streamToArray(quadStream);
+  } 
+  else if (extension === '.rdf') {
+    return await streamToArray(fromFile(filePath));
+  } 
+  else if (['.nq', '.nt', '.pbrdf', '.rpb', '.rt', '.trdf', '.trig', '.ttl'].includes(extension)) {
+    const parser = new N3Parser();
+    const quadStream = parser.import(rdfStream);
+    return await streamToArray(quadStream);
+  } 
+  else {
+    const fallbackStream = Readable.from([
+      {
+        subject: { value: "Subjects N A" },
+        predicate: { value: "Predicates N A" },
+        object: { value: "Objects N A" },
+      }
+    ]);
+
+    return await streamToArray(fallbackStream);
+  }
 }
+
 
 function isValidSubject(quad, predicate, attribute) {
   return quad.predicate.value === predicate && quad.object.value === attribute;
@@ -251,3 +284,44 @@ export async function queryObjects(dataset, page, limit) {
 `;
   return executeQuery(dataset, query);
 }
+
+
+import SHACLValidator from 'rdf-validate-shacl';
+import rdf from 'rdf-ext';
+
+async function loadDataset(filePath) {
+  const rdfStream = createReadStream(filePath);
+  const parser = new N3Parser();
+  const quadStream = parser.import(rdfStream);
+  const quads = await streamToArray(quadStream);
+  
+  return rdf.dataset(quads);
+}
+
+async function loadShapes(shapesFilePath) {
+  const rdfStream = createReadStream(shapesFilePath);
+  const parser = new N3Parser();
+  const quadStream = parser.import(rdfStream);
+  const quads = await streamToArray(quadStream);
+  
+  return rdf.dataset(quads);
+}
+
+
+export async function validateDataset(dataFilePath, shapesFilePath) {
+  const data = await loadDataset(dataFilePath);
+  const shapes = await loadShapes(shapesFilePath);
+
+  const validator = new SHACLValidator(shapes);
+  const report = validator.validate(data);
+
+  return {
+    conforms: report.conforms,
+    results: report.results.map(result => ({
+      focusNode: result.focusNode.value,
+      path: result.path ? result.path.value : null,
+      message: result.message[0] || "Constraint violated",
+    })),
+  };
+}
+
