@@ -25,12 +25,14 @@
 }
 
 #operations-button-container>button:hover,
-.operations-compare-section>button:hover {
+.operations-compare-section>button:hover,
+.operations-match-align-section>button:hover {
   background-color: rgb(51, 116, 255);
 }
 
 #operations-button-container>button:active,
-.operations-compare-section>button:active {
+.operations-compare-section>button:active,
+.operations-match-align-section>button:active {
   background-color: rgb(0, 44, 138);
 }
 
@@ -41,7 +43,8 @@
 }
 
 .operations-compare-section>.dropdown-container,
-.operations-classify-section .dropdown-container {
+.operations-classify-section .dropdown-container,
+.operations-match-align-section .dropdown-container {
   margin-bottom: 25px;
   color: black;
   font-weight: bold;
@@ -50,7 +53,8 @@
 
 .operations-visualize-section table,
 .operations-compare-section table,
-.operations-classify-section table {
+.operations-classify-section table,
+.operations-match-align-section table {
   width: 100%;
   border-collapse: collapse;
   border: 4px solid rgb(215, 215, 215);
@@ -66,7 +70,9 @@
 .operations-compare-section th,
 .operations-compare-section td,
 .operations-classify-section th,
-.operations-classify-section td {
+.operations-classify-section td,
+.operations-match-align-section th,
+.operations-match-align-section td {
   padding: 7px;
   border: 2px solid rgb(215, 215, 215);
 }
@@ -217,6 +223,14 @@
   background-color: darkblue;
 }
 
+.actions .match-button {
+  background-color: indigo;
+}
+
 .results-container {
   margin-top: 20px;
+}
+
+.operations-match-align-section > #toggles-local-section {
+  margin: 0;
 }
