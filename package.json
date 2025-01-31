@@ -1,11 +1,21 @@
 {
   "name": "watr",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.12",
   "type": "module",
   "author": "Stan Andrei & Dascalu Andrei",
-  "license": "UAIC, FII",
+  "license": "MIT",
   "description": "A web data commons analyzer",
+  "keywords": [
+    "project",
+    "infoiasi",
+    "wade",
+    "web",
+    "rdf",
+    "sparql",
+    "semantic-web",
+    "data-analysis"
+  ],
   "scripts": {
     "dev-client": "vite",
     "build": "vite build",
