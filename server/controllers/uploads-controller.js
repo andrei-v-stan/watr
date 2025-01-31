@@ -1,6 +1,8 @@
 import path from 'path';
 import fs from 'fs';
 import { getUploadsData, saveUploadsData, ensureUserFolder, updateUploadsJson, createCookieIfMissing, verifyUUID, uploadsFolder } from '../services/uploads-service.js';
+import { HOST, VITE } from '../server.js';
+
 
 export const getCookie = (req, res) => {
   const uuid = createCookieIfMissing(req, res);
@@ -22,7 +24,10 @@ export const getDatasets = (req, res) => {
   const signature = req.cookies['user_uuid_signature'];
 
   if (!uuid || !signature || !verifyUUID(uuid, signature)) {
-    return res.status(400).json({ error: 'Invalid or missing UUID/signature' });
+    const errorCode = 403;
+    const errorMessage = 'Invalid or missing UUID/signature';
+    return res.redirect(`http://${HOST}:${VITE}/redir?code=${errorCode}&message=${encodeURIComponent(errorMessage)}`);
+    // return res.status(400).json({ error: 'Invalid or missing UUID/signature' });
   }
 
   const uploads = getUploadsData();
@@ -44,7 +49,10 @@ export const getFile = (req, res) => {
   const signature = req.cookies['user_uuid_signature'];
 
   if (!uuid || !signature || !verifyUUID(uuid, signature)) {
-    return res.status(400).json({ error: 'Invalid or missing UUID/signature' });
+    const errorCode = 403;
+    const errorMessage = 'Invalid or missing UUID/signature';
+    return res.redirect(`http://${HOST}:${VITE}/redir?code=${errorCode}&message=${encodeURIComponent(errorMessage)}`);
+    // return res.status(400).json({ error: 'Invalid or missing UUID/signature' });
   }
 
   const sessionFolder = path.join(uploadsFolder, uuid);
@@ -62,7 +70,10 @@ export const deleteFile = (req, res) => {
   const signature = req.cookies['user_uuid_signature'];
 
   if (!uuid || !signature || !verifyUUID(uuid, signature)) {
-    return res.status(400).json({ error: 'Invalid or missing UUID/signature' });
+    const errorCode = 403;
+    const errorMessage = 'Invalid or missing UUID/signature';
+    return res.redirect(`http://${HOST}:${VITE}/redir?code=${errorCode}&message=${encodeURIComponent(errorMessage)}`);
+    // return res.status(400).json({ error: 'Invalid or missing UUID/signature' });
   }
 
   const sessionFolder = path.join(uploadsFolder, uuid);
@@ -88,7 +99,10 @@ export const renameFile = (req, res) => {
   const signature = req.cookies['user_uuid_signature'];
 
   if (!uuid || !signature || !verifyUUID(uuid, signature)) {
-    return res.status(400).json({ error: 'Invalid or missing UUID/signature' });
+    const errorCode = 403;
+    const errorMessage = 'Invalid or missing UUID/signature';
+    return res.redirect(`http://${HOST}:${VITE}/redir?code=${errorCode}&message=${encodeURIComponent(errorMessage)}`);
+    // return res.status(400).json({ error: 'Invalid or missing UUID/signature' });
   }
 
   const sessionFolder = path.join(uploadsFolder, uuid);
@@ -117,7 +131,10 @@ export const uploadFile = (req, res) => {
   const signature = req.cookies['user_uuid_signature'];
 
   if (!uuid || !signature || !verifyUUID(uuid, signature)) {
-    return res.status(400).json({ error: 'Invalid or missing UUID/signature' });
+    const errorCode = 403;
+    const errorMessage = 'Invalid or missing UUID/signature';
+    return res.redirect(`http://${HOST}:${VITE}/redir?code=${errorCode}&message=${encodeURIComponent(errorMessage)}`);
+    // return res.status(400).json({ error: 'Invalid or missing UUID/signature' });
   }
 
   const userFolder = ensureUserFolder(uuid);
