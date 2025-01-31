@@ -2,3 +2,13 @@ h2 {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+    filter: brightness(0.75);
+    font-style: oblique;
+}

@@ -193,28 +193,28 @@
 .actions {
   display: flex;
   justify-content: center;
+}
 
-  button {
-    margin: 0 20px;
-    color: white;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease;
-    font-size: 18px;
-    font-weight: bold;
+.actions button {
+  margin: 0 20px;
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  font-size: 18px;
+  font-weight: bold;
+}
 
-    &.add-button {
-      background-color: darkgreen;
-    }
+.actions .add-button {
+  background-color: darkgreen;
+}
 
-    &.switch-button {
-      background-color: darkorange;
-    }
+.actions .switch-button {
+  background-color: darkorange;
+}
 
-    &.classify-button {
-      background-color: darkblue;
-    }
-  }
+.actions .classify-button {
+  background-color: darkblue;
 }
 
 .results-container {
