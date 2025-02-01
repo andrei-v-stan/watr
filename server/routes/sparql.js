@@ -17,4 +17,6 @@ router.post('/classify', sparqlController.classify);
 
 router.post('/match', sparqlController.match);
 
+router.post('/query', sparqlController.executeQuery);
+
 export default router;

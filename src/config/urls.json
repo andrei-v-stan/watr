@@ -1,33 +1,63 @@
 [
-    {
-      "url": "https://dbpedia.org/sparql",
-      "queries": [
-        { "title": "Dbpedia 1", "query": "None for now();" }
-      ]
-    },
-    {
-      "url": "https://query.wikidata.org/sparql",
-      "queries": [
-        { "title": "Wikidata 1", "query": "None for now();" }
-      ]
-    },
-    {
-      "url": "https://data.bnf.fr/sparql",
-      "queries": [
-        { "title": "Bnfr 1", "query": "None for now();" }
-      ]
-    },
-    {
-      "url": "https://sparql.uniprot.org/sparql",
-      "queries": [
-        { "title": "Uniprot 1", "query": "None for now();" }
-      ]
-    },
-    {
-      "url": "https://linkeddata.uriburner.com/sparql",
-      "queries": [
-        { "title": "Linkeddata 1", "query": "None for now();" }
-      ]
-    }
-  ]
-  
+  {
+    "url": "https://dbpedia.org/sparql",
+    "queries": [
+      {
+        "title": "Books written by JK. Rowling",
+        "query": "SELECT ?book ?bookLabel\nWHERE {\n  ?book dbo:author <http://dbpedia.org/resource/J._K._Rowling> .\n  ?book rdfs:label ?bookLabel .\n  FILTER (lang(?bookLabel) = \"en\")\n}"
+      },
+      {
+        "title": "All games released in 2020",
+        "query": "SELECT ?game ?gameLabel ?releaseDate\nWHERE {\n  ?game rdf:type dbo:VideoGame .\n  ?game dbo:releaseDate ?releaseDate .\n  FILTER (YEAR(?releaseDate) = 2020)\n  ?game rdfs:label ?gameLabel .\n  FILTER (lang(?gameLabel) = \"en\")\n}\nORDER BY ?releaseDate"
+      },
+      {
+        "title": "Software tech companies",
+        "query": "SELECT ?company ?companyLabel\nWHERE {\n  ?company rdf:type dbo:Company .\n  ?company dbo:industry <http://dbpedia.org/resource/Software_industry> .\n  ?company rdfs:label ?companyLabel .\n  FILTER (lang(?companyLabel) = \"en\")\n}"
+      }
+    ]
+  },
+  {
+    "url": "https://query.wikidata.org/sparql",
+    "queries": [
+      {
+        "title": "Cats detailed",
+        "query": "SELECT ?cat ?catLabel ?sex_or_gender ?image ?instance_of ?date_of_birth ?date_of_death ?place_of_death ?owned_by WHERE {\n  ?cat wdt:P31 wd:Q146.\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],mul,en\". }\n  OPTIONAL { ?cat wdt:P31 ?instance_of. }\n  OPTIONAL { ?cat wdt:P18 ?image. }\n  OPTIONAL { ?cat wdt:P21 ?sex_or_gender }\n  OPTIONAL { ?cat wdt:P569 ?date_of_birth. }\n  OPTIONAL { ?cat wdt:P570 ?date_of_death. }\n  OPTIONAL { ?cat wdt:P20 ?place_of_death. }\n  OPTIONAL { ?cat wdt:P127 ?owned_by. }\n}"
+      },
+      {
+        "title": "Mayors that are animals",
+        "query": "SELECT ?image ?speciesLabel ?mayorLabel ?placeLabel WHERE {\n  VALUES ?species {wd:Q144 wd:Q146 wd:Q780}\n  ?mayor wdt:P31 ?species .\n  ?mayor p:P39 ?node .\n  ?node ps:P39 wd:Q30185 .\n  ?node pq:P642 ?place .\n  OPTIONAL { ?mayor wdt:P18 ?image }\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],mul,en\". }\n}"
+      },
+      {
+        "title": "Largest cities per country",
+        "query": "SELECT DISTINCT ?city ?cityLabel ?population ?country ?countryLabel ?loc WHERE {\n  {\n    SELECT (MAX(?population_) AS ?population) ?country WHERE {\n      ?city wdt:P31/wdt:P279* wd:Q515 .\n      ?city wdt:P1082 ?population_ .\n      ?city wdt:P17 ?country .\n    }\n    GROUP BY ?country\n    ORDER BY DESC(?population)\n  }\n  ?city wdt:P31/wdt:P279* wd:Q515 .\n  ?city wdt:P1082 ?population .\n  ?city wdt:P17 ?country .\n  ?city wdt:P625 ?loc .\n  SERVICE wikibase:label {\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],mul,en\" .\n  }\n}\nORDER BY DESC(?population)"
+      }
+    ]
+  },
+  {
+    "url": "https://data.bnf.fr/sparql",
+    "queries": [
+      {
+        "title": "Bnfr 0",
+        "query": "None for now;"
+      }
+    ]
+  },
+  {
+    "url": "https://sparql.uniprot.org/sparql",
+    "queries": [
+      {
+        "title": "Uniprot 0",
+        "query": "None for now;"
+      }
+    ]
+  },
+  {
+    "url": "https://linkeddata.uriburner.com/sparql",
+    "queries": [
+      {
+        "title": "Linkeddata 0",
+        "query": "None for now;"
+      }
+    ]
+  }
+]

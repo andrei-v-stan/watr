@@ -13,37 +13,42 @@ import { QueryEngine } from '@comunica/query-sparql';
 async function getQuads(filePath) {
   const extension = filePath.substring(filePath.lastIndexOf('.')).trim().toLowerCase();
   const rdfStream = createReadStream(filePath);
-
-  if (['.jsonld', '.rj'].includes(extension)) {
-    const data = JSON.parse(await fs.promises.readFile(filePath, 'utf-8'));
-    return await jsonld.toRDF(data);
-  }
-  else if (['.owl', '.trix'].includes(extension)) {
-    const parser = new RdfXmlParser();
-    const quadStream = parser.import(rdfStream);
-    return await streamToArray(quadStream);
-  }
-  else if (extension === '.rdf') {
-    return await streamToArray(fromFile(filePath));
-  }
-  else if (['.nq', '.nt', '.pbrdf', '.rpb', '.rt', '.trdf', '.trig', '.ttl'].includes(extension)) {
-    const parser = new N3Parser();
-    const quadStream = parser.import(rdfStream);
-    return await streamToArray(quadStream);
-  }
-  else {
-    const fallbackStream = Readable.from([
-      {
-        subject: { value: "Subjects N A" },
-        predicate: { value: "Predicates N A" },
-        object: { value: "Objects N A" },
+  
+  try {
+      if (['.jsonld', '.rj'].includes(extension)) {
+        const data = JSON.parse(await fs.promises.readFile(filePath, 'utf-8'));
+        return await jsonld.toRDF(data);
       }
-    ]);
+      else if (['.owl', '.trix'].includes(extension)) {
+        const parser = new RdfXmlParser();
+        const quadStream = parser.import(rdfStream);
+        return await streamToArray(quadStream);
+      }
+      else if (extension === '.rdf') {
+        return await streamToArray(fromFile(filePath));
+      }
+      else if (['.nq', '.nt', '.pbrdf', '.rpb', '.rt', '.trdf', '.trig', '.ttl'].includes(extension)) {
+        const parser = new N3Parser();
+        const quadStream = parser.import(rdfStream);
+        return await streamToArray(quadStream);
+      }
+      else {
+        const fallbackStream = Readable.from([
+          {
+            subject: { value: "Subjects N A" },
+            predicate: { value: "Predicates N A" },
+            object: { value: "Objects N A" },
+          }
+        ]);
 
-    return await streamToArray(fallbackStream);
+      return await streamToArray(fallbackStream);
+    }
+  } 
+  catch (error) {
+    console.error(`Error processing file "${filePath}":`, error.message);
+    throw new Error(`Failed to process file "${filePath}"`);
   }
 }
-
 
 function isValidSubject(quad, predicate, attribute) {
   return quad.predicate.value === predicate && quad.object.value === attribute;
@@ -427,4 +432,20 @@ export async function validateDataset(dataFilePath, shapesFilePath) {
       message: result.message[0] || "Constraint violated",
     })),
   };
+}
+
+export async function runSPARQLQuery(endpoint, query) {
+  try {
+      const response = await axios.post(endpoint, {
+          query: query,
+      }, {
+          headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+          },
+      });
+      return response.data;
+  } catch (error) {
+      console.error('Error executing SPARQL query:', error);
+      throw new Error('Failed to execute SPARQL query');
+  }
 }

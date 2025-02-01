@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import { uploadsFolder } from '../services/uploads-service.js';
-import { getClassifiedSubjects, getDistinctAttributes, getDistinctPredicates, getMatchedSubjects, parseAndOrganizeDataset, validateDataset } from '../services/sparql-service.js';
+import { getClassifiedSubjects, getDistinctAttributes, getDistinctPredicates, getMatchedSubjects, parseAndOrganizeDataset, validateDataset, runSPARQLQuery } from '../services/sparql-service.js';
 
 export const sparqlController = {
   async getTriples(req, res) {
@@ -87,6 +87,17 @@ export const sparqlController = {
     } catch (error) {
       console.error('Error matching the dataset:', error);
       res.status(500).json({ error: 'Error matching the dataset' });
+    }
+  },
+
+  async executeQuery(req, res) {
+    const { endpoint, query } = req.body;
+    try {
+        const results = await runSPARQLQuery(endpoint, query);
+        res.json(results);
+    } catch (error) {
+        console.error('Error executing SPARQL query:', error);
+        res.status(500).json({ error: 'Error executing SPARQL query' });
     }
   }
 }

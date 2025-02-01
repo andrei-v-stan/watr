@@ -1,0 +1,58 @@
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix p: <http://www.wikidata.org/prop/> .
+@prefix ps: <http://www.wikidata.org/prop/statement/> .
+
+wd:Q49581026 wdt:P31 wd:Q1773363 ;  # Princess is a cat breed
+    wdt:P495 wd:Q30 ;               # Origin: United States
+    wdt:P569 "12-14 years" ;        # Lifespan: 12-14 years
+    wdt:P2047 "3-6 kg" ;            # Weight: 3-6 kg
+    wdt:P2860 wd:Q14111175 .        # Coat: Long-haired
+
+wd:Q50401328 wdt:P31 wd:Q1773363 ;  # Mittens is a cat breed
+    wdt:P495 wd:Q30 ;               # Origin: United States
+    wdt:P569 "10-12 years" ;        # Lifespan: 10-12 years
+    wdt:P2047 "2-4 kg" ;            # Weight: 2-4 kg
+    wdt:P2860 wd:Q14111175 .        # Coat: Short-haired
+
+wd:Q50533760 wdt:P31 wd:Q1773363 ;  # Bobby Kertanegara is a cat breed
+    wdt:P495 wd:Q30 ;               # Origin: United States
+    wdt:P569 "15-17 years" ;        # Lifespan: 15-17 years
+    wdt:P2047 "3.5-5 kg" ;          # Weight: 3.5-5 kg
+    wdt:P2860 wd:Q14111175 .        # Coat: Long-haired
+
+wd:Q51115137 wdt:P31 wd:Q1773363 ;  # Kitten is a cat breed
+    wdt:P495 wd:Q30 ;               # Origin: United States
+    wdt:P569 "2-3 years" ;          # Lifespan: 2-3 years
+    wdt:P2047 "1-3 kg" ;            # Weight: 1-3 kg
+    wdt:P2860 wd:Q14111175 .        # Coat: Short-haired
+
+wd:Q51189052 wdt:P31 wd:Q1773363 ;  # Misha is a cat breed
+    wdt:P495 wd:Q30 ;               # Origin: United States
+    wdt:P569 "13-15 years" ;        # Lifespan: 13-15 years
+    wdt:P2047 "3-6 kg" ;            # Weight: 3-6 kg
+    wdt:P2860 wd:Q14111175 .        # Coat: Long-haired
+
+wd:Q47134932 wdt:P31 wd:Q1773363 ;  # Luna is a cat breed
+    wdt:P495 wd:Q30 ;               # Origin: United States
+    wdt:P569 "12-16 years" ;        # Lifespan: 12-16 years
+    wdt:P2047 "4-6 kg" ;            # Weight: 4-6 kg
+    wdt:P2860 wd:Q14111175 .        # Coat: Long-haired
+
+wd:Q45491788 wdt:P31 wd:Q1773363 ;  # Chloe is a cat breed
+    wdt:P495 wd:Q30 ;               # Origin: United States
+    wdt:P569 "14-18 years" ;        # Lifespan: 14-18 years
+    wdt:P2047 "3-5 kg" ;            # Weight: 3-5 kg
+    wdt:P2860 wd:Q14111175 .        # Coat: Short-haired
+
+wd:Q49574472 wdt:P31 wd:Q1773363 ;  # Simba is a cat breed
+    wdt:P495 wd:Q30 ;               # Origin: United States
+    wdt:P569 "16-20 years" ;        # Lifespan: 16-20 years
+    wdt:P2047 "4.5-6 kg" ;          # Weight: 4.5-6 kg
+    wdt:P2860 wd:Q14111175 .        # Coat: Long-haired
+
+wd:Q48722095 wdt:P31 wd:Q1773363 ;  # Oscar is a cat breed
+    wdt:P495 wd:Q30 ;               # Origin: United States
+    wdt:P569 "13-17 years" ;        # Lifespan: 13-17 years
+    wdt:P2047 "4-5 kg" ;            # Weight: 4-5 kg
+    wdt:P2860 wd:Q14111175 .        # Coat: Short-haired
