@@ -7,5 +7,41 @@
       "video_games.ttl",
       "other_pc_parts.ttl"
     ]
+  },
+  "040c3d89-ed13-4e05-a238-dde9dea004f0": {
+    "timestamp": 1738356531052,
+    "signature": "9a2c2595dce655621fbcc058be4a69cd873b8e519c7649a369112a9419edc138",
+    "files": [
+      "shacl.zip",
+      "pc_parts.ttl"
+    ]
+  },
+  "1254f985-6d44-4e2d-8355-07ce8b741dc3": {
+    "timestamp": 1738356460421,
+    "signature": "6cb59b3be344c4243a8b7c698212b11660f6e92bdc2c6e21c60f40278b94c2a8",
+    "files": []
+  },
+  "82d279eb-6853-4954-8759-76bfd9e4dcbd": {
+    "timestamp": 1738357559349,
+    "signature": "77f6cb70e382b631dbfcde2875a49832783380eee100b1c1a7e05096395013ba",
+    "files": [
+      "pc_parts.jsonld",
+      "pc_parts.nq",
+      "pc_parts.nt",
+      "pc_parts.owl",
+      "pc_parts.pbrdf",
+      "pc_parts.rdf",
+      "pc_parts.rj",
+      "pc_parts.rpb",
+      "pc_parts.rt",
+      "pc_parts.trdf",
+      "pc_parts.trig",
+      "pc_parts.trix",
+      "pc_parts.ttl",
+      "video_games.ttl",
+      "uaic.ttl",
+      "wikpedia.ttl",
+      "uaic-info.ttl"
+    ]
   }
 }

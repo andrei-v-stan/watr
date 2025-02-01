@@ -12,6 +12,9 @@ const app = express();
 const HOST = process.env.VITE_HOST_ADDR;
 const PORT = process.env.VITE_PORT_API;
 const API = process.env.VITE_API_PATH;
+const VITE = process.env.VITE_PORT_APP;
+
+export { HOST, PORT, API, VITE };
 checkPrerequisites();
 
 app.use(cors({
@@ -35,6 +38,14 @@ app.use(`/${API}/sparql`, sparqlRouter);
 app.get(`/${API}/status`, (req, res) => {
   res.json({ status: 'OK', message: 'Watr Backend is running!' });
 });
+
+app.use('*', (req, res) => {
+  const errorCode = 404;
+  const errorMessage = 'API Call Not Found';
+  res.redirect(`http://${HOST}:${VITE}/redir?code=${errorCode}&message=${encodeURIComponent(errorMessage)}`);
+});
+
+
 
 app.listen(PORT, () => {
   console.log(`Server running on http://${HOST}:${PORT}`);

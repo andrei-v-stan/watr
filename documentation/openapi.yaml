@@ -1,0 +1,411 @@
+openapi: 3.1.0
+info:
+  title: Watr API
+  description: Web Data Commons Analyzer API - A comprehensive API for RDF data analysis and SPARQL operations
+  version: 0.13.1
+  contact:
+    name: Stan Andrei & Dascalu Andrei
+    email: fii.watr@gmail.com
+    url: https://github.com/andrei-v-stan/watr
+
+servers:
+  - url: http://{host}:{port}/{api}
+    variables:
+      host:
+        default: localhost
+        description: API host
+      port:
+        default: "4000"
+        description: API port
+      api:
+        default: api
+        description: API base path
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          example: "File not found"
+    FileInfo:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        timestamp:
+          type: string
+          format: date-time
+        files:
+          type: array
+          items:
+            type: string
+    UploadResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "File uploaded successfully"
+        filename:
+          type: string
+    CookieResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Cookie is valid and active"
+        uuid:
+          type: string
+          format: uuid
+    Triple:
+      type: object
+      properties:
+        subject:
+          type: string
+        predicate:
+          type: string
+        object:
+          type: string
+    ClassificationRequest:
+      type: object
+      properties:
+        file:
+          type: string
+        operation:
+          type: string
+          enum: [Union, Intersection]
+        pairs:
+          type: array
+          items:
+            type: object
+            properties:
+              predicate:
+                type: string
+              attribute:
+                type: string
+
+paths:
+  /files/cookie:
+    get:
+      summary: Get or create session cookie
+      responses:
+        '200':
+          description: Cookie set successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CookieResponse'
+        '500':
+          description: Failed to create or retrieve cookie
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /files/datasets:
+    get:
+      summary: Get list of user's datasets
+      responses:
+        '200':
+          description: List of datasets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '404':
+          description: No files found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /files/{filename}:
+    get:
+      summary: Download a specific file
+      parameters:
+        - name: filename
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: File content
+          content:
+            application/octet-stream: {}
+        '404':
+          description: File not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    
+    delete:
+      summary: Delete a file
+      parameters:
+        - name: filename
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: File deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "File deleted successfully"
+        '404':
+          description: File not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    put:
+      summary: Rename a file
+      parameters:
+        - name: filename
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                newFilename:
+                  type: string
+      responses:
+        '200':
+          description: File renamed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "File renamed successfully"
+        '404':
+          description: File not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /files/upload:
+    post:
+      summary: Upload a file
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: File uploaded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadResponse'
+        '400':
+          description: No file uploaded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /sparql/triples:
+    get:
+      summary: Get triples from a dataset
+      parameters:
+        - name: file
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of triples
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Triple'
+        '500':
+          description: Error parsing the dataset
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /sparql/validate:
+    get:
+      summary: Validate dataset against SHACL shapes
+      parameters:
+        - name: file
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Validation results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  conforms:
+                    type: boolean
+                  results:
+                    type: array
+                    items:
+                      type: object
+        '404':
+          description: Shapes file not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /sparql/predicates:
+    get:
+      summary: Get distinct predicates from a dataset
+      parameters:
+        - name: file
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of distinct predicates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '500':
+          description: Error getting distinct predicates
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /sparql/attributes:
+    get:
+      summary: Get distinct attributes for a predicate
+      parameters:
+        - name: file
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: predicate
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of distinct attributes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '500':
+          description: Error getting distinct attributes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /sparql/classify:
+    post:
+      summary: Classify subjects based on predicates and attributes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClassificationRequest'
+      responses:
+        '200':
+          description: Classification results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '500':
+          description: Error classifying the dataset
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /sparql/query:
+    post:
+      summary: Execute a SPARQL query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: SPARQL query string
+      responses:
+        '200':
+          description: Query results
+          content:
+            application/json:
+              schema:
+                type: object
+        '500':
+          description: Error executing SPARQL query
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /status:
+    get:
+      summary: Get API status
+      responses:
+        '200':
+          description: API status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "OK"
+                  message:
+                    type: string
+                    example: "Watr Backend is running!"
