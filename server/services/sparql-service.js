@@ -210,7 +210,7 @@ export async function getSubjectsByPairs(filePath, pairs) {
 
 export async function getMatchedSubjects(file, matchingSelectedFile, pairs, comparisonMode, matchByPredicates) {
   const quads1 = await getQuads(file);
-  const quads2 = await getQuads(file);
+  const quads2 = await getQuads(matchingSelectedFile);
 
   const subjects1 = new Map();
   const subjects2 = new Map();
@@ -218,7 +218,6 @@ export async function getMatchedSubjects(file, matchingSelectedFile, pairs, comp
   const addSubject = (quads, subjectsMap) => {
     quads.forEach((quad) => {
       if (pairs.some(pair => isValidSubject(quad, pair.predicate, pair.attribute))) {
-        console.log('Valid Subject:', quad.subject.value);
         if (!subjectsMap.has(quad.subject.value)) {
           subjectsMap.set(quad.subject.value, new Map());
         }
@@ -230,6 +229,9 @@ export async function getMatchedSubjects(file, matchingSelectedFile, pairs, comp
 
   addSubject(quads1, subjects1);
   addSubject(quads2, subjects2);
+  console.log('Subjects 1:', subjects1);
+  console.log('Subjects 2:', subjects2);
+
   const matchedSubjects = [];
 
   if (comparisonMode === 'Subject') {
