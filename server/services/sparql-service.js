@@ -1,12 +1,13 @@
 import axios from 'axios';
 import fs from 'fs';
-import { createReadStream} from 'fs';
+import { createReadStream } from 'fs';
 import { Readable } from 'stream';
 import streamToArray from 'stream-to-array';
 import N3Parser from '@rdfjs/parser-n3';
 import jsonld from 'jsonld';
 import { fromFile } from 'rdf-utils-fs';
-import {RdfXmlParser} from 'rdfxml-streaming-parser';
+import { RdfXmlParser } from 'rdfxml-streaming-parser';
+import { QueryEngine } from '@comunica/query-sparql';
 
 
 async function getQuads(filePath) {
@@ -16,20 +17,20 @@ async function getQuads(filePath) {
   if (['.jsonld', '.rj'].includes(extension)) {
     const data = JSON.parse(await fs.promises.readFile(filePath, 'utf-8'));
     return await jsonld.toRDF(data);
-  } 
+  }
   else if (['.owl', '.trix'].includes(extension)) {
     const parser = new RdfXmlParser();
     const quadStream = parser.import(rdfStream);
     return await streamToArray(quadStream);
-  } 
+  }
   else if (extension === '.rdf') {
     return await streamToArray(fromFile(filePath));
-  } 
+  }
   else if (['.nq', '.nt', '.pbrdf', '.rpb', '.rt', '.trdf', '.trig', '.ttl'].includes(extension)) {
     const parser = new N3Parser();
     const quadStream = parser.import(rdfStream);
     return await streamToArray(quadStream);
-  } 
+  }
   else {
     const fallbackStream = Readable.from([
       {
@@ -83,6 +84,19 @@ async function getSubjectsByPairsIntersection(quads, pairs) {
   return subjects;
 }
 
+async function loadRDFFile(filePath) {
+  console.log('Loading RDF file:', filePath);
+  return new Promise((resolve, reject) => {
+    fs.readFile(filePath, 'utf8', (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(data);
+      }
+    });
+  });
+}
+
 export async function parseAndOrganizeDataset(filePath) {
   const quads = await getQuads(filePath);
   const triples = [];
@@ -96,6 +110,47 @@ export async function parseAndOrganizeDataset(filePath) {
   });
 
   return triples;
+}
+
+export async function getTriplesBySparql(filePath) {
+  const rdfData = await loadRDFFile(filePath); // Load RDF data from file
+  const queryEngine = new QueryEngine(); // Create a new Comunica query engine
+
+  const query = `
+    SELECT ?subject ?predicate ?object
+    WHERE {
+      ?subject ?predicate ?object.
+    }
+  `;
+  console.log('Executing SPARQL query:', query);
+
+  // Execute SPARQL query
+  const bindingsStream = await queryEngine.queryBindings(query, {
+    sources: [rdfData],
+  });
+
+  console.log('Processing query results...');
+  bindingsStream.on('data', (binding) => {
+    console.log(binding.toString()); // Quick way to print bindings for testing
+
+    console.log(binding.has('s')); // Will be true
+
+    // Obtaining values
+    console.log(binding.get('s').value);
+    console.log(binding.get('s').termType);
+    console.log(binding.get('p').value);
+    console.log(binding.get('o').value);
+  });
+
+  // Process query results
+  const queryResults = [];
+  for await (const binding of bindingsStream) {
+    queryResults.push(binding);
+  }
+
+  console.log('Query Results:', queryResults);
+  console.log('Number of Triples:', queryResults.length);
+  return queryResults;
 }
 
 export async function getDistinctPredicates(filePath) {
@@ -153,6 +208,53 @@ export async function getSubjectsByPairs(filePath, pairs) {
   return Array.from(subjects);
 }
 
+export async function getMatchedSubjects(file, matchingSelectedFile, pairs, comparisonMode, matchByPredicates) {
+  const quads1 = await getQuads(file);
+  const quads2 = await getQuads(file);
+
+  const subjects1 = new Map();
+  const subjects2 = new Map();
+
+  const addSubject = (quads, subjectsMap) => {
+    quads.forEach((quad) => {
+      if (pairs.some(pair => isValidSubject(quad, pair.predicate, pair.attribute))) {
+        console.log('Valid Subject:', quad.subject.value);
+        if (!subjectsMap.has(quad.subject.value)) {
+          subjectsMap.set(quad.subject.value, new Map());
+        }
+        const predicatesMap = subjectsMap.get(quad.subject.value);
+        predicatesMap.set(quad.predicate.value, quad.object.value);
+      }
+    });
+  };
+
+  addSubject(quads1, subjects1);
+  addSubject(quads2, subjects2);
+  const matchedSubjects = [];
+
+  if (comparisonMode === 'Subject') {
+    subjects1.forEach((_, subject) => {
+      if (subjects2.has(subject)) {
+        matchedSubjects.push(subject);
+      }
+    });
+  } else if (comparisonMode === 'Predicate-Attribute') {
+    subjects1.forEach((predicatesMap1, subject) => {
+      if (subjects2.has(subject)) {
+        const predicatesMap2 = subjects2.get(subject);
+        const allMatch = matchByPredicates.every(predicate => 
+          predicatesMap1.get(predicate) === predicatesMap2.get(predicate)
+        );
+        if (allMatch) {
+          matchedSubjects.push(subject);
+        }
+      }
+    });
+  }
+
+  return matchedSubjects;
+}
+
 /**
  * Executes a SPARQL query against the given endpoint.
  * @param {string} endpointUrl - The SPARQL endpoint URL (dataset).
@@ -166,14 +268,14 @@ export async function executeQuery(endpointUrl, query) {
       query: query,
     }, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'User-Agent': 'Watr Project'
-      }
+        'Content-Type': 'application/sparql-query',
+        'Accept': 'application/sparql-results+json',
+      },
     });
 
     return response.data;
   } catch (error) {
-    throw new Error('SPARQL query execution failed: ' + error.message);
+    throw new Error(`Failed to execute SPARQL query: ${error.message}`);
   }
 }
 
@@ -294,7 +396,7 @@ async function loadDataset(filePath) {
   const parser = new N3Parser();
   const quadStream = parser.import(rdfStream);
   const quads = await streamToArray(quadStream);
-  
+
   return rdf.dataset(quads);
 }
 
@@ -303,7 +405,7 @@ async function loadShapes(shapesFilePath) {
   const parser = new N3Parser();
   const quadStream = parser.import(rdfStream);
   const quads = await streamToArray(quadStream);
-  
+
   return rdf.dataset(quads);
 }
 
@@ -324,4 +426,3 @@ export async function validateDataset(dataFilePath, shapesFilePath) {
     })),
   };
 }
-

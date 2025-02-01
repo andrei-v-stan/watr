@@ -164,7 +164,7 @@ function OperationsMatchAlignSection({ file }) {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify({ file, selectedFile: matchingSelectedFile, pairs, comparisonMode, matchByPredicates }),
+        body: JSON.stringify({ file, matchingSelectedFile, pairs, comparisonMode, matchByPredicates }),
       });
 
       if (!response.ok) {

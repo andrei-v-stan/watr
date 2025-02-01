@@ -15,4 +15,6 @@ router.get('/attributes', sparqlController.getDistinctAttributes);
 
 router.post('/classify', sparqlController.classify);
 
+router.post('/match', sparqlController.match);
+
 export default router;
