@@ -1,0 +1,132 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix vgc: <http://example.org/videoGameCategory/> .
+
+# RPG (Role-playing Game) Examples
+dbr:The_Witcher_3:Wild_Hunts dbo:category vgc:RPG .
+dbr:The_Witcher_3:Wild_Hunts dbo:developer dbr:CD_Projekt .
+dbr:The_Witcher_3:Wild_Hunts dbo:releaseDate "2015-05-19" .
+dbr:The_Witcher_3:Wild_Hunts dbo:platform dbr:PlayStation_4, dbr:Xbox_One, dbr:Microsoft_Windows .
+dbr:The_Witcher_3:Wild_Hunts dbo:genre "Action RPG" .
+
+dbr:Skyrim dbo:category vgc:RPG .
+dbr:Skyrim dbo:developer dbr:Bethesda_Game_Studios .
+dbr:Skyrim dbo:releaseDate "2011-11-11" .
+dbr:Skyrim dbo:platform dbr:PlayStation_3, dbr:Xbox_360, dbr:Microsoft_Windows .
+dbr:Skyrim dbo:genre "Action RPG" .
+
+dbr:Final_Fantasy_XV dbo:category vgc:RPG .
+dbr:Final_Fantasy_XV dbo:developer dbr:Square_Enix .
+dbr:Final_Fantasy_XV dbo:releaseDate "2016-11-29" .
+dbr:Final_Fantasy_XV dbo:platform dbr:PlayStation_4, dbr:Xbox_One, dbr:Microsoft_Windows .
+dbr:Final_Fantasy_XV dbo:genre "Action RPG" .
+
+# FPS (First-person Shooter) Examples
+dbr:DOOM_2016 dbo:category vgc:FPS .
+dbr:DOOM_2016 dbo:developer dbr:id_Software .
+dbr:DOOM_2016 dbo:releaseDate "2016-05-13" .
+dbr:DOOM_2016 dbo:platform dbr:PlayStation_4, dbr:Xbox_One, dbr:Microsoft_Windows .
+dbr:DOOM_2016 dbo:genre "First-person Shooter" .
+
+dbr:Call_of_Duty:Modern_Warfare_2019 dbo:category vgc:FPS .
+dbr:Call_of_Duty:Modern_Warfare_2019 dbo:developer dbr:Infinity_Ward .
+dbr:Call_of_Duty:Modern_Warfare_2019 dbo:releaseDate "2019-10-25" .
+dbr:Call_of_Duty:Modern_Warfare_2019 dbo:platform dbr:PlayStation_4, dbr:Xbox_One, dbr:Microsoft_Windows .
+dbr:Call_of_Duty:Modern_Warfare_2019 dbo:genre "First-person Shooter" .
+
+dbr:Overwatch dbo:category vgc:FPS .
+dbr:Overwatch dbo:developer dbr:Blizzard_Entertainment .
+dbr:Overwatch dbo:releaseDate "2016-05-24" .
+dbr:Overwatch dbo:platform dbr:PlayStation_4, dbr:Xbox_One, dbr:Microsoft_Windows .
+dbr:Overwatch dbo:genre "First-person Shooter" .
+
+# Strategy (Real-time Strategy) Examples
+dbr:Starcraft_II dbo:category vgc:Strategy .
+dbr:Starcraft_II dbo:developer dbr:Blizzard_Entertainment .
+dbr:Starcraft_II dbo:releaseDate "2010-07-27" .
+dbr:Starcraft_II dbo:platform dbr:Microsoft_Windows, dbr:Mac_OS .
+dbr:Starcraft_II dbo:genre "Real-time Strategy" .
+
+dbr:Civilization_V dbo:category vgc:Strategy .
+dbr:Civilization_V dbo:developer dbr:Firaxis_Games .
+dbr:Civilization_V dbo:releaseDate "2010-09-21" .
+dbr:Civilization_V dbo:platform dbr:Microsoft_Windows, dbr:Mac_OS .
+dbr:Civilization_V dbo:genre "Turn-based Strategy" .
+
+dbr:Age_of_Empires_II dbo:category vgc:Strategy .
+dbr:Age_of_Empires_II dbo:developer dbr:Ensemble_Studios .
+dbr:Age_of_Empires_II dbo:releaseDate "1999-09-30" .
+dbr:Age_of_Empires_II dbo:platform dbr:Microsoft_Windows .
+dbr:Age_of_Empires_II dbo:genre "Real-time Strategy" .
+
+# Action-Adventure Examples
+dbr:Spider-Man_2018 dbo:category vgc:ActionAdventure .
+dbr:Spider-Man_2018 dbo:developer dbr:Insomniac_Games .
+dbr:Spider-Man_2018 dbo:releaseDate "2018-09-07" .
+dbr:Spider-Man_2018 dbo:platform dbr:PlayStation_4 .
+dbr:Spider-Man_2018 dbo:genre "Action-Adventure" .
+
+dbr:The_Legend_of_Zelda:Breath_of_the_Wild dbo:category vgc:ActionAdventure .
+dbr:The_Legend_of_Zelda:Breath_of_the_Wild dbo:developer dbr:Nintendo .
+dbr:The_Legend_of_Zelda:Breath_of_the_Wild dbo:releaseDate "2017-03-03" .
+dbr:The_Legend_of_Zelda:Breath_of_the_Wild dbo:platform dbr:Nintendo_Switch .
+dbr:The_Legend_of_Zelda:Breath_of_the_Wild dbo:genre "Action-Adventure" .
+
+# Racing Examples
+dbr:Forza_Horizon_4 dbo:category vgc:Racing .
+dbr:Forza_Horizon_4 dbo:developer dbr:Playground_Games .
+dbr:Forza_Horizon_4 dbo:releaseDate "2018-10-02" .
+dbr:Forza_Horizon_4 dbo:platform dbr:Microsoft_Windows, dbr:Xbox_One .
+dbr:Forza_Horizon_4 dbo:genre "Open World Racing" .
+
+dbr:Gran_Turismo_Sport dbo:category vgc:Racing .
+dbr:Gran_Turismo_Sport dbo:developer dbr:Polyphony_Digital .
+dbr:Gran_Turismo_Sport dbo:releaseDate "2017-10-18" .
+dbr:Gran_Turismo_Sport dbo:platform dbr:PlayStation_4 .
+dbr:Gran_Turismo_Sport dbo:genre "Simulation Racing" .
+
+dbr:F1_2020 dbo:category vgc:Racing .
+dbr:F1_2020 dbo:developer dbr:Codemasters .
+dbr:F1_2020 dbo:releaseDate "2020-07-10" .
+dbr:F1_2020 dbo:platform dbr:PlayStation_4, dbr:Xbox_One, dbr:Microsoft_Windows .
+dbr:F1_2020 dbo:genre "Simulation Racing" .
+
+# Top Most Played (by player count, time played, esports, etc)
+
+## Most Played by Player Count
+dbr:Fortnite dbo:category vgc:BattleRoyale .
+dbr:Fortnite dbo:developer dbr:Epic_Games .
+dbr:Fortnite dbo:releaseDate "2017-07-25" .
+dbr:Fortnite dbo:platform dbr:PlayStation_4, dbr:Xbox_One, dbr:Microsoft_Windows, dbr:Nintendo_Switch .
+dbr:Fortnite dbo:genre "Battle Royale" .
+dbr:Fortnite dbo:playerCount "350 million" .
+
+dbr:League_of_Legends dbo:category vgc:MOBA .
+dbr:League_of_Legends dbo:developer dbr:Riot_Games .
+dbr:League_of_Legends dbo:releaseDate "2009-10-27" .
+dbr:League_of_Legends dbo:platform dbr:Microsoft_Windows, dbr:macOS .
+dbr:League_of_Legends dbo:genre "Multiplayer Online Battle Arena" .
+dbr:League_of_Legends dbo:playerCount "180 million" .
+
+## Most Played by Time Played
+dbr:World_of_Warcraft dbo:category vgc:MMORPG .
+dbr:World_of_Warcraft dbo:developer dbr:Blizzard_Entertainment .
+dbr:World_of_Warcraft dbo:releaseDate "2004-11-23" .
+dbr:World_of_Warcraft dbo:platform dbr:Microsoft_Windows, dbr:macOS .
+dbr:World_of_Warcraft dbo:genre "MMORPG" .
+dbr:World_of_Warcraft dbo:timePlayed "over 100 billion hours" .
+
+dbr:World_of_Tanks dbo:category vgc:MMO .
+dbr:World_of_Tanks dbo:developer dbr:Wargaming_Net .
+dbr:World_of_Tanks dbo:releaseDate "2010-08-12" .
+dbr:World_of_Tanks dbo:platform dbr:Microsoft_Windows, dbr:PlayStation_4, dbr:Xbox_One .
+dbr:World_of_Tanks dbo:genre "MMO" .
+dbr:World_of_Tanks dbo:timePlayed "over 40 billion hours" .
+
+dbr:Counter_Strike:Global_Offensive dbo:category vgc:FPS .
+dbr:Counter_Strike:Global_Offensive dbo:developer dbr:Valve .
+dbr:Counter_Strike:Global_Offensive dbo:releaseDate "2012-08-21" .
+dbr:Counter_Strike:Global_Offensive dbo:platform dbr:Microsoft_Windows, dbr:PlayStation_3, dbr:Xbox_360 .
+dbr:Counter_Strike:Global_Offensive dbo:genre "First-person Shooter" .
+dbr:Counter_Strike:Global_Offensive dbo:timePlayed "over 20 billion hours" .

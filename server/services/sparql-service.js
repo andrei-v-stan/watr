@@ -8,42 +8,54 @@ import jsonld from 'jsonld';
 import { fromFile } from 'rdf-utils-fs';
 import { RdfXmlParser } from 'rdfxml-streaming-parser';
 import { QueryEngine } from '@comunica/query-sparql';
+import { Store, DataFactory } from 'n3';
 
+async function addQuadsToStore(filePath) {
+  const store = new Store();
+  const quadArray = await getQuads(filePath);
+  const formattedQuads = quadArray.map(quad => DataFactory.quad(
+    DataFactory.namedNode(quad.subject.value),
+    DataFactory.namedNode(quad.predicate.value),
+    DataFactory.namedNode(quad.object.value)
+  ));
+  store.addQuads(formattedQuads);
+  return store;
+}
 
 async function getQuads(filePath) {
   const extension = filePath.substring(filePath.lastIndexOf('.')).trim().toLowerCase();
   const rdfStream = createReadStream(filePath);
-  
+
   try {
-      if (['.jsonld', '.rj'].includes(extension)) {
-        const data = JSON.parse(await fs.promises.readFile(filePath, 'utf-8'));
-        return await jsonld.toRDF(data);
-      }
-      else if (['.owl', '.trix'].includes(extension)) {
-        const parser = new RdfXmlParser();
-        const quadStream = parser.import(rdfStream);
-        return await streamToArray(quadStream);
-      }
-      else if (extension === '.rdf') {
-        return await streamToArray(fromFile(filePath));
-      }
-      else if (['.nq', '.nt', '.pbrdf', '.rpb', '.rt', '.trdf', '.trig', '.ttl'].includes(extension)) {
-        const parser = new N3Parser();
-        const quadStream = parser.import(rdfStream);
-        return await streamToArray(quadStream);
-      }
-      else {
-        const fallbackStream = Readable.from([
-          {
-            subject: { value: "Subjects N A" },
-            predicate: { value: "Predicates N A" },
-            object: { value: "Objects N A" },
-          }
-        ]);
+    if (['.jsonld', '.rj'].includes(extension)) {
+      const data = JSON.parse(await fs.promises.readFile(filePath, 'utf-8'));
+      return await jsonld.toRDF(data);
+    }
+    else if (['.owl', '.trix'].includes(extension)) {
+      const parser = new RdfXmlParser();
+      const quadStream = parser.import(rdfStream);
+      return await streamToArray(quadStream);
+    }
+    else if (extension === '.rdf') {
+      return await streamToArray(fromFile(filePath));
+    }
+    else if (['.nq', '.nt', '.pbrdf', '.rpb', '.rt', '.trdf', '.trig', '.ttl'].includes(extension)) {
+      const parser = new N3Parser();
+      const quadStream = parser.import(rdfStream);
+      return await streamToArray(quadStream);
+    }
+    else {
+      const fallbackStream = Readable.from([
+        {
+          subject: { value: "Subjects N A" },
+          predicate: { value: "Predicates N A" },
+          object: { value: "Objects N A" },
+        }
+      ]);
 
       return await streamToArray(fallbackStream);
     }
-  } 
+  }
   catch (error) {
     console.error(`Error processing file "${filePath}":`, error.message);
     throw new Error(`Failed to process file "${filePath}"`);
@@ -89,19 +101,6 @@ async function getSubjectsByPairsIntersection(quads, pairs) {
   return subjects;
 }
 
-async function loadRDFFile(filePath) {
-  console.log('Loading RDF file:', filePath);
-  return new Promise((resolve, reject) => {
-    fs.readFile(filePath, 'utf8', (err, data) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(data);
-      }
-    });
-  });
-}
-
 export async function parseAndOrganizeDataset(filePath) {
   const quads = await getQuads(filePath);
   const triples = [];
@@ -118,44 +117,41 @@ export async function parseAndOrganizeDataset(filePath) {
 }
 
 export async function getTriplesBySparql(filePath) {
-  const rdfData = await loadRDFFile(filePath); // Load RDF data from file
-  const queryEngine = new QueryEngine(); // Create a new Comunica query engine
+  const queryEngine = new QueryEngine();
+  const store = await addQuadsToStore(filePath);
 
-  const query = `
+  const sparqlQuery = `
+    PREFIX dbo: <http://dbpedia.org/ontology/>
+    PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
     SELECT ?subject ?predicate ?object
     WHERE {
       ?subject ?predicate ?object.
-    }
+    } LIMIT 100
   `;
-  console.log('Executing SPARQL query:', query);
+  try {
+    const bindingsStream = await queryEngine.queryBindings(sparqlQuery, {
+      sources: [store],
+    });
 
-  // Execute SPARQL query
-  const bindingsStream = await queryEngine.queryBindings(query, {
-    sources: [rdfData],
-  });
+    const bindings = [];
+    bindingsStream.on('data', (binding) => {
+      bindings.push({
+        subject: binding.get('subject').value,
+        predicate: binding.get('predicate').value,
+        object: binding.get('object').value
+      });
+    });
 
-  console.log('Processing query results...');
-  bindingsStream.on('data', (binding) => {
-    console.log(binding.toString()); // Quick way to print bindings for testing
+    await new Promise((resolve, reject) => {
+      bindingsStream.on('end', resolve);
+      bindingsStream.on('error', reject);
+    });
 
-    console.log(binding.has('s')); // Will be true
-
-    // Obtaining values
-    console.log(binding.get('s').value);
-    console.log(binding.get('s').termType);
-    console.log(binding.get('p').value);
-    console.log(binding.get('o').value);
-  });
-
-  // Process query results
-  const queryResults = [];
-  for await (const binding of bindingsStream) {
-    queryResults.push(binding);
+    return bindings;
+  } catch (error) {
+    console.error('Error executing SPARQL query:', error);
+    throw error;
   }
-
-  console.log('Query Results:', queryResults);
-  console.log('Number of Triples:', queryResults.length);
-  return queryResults;
 }
 
 export async function getDistinctPredicates(filePath) {
@@ -213,53 +209,81 @@ export async function getSubjectsByPairs(filePath, pairs) {
   return Array.from(subjects);
 }
 
-export async function getMatchedSubjects(file, matchingSelectedFile, pairs, comparisonMode, matchByPredicates) {
-  const quads1 = await getQuads(file);
-  const quads2 = await getQuads(matchingSelectedFile);
+function isValidUrl(string) {
+  try {
+    new URL(string);
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
 
-  const subjects1 = new Map();
-  const subjects2 = new Map();
+export async function matchDatasets(filePath, otherFilePath, filters = []) {
+  const queryEngine = new QueryEngine();
 
-  const addSubject = (quads, subjectsMap) => {
-    quads.forEach((quad) => {
-      if (pairs.some(pair => isValidSubject(quad, pair.predicate, pair.attribute))) {
-        if (!subjectsMap.has(quad.subject.value)) {
-          subjectsMap.set(quad.subject.value, new Map());
-        }
-        const predicatesMap = subjectsMap.get(quad.subject.value);
-        predicatesMap.set(quad.predicate.value, quad.object.value);
-      }
-    });
+  const store1 = await addQuadsToStore(filePath);
+  const store2 = await addQuadsToStore(otherFilePath);
+
+  const formatAttribute = (attribute) => {
+    return isValidUrl(attribute) ? `<${attribute}>` : `"${attribute}"^^xsd:string`;
   };
 
-  addSubject(quads1, subjects1);
-  addSubject(quads2, subjects2);
-  console.log('Subjects 1:', subjects1);
-  console.log('Subjects 2:', subjects2);
+  const filterClauses = filters.map(({ predicate, attribute }) => 
+    `FILTER (?predicate = <${predicate}> && ?object = ${formatAttribute(attribute)})`
+  ).join('\n');
 
-  const matchedSubjects = [];
+  const sparqlQuery = `
+    SELECT DISTINCT ?subject
+    WHERE {
+      ?subject ?predicate ?object.
+      ${filterClauses}
+    }
+  `;
 
-  if (comparisonMode === 'Subject') {
-    subjects1.forEach((_, subject) => {
-      if (subjects2.has(subject)) {
-        matchedSubjects.push(subject);
-      }
+  console.log(sparqlQuery);
+
+  try {
+    const bindingsStream1 = await queryEngine.queryBindings(sparqlQuery, {
+      sources: [store1],
     });
-  } else if (comparisonMode === 'Predicate-Attribute') {
-    subjects1.forEach((predicatesMap1, subject) => {
-      if (subjects2.has(subject)) {
-        const predicatesMap2 = subjects2.get(subject);
-        const allMatch = matchByPredicates.every(predicate => 
-          predicatesMap1.get(predicate) === predicatesMap2.get(predicate)
-        );
-        if (allMatch) {
-          matchedSubjects.push(subject);
-        }
-      }
+
+    const bindingsStream2 = await queryEngine.queryBindings(sparqlQuery, {
+      sources: [store2],
     });
+
+    const subjects1 = new Set();
+    bindingsStream1.on('data', (binding) => {
+      subjects1.add(binding.get('subject').value);
+    });
+
+    const subjects2 = new Set();
+    bindingsStream2.on('data', (binding) => {
+      subjects2.add(binding.get('subject').value);
+    });
+
+    await Promise.all([
+      new Promise((resolve, reject) => {
+        bindingsStream1.on('end', resolve);
+        bindingsStream1.on('error', reject);
+      }),
+      new Promise((resolve, reject) => {
+        bindingsStream2.on('end', resolve);
+        bindingsStream2.on('error', reject);
+      }),
+    ]);
+
+    const commonSubjects = [...subjects1].filter(subject => subjects2.has(subject));
+
+    const matchedSubjects = commonSubjects.map(subject => ({
+      file: subject,
+      otherFile: subject
+    }));
+
+    return matchedSubjects;
+  } catch (error) {
+    console.error('Error matching datasets:', error);
+    throw new Error('Failed to match datasets');
   }
-
-  return matchedSubjects;
 }
 
 /**
@@ -436,16 +460,16 @@ export async function validateDataset(dataFilePath, shapesFilePath) {
 
 export async function runSPARQLQuery(endpoint, query) {
   try {
-      const response = await axios.post(endpoint, {
-          query: query,
-      }, {
-          headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-          },
-      });
-      return response.data;
+    const response = await axios.post(endpoint, {
+      query: query,
+    }, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    });
+    return response.data;
   } catch (error) {
-      console.error('Error executing SPARQL query:', error);
-      throw new Error('Failed to execute SPARQL query');
+    console.error('Error executing SPARQL query:', error);
+    throw new Error('Failed to execute SPARQL query');
   }
 }

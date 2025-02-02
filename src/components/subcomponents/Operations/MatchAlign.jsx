@@ -15,12 +15,10 @@ function OperationsMatchAlignSection({ file }) {
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [matchingFiledropdownOpen, setMatchingFileDropdownOpen] = useState(false);
   const [matchingFilteredFiles, setMatchingFilteredFiles] = useState([]);
-  const [matchingSelectedFile, setMatchingSelectedFile] = useState("");
+  const [otherFile, setMatchingSelectedFile] = useState("");
   const [predicates, setPredicates] = useState([]);
   const [attributes, setAttributes] = useState([]);
   const [pairs, setPairs] = useState([{ predicate: null, attribute: null }]);
-  const [matchByPredicates, setMatchByPredicates] = useState([]);
-  const [comparisonMode, setComparisonMode] = useState('subject'); // 'subject' or 'predicate-attribute'
   const [matchedSubjects, setMatchedSubjects] = useState([]);
   const dropdownRef = useRef(null);
   const ulRef = useRef(null);
@@ -148,14 +146,6 @@ function OperationsMatchAlignSection({ file }) {
     };
   }, []);
 
-  const handleComparisonModeChange = () => {
-    setComparisonMode(prevMode => (prevMode === 'subject' ? 'predicate-attribute' : 'subject'));
-  };
-
-  const handleMatchByPredicateChange = (selectedOptions) => {
-    setMatchByPredicates(selectedOptions.map(option => option.value));
-  };
-
   const handleMatch = async () => {
     try {
       const response = await fetch(`http://${HOST}:${PORT}/${API}/sparql/match`, {
@@ -164,7 +154,7 @@ function OperationsMatchAlignSection({ file }) {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify({ file, matchingSelectedFile, pairs, comparisonMode, matchByPredicates }),
+        body: JSON.stringify({ file, otherFile, pairs }),
       });
 
       if (!response.ok) {
@@ -178,17 +168,27 @@ function OperationsMatchAlignSection({ file }) {
     }
   };
 
+  const isValidUrl = (url) => {
+    try {
+      new URL(url);
+      return true;
+      // eslint-disable-next-line no-unused-vars
+    } catch (error) {
+      return false;
+    }
+  };
+
   return (
     <div className="operations-match-align-section">
       <div id="toggles-local-section">
-        <h2>Compare to:</h2>
+        <h2>Match with:</h2>
         <div className="input-with-icon" ref={dropdownRef}>
           <input
             type="text"
             placeholder="Search for a file"
             onChange={handleFilterChange}
             onClick={() => setMatchingFileDropdownOpen(true)}
-            value={matchingSelectedFile}
+            value={otherFile}
           />
           <img src="/src/assets/cloud-search.png" alt="Search Image" className="search-image" />
         </div>
@@ -230,50 +230,44 @@ function OperationsMatchAlignSection({ file }) {
               )}
               <button className="delete-button" onClick={() => deletePair(index)}>Delete</button>
             </div>
-            {index < pairs.length - 1 && (
-              <div className="operator-container">
-                <span className="clause-operator">{comparisonMode === 'Union' ? 'OR' : 'AND'}</span>
-              </div>
-            )}
           </div>
         ))}
       </div>
       <div className="actions">
         <button className="add-button" onClick={addPair}>Add Pair</button>
-        <button className="switch-button" onClick={handleComparisonModeChange}>
-          Switch to {comparisonMode === 'subject' ? 'Predicate-Attribute' : 'Subject'} Comparison
-        </button>
         <button className="match-button" onClick={handleMatch}>Match</button>
       </div>
-      {comparisonMode === 'subject' && (
-        <div className="match-by-container">
-          <h3>Match by subjects</h3>
-        </div>
-      )}
-      {comparisonMode === 'predicate-attribute' && (
-        <div className="match-by-container">
-          <h3>Match by:</h3>
-          <Select
-            options={predicates}
-            isMulti
-            onChange={handleMatchByPredicateChange}
-            placeholder="Select Predicates"
-          />
-        </div>
-      )}
       <div className="results-container">
         <table>
           <thead>
             <tr>
               <th>{file}</th>
-              <th>{matchingSelectedFile}</th>
+              <th>{otherFile}</th>
             </tr>
           </thead>
           <tbody>
             {matchedSubjects.map((subject, index) => (
               <tr key={index}>
-                <td>{subject[file]}</td>
-                <td>{subject[matchingSelectedFile]}</td>
+                <td>
+                  {
+                    isValidUrl(subject["file"]) ?
+                      (
+                        <a href={subject["file"]} target="_blank" rel="noopener noreferrer">
+                          {subject["file"]}
+                        </a>
+                      ) : (subject["file"])
+                  }
+                </td>
+                <td>
+                  {
+                    isValidUrl(subject["otherFile"]) ?
+                      (
+                        <a href={subject["otherFile"]} target="_blank" rel="noopener noreferrer">
+                          {subject["otherFile"]}
+                        </a>
+                      ) : (subject["otherFile"])
+                  }
+                </td>
               </tr>
             ))}
           </tbody>
