@@ -1,6 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import { uploadsFolder } from '../services/uploads-service.js';
+import * as rdfService from '../services/rdf-service.js';
 import * as sparqlService from '../services/sparql-service.js';
 
 export const sparqlController = {
@@ -29,7 +30,7 @@ export const sparqlController = {
     }
     else {
       try {
-        const validationReport = await sparqlService.validateDataset(filePath, shapesPath);
+        const validationReport = await rdfService.validateDataset(filePath, shapesPath);
         res.json(validationReport);
       } catch (error) {
         console.error('Error parsing the dataset:', error);
@@ -43,7 +44,7 @@ export const sparqlController = {
     const filePath = path.join(sessionFolder, req.query.file);
 
     try {
-      const predicates = await sparqlService.getDistinctPredicates(filePath);
+      const predicates = await rdfService.getDistinctPredicates(filePath);
       res.json(predicates);
     } catch (error) {
       console.error('Error getting distinct predicates:', error);
@@ -56,7 +57,7 @@ export const sparqlController = {
     const filePath = path.join(sessionFolder, req.query.file);
 
     try {
-      const attributes = await sparqlService.getDistinctAttributes(filePath, req.query.predicate);
+      const attributes = await rdfService.getDistinctAttributes(filePath, req.query.predicate);
       res.json(attributes);
     } catch (error) {
       console.error('Error getting distinct attributes:', error);
@@ -69,7 +70,7 @@ export const sparqlController = {
     const filePath = path.join(sessionFolder, req.body.file);
 
     try {
-      const subjects = await sparqlService.getClassifiedSubjects(filePath, req.body.operation, req.body.pairs);
+      const subjects = await rdfService.getClassifiedSubjects(filePath, req.body.operation, req.body.pairs);
       res.json(subjects);
     } catch (error) {
       console.error('Error classifying the dataset:', error);
@@ -84,7 +85,6 @@ export const sparqlController = {
 
     try {
       const result = await sparqlService.matchDatasets(filePath, otherFilePath, req.body.pairs);
-      console.log(result);
       res.json(result);
     } catch (error) {
       console.error('Error matching the dataset:', error);
@@ -95,7 +95,7 @@ export const sparqlController = {
   async executeQuery(req, res) {
     const { endpoint, query } = req.body;
     try {
-      const results = await sparqlService.runSPARQLQuery(endpoint, query);
+      const results = await rdfService.runSPARQLQuery(endpoint, query);
       res.json(results);
     } catch (error) {
       console.error('Error executing SPARQL query:', error);

@@ -249,24 +249,44 @@ function OperationsMatchAlignSection({ file }) {
             {matchedSubjects.map((subject, index) => (
               <tr key={index}>
                 <td>
-                  {
-                    isValidUrl(subject["file"]) ?
-                      (
-                        <a href={subject["file"]} target="_blank" rel="noopener noreferrer">
-                          {subject["file"]}
+                  <details>
+                    <summary>
+                      {isValidUrl(subject.file.subject) ? (
+                        <a href={subject.file.subject} target="_blank" rel="noopener noreferrer">
+                          {subject.file.subject}
                         </a>
-                      ) : (subject["file"])
-                  }
+                      ) : (
+                        subject.file.subject
+                      )}
+                    </summary>
+                    <ul>
+                      {subject.file.details.map((detail, idx) => (
+                        <li key={idx}>
+                          {detail.predicate} <span>&#8594;</span> {detail.object}
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
                 </td>
                 <td>
-                  {
-                    isValidUrl(subject["otherFile"]) ?
-                      (
-                        <a href={subject["otherFile"]} target="_blank" rel="noopener noreferrer">
-                          {subject["otherFile"]}
+                  <details>
+                    <summary>
+                      {isValidUrl(subject.otherFile.subject) ? (
+                        <a href={subject.otherFile.subject} target="_blank" rel="noopener noreferrer">
+                          {subject.otherFile.subject}
                         </a>
-                      ) : (subject["otherFile"])
-                  }
+                      ) : (
+                        subject.otherFile.subject
+                      )}
+                    </summary>
+                    <ul>
+                      {subject.otherFile.details.map((detail, idx) => (
+                        <li key={idx}>
+                          {detail.predicate} <span>&#8594;</span> {detail.object}
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
                 </td>
               </tr>
             ))}
