@@ -218,19 +218,41 @@ function isValidUrl(string) {
   }
 }
 
+function formatAttribute(attribute) {
+  return isValidUrl(attribute) ? `<${attribute}>` : `"${attribute}"^^xsd:string`;
+}
+
+function createFilterClauses(filters) {
+  return filters.map(({ predicate, attribute }) => 
+    `FILTER (?predicate = <${predicate}> && ?object = ${formatAttribute(attribute)})`
+  ).join('\n');
+}
+
+async function executeSparqlQuery(queryEngine, sparqlQuery, store) {
+  const bindingsStream = await queryEngine.queryBindings(sparqlQuery, {
+    sources: [store],
+  });
+
+  const subjects = new Set();
+  bindingsStream.on('data', (binding) => {
+    subjects.add(binding.get('subject').value);
+  });
+
+  await new Promise((resolve, reject) => {
+    bindingsStream.on('end', resolve);
+    bindingsStream.on('error', reject);
+  });
+
+  return subjects;
+}
+
 export async function matchDatasets(filePath, otherFilePath, filters = []) {
   const queryEngine = new QueryEngine();
 
   const store1 = await addQuadsToStore(filePath);
   const store2 = await addQuadsToStore(otherFilePath);
 
-  const formatAttribute = (attribute) => {
-    return isValidUrl(attribute) ? `<${attribute}>` : `"${attribute}"^^xsd:string`;
-  };
-
-  const filterClauses = filters.map(({ predicate, attribute }) => 
-    `FILTER (?predicate = <${predicate}> && ?object = ${formatAttribute(attribute)})`
-  ).join('\n');
+  const filterClauses = createFilterClauses(filters);
 
   const sparqlQuery = `
     SELECT DISTINCT ?subject
@@ -243,33 +265,9 @@ export async function matchDatasets(filePath, otherFilePath, filters = []) {
   console.log(sparqlQuery);
 
   try {
-    const bindingsStream1 = await queryEngine.queryBindings(sparqlQuery, {
-      sources: [store1],
-    });
-
-    const bindingsStream2 = await queryEngine.queryBindings(sparqlQuery, {
-      sources: [store2],
-    });
-
-    const subjects1 = new Set();
-    bindingsStream1.on('data', (binding) => {
-      subjects1.add(binding.get('subject').value);
-    });
-
-    const subjects2 = new Set();
-    bindingsStream2.on('data', (binding) => {
-      subjects2.add(binding.get('subject').value);
-    });
-
-    await Promise.all([
-      new Promise((resolve, reject) => {
-        bindingsStream1.on('end', resolve);
-        bindingsStream1.on('error', reject);
-      }),
-      new Promise((resolve, reject) => {
-        bindingsStream2.on('end', resolve);
-        bindingsStream2.on('error', reject);
-      }),
+    const [subjects1, subjects2] = await Promise.all([
+      executeSparqlQuery(queryEngine, sparqlQuery, store1),
+      executeSparqlQuery(queryEngine, sparqlQuery, store2),
     ]);
 
     const commonSubjects = [...subjects1].filter(subject => subjects2.has(subject));
