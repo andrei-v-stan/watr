@@ -98,19 +98,6 @@
     font-size: 18px;
 }
 
-#about-content a {
-    color: rgb(104, 152, 255);
-    font-weight: bold;
-}
-
-#about-content a:hover {
-    color: rgb(42, 110, 255);
-}
-
-#about-content a:active {
-    color: rgb(0, 33, 105);
-}
-
 #about-first-line {
     display: flex;
     flex-direction: row;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Header, Toggles, Operations, /*Export,*/ Footer, Files, Results, About, Redir } from './components';
+import { Header, Toggles, Operations, Footer, Files, Results, About, Redir } from './components';
 import './App.css'
 
 function App() {
@@ -27,9 +27,6 @@ function App() {
                   <Toggles onFileSelect={handleFileSelect} />
                   {currentStep === 'selectOperation' && <Operations selectedFile={selectedFile} results={results} setResults={setResults} />}
                   <Results results={results} setResults={setResults} />
-                  {/*
-                  <Export />
-                  */}
                 </>
               }
             />

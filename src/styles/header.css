@@ -1,14 +1,27 @@
-h2 {
+.app-header h2 {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-a {
+.app-header a {
     color: white;
 }
 
-a:hover {
+.app-header a:hover {
     color: white;
     filter: brightness(0.75);
     font-style: oblique;
+}
+
+a {
+    color: rgb(104, 152, 255);
+    font-weight: bold;
+}
+
+a:hover {
+    color: rgb(42, 110, 255);
+}
+
+a:active {
+    color: rgb(0, 33, 105);
 }

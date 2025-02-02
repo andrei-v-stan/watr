@@ -23,19 +23,6 @@
     align-items: center;
     gap: 10px;
 }
-
-.result-window a {
-    color: rgb(104, 152, 255);
-    font-weight: bold;
-}
-
-.result-window a:hover {
-    color: rgb(42, 110, 255);
-}
-  
-.result-window a:active {
-    color: rgb(0, 33, 105);
-}
     
 
 .result-bar .result-controls {
