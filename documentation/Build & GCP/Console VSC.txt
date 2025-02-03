@@ -1,0 +1,65 @@
+You are now logged in as [fii.watr@gmail.com].
+Your current project is [fii-watr-0204].  You can change this setting by running:
+  $ gcloud config set project PROJECT_ID
+PS C:\Users\andre\Documents\Github\watr> gcloud run deploy fii-watr-0204
+Deploying from source. To deploy a container use [--image]. See https://cloud.google.com/run/docs/deploying-source-code for more details.
+Source code location (C:\Users\andre\Documents\Github\watr):  
+Next time, you can use `--source .` argument to deploy the current directory.
+
+Please specify a region:
+ [1] africa-south1
+ [2] asia-east1
+ [3] asia-east2
+ [4] asia-northeast1
+ [5] asia-northeast2
+ [6] asia-northeast3
+ [7] asia-south1
+ [8] asia-south2
+ [9] asia-southeast1
+ [10] asia-southeast2
+ [11] australia-southeast1
+ [12] australia-southeast2
+ [13] europe-central2
+ [14] europe-north1
+ [15] europe-southwest1
+ [16] europe-west1
+ [17] europe-west10
+ [18] europe-west12
+ [19] europe-west2
+ [20] europe-west3
+ [21] europe-west4
+ [22] europe-west6
+ [23] europe-west8
+ [24] europe-west9
+ [25] me-central1
+ [26] me-central2
+ [27] me-west1
+ [28] northamerica-northeast1
+ [29] northamerica-northeast2
+ [30] southamerica-east1
+ [31] southamerica-west1
+ [32] us-central1
+ [33] us-east1
+ [34] us-east4
+ [35] us-east5
+ [36] us-south1
+ [37] us-west1
+ [38] us-west2
+ [39] us-west3
+ [40] us-west4
+ [41] cancel
+Please enter numeric choice or text value (must exactly match list item):  13
+
+To make this the default region, run `gcloud config set run/region europe-central2`.
+
+Building using Buildpacks and deploying container to Cloud Run service [fii-watr-0204] in project [fii-watr-0204] region [europe-central2]
+OK Building and deploying... Done.
+  OK Uploading sources...
+  OK Building Container... Logs are available at [https://console.cloud.google.com/cloud-build 
+  /builds/e768c741-e09b-482c-952a-ec256a965b75?project=72417052488].
+  OK Creating Revision...
+  OK Routing traffic...
+Done.
+Service [fii-watr-0204] revision [fii-watr-0204-00002-brh] has been deployed and is serving 100 percent of traffic.
+Service URL: https://fii-watr-0204-72417052488.europe-central2.run.app
+PS C:\Users\andre\Documents\Github\watr>

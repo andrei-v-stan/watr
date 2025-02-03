@@ -30,11 +30,11 @@ export default function About() {
         </blockquote>
         <h3>Our project solution (<i>by <a href="https://github.com/andrei-v-stan">Bsc. Stan Andrei-Vlăduț</a> & <a href="https://github.com/andrei-dascalu3">Bsc. Dascălu Andrei</a></i>) </h3>
         <div className="about-links">
-          <h4><a href="#">README</a></h4>
+          <h4><a href="https://github.com/andrei-v-stan/watr/blob/main/README.md">README</a></h4>
           <h4>|</h4>
-          <h4><a href="#">Scholarly HTML</a></h4>
+          <h4><a href="https://raw.githack.com/andrei-v-stan/watr/main/documentation/Scholarly/index.html">Scholarly HTML</a></h4>
           <h4>|</h4>
-          <h4><a href="#">Video Tutorial</a></h4>
+          <h4><a href="https://raw.githubusercontent.com/andrei-v-stan/watr/main/documentation/Demo.mp4">Video Tutorial</a></h4>
         </div>
       </div>
     </div>
