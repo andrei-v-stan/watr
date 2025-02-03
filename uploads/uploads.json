@@ -1,6 +1,6 @@
 {
   "42aa35b1-85f8-4196-961e-43868b007129": {
-    "timestamp": 1738594275160,
+    "timestamp": 1738607454178,
     "signature": "b2f07c43515ae047b5b3b258c8c92dc18442b5afc4ffcac0157e0b46ccd55fe5",
     "files": [
       "sparql_response (1).html",
@@ -8,5 +8,10 @@
       "sparql_response.jsonld",
       "sparql_response.html"
     ]
+  },
+  "d77f5ce6-ed71-4f40-a1d8-46ccbedec231": {
+    "timestamp": 1738607471346,
+    "signature": "bf00acd94efeeca9810bab9931d6e00b6ba0d57783709f6ea55fb660370fbc65",
+    "files": []
   }
 }

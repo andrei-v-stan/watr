@@ -113,3 +113,15 @@
 #css-validator-image {
     width: 100px;
 }
+
+.about-links {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+h4 {
+    font-size: 20px;
+    margin: 0px;
+}

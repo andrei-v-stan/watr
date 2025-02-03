@@ -321,6 +321,7 @@ See [LICENSE](https://github.com/andrei-v-stan/watr/blob/main/LICENSE) for more 
 ## :email: Contact
 
 Stan Andrei - [Github](https://github.com/andrei-v-stan) | [LinkedIn](https://www.linkedin.com/in/andrei-v-stan/) - andreistan9@gmail.com
+
 Dascalu Andrei - [Github](https://github.com/andrei-dascalu3) | [LinkedIn](https://www.linkedin.com/in/andrei-d-98331713a/)  - andrei.dascalu2@gmail.com
 
 Project Link: [https://github.com/andrei-v-stan/watr](https://github.com/andrei-v-stan/watr)

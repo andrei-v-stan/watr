@@ -21,7 +21,7 @@ body {
 header > h1 {
   margin: 0;
   font-size: 3em;
-  padding-top: 4em;
+  padding-top: 1em;
 }
 div.banner {
   display: flex;
@@ -98,4 +98,24 @@ p.issue {
   body {
     margin: 0 2em;
   }
+}
+
+a:hover {
+  font-weight: bold;
+}
+a:visited {
+  color:#0000EE;
+}
+
+.logo {
+  width: 250px;
+  margin-top: 25px;
+}
+
+#biblio-references { 
+  display: none; 
+}
+
+li a[href="#biblio-references"] {
+  display: none;
 }
