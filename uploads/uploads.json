@@ -1,12 +1,12 @@
 {
-  "8da1e543-9d33-4304-9ae3-b096b4d8a2c9": {
-    "timestamp": 1738522713596,
-    "signature": "354abc91a2b0d542ae89d65b61028408d3919fa06beb8658a28af2c34b6cf83e",
+  "42aa35b1-85f8-4196-961e-43868b007129": {
+    "timestamp": 1738594275160,
+    "signature": "b2f07c43515ae047b5b3b258c8c92dc18442b5afc4ffcac0157e0b46ccd55fe5",
     "files": [
-      "video_games.ttl",
-      "cats_wikidata.ttl",
-      "other_video_games.ttl",
-      "pc_parts.ttl"
+      "sparql_response (1).html",
+      "sparql_response (1).jsonld",
+      "sparql_response.jsonld",
+      "sparql_response.html"
     ]
   }
 }

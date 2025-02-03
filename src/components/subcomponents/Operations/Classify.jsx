@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from "prop-types";
 import Select from "react-select";
+import { convertTriplesToHTML, convertTriplesToJSONLD, convertTriplesToCSV } from "/src/utils/convertResult.js"
 
 const HOST = import.meta.env.VITE_HOST_ADDR;
 const PORT = import.meta.env.VITE_PORT_API;
@@ -15,7 +16,7 @@ function OperationsClassifySection({ file }) {
   const [attributes, setAttributes] = useState([]);
   const [pairs, setPairs] = useState([{ predicate: null, attribute: null }]);
   const [subjects, setSubjects] = useState([]);
-  const [operation, setOperation] = useState('Union'); // Union or Intersection
+  const [operation, setOperation] = useState('Union');
   const [currentPage, setCurrentPage] = useState(1);
   const [elementsPerPage, setElementsPerPage] = useState(10);
 
@@ -106,7 +107,7 @@ function OperationsClassifySection({ file }) {
 
       const data = await response.json();
       setSubjects(data);
-      setCurrentPage(1); // Reset to first page after classification
+      setCurrentPage(1);
     } catch (error) {
       console.error('Error fetching subjects:', error);
     }
@@ -130,6 +131,7 @@ function OperationsClassifySection({ file }) {
     try {
       new URL(url);
       return true;
+    // eslint-disable-next-line no-unused-vars
     } catch (error) {
       return false;
     }
@@ -145,8 +147,49 @@ function OperationsClassifySection({ file }) {
 
   const totalPages = Math.ceil(subjects.length / elementsPerPage);
 
+  const createTriplets = () => {
+      return pairs.map(pair => ({
+          subject: pair.attribute,
+          predicate: pair.predicate,
+          object: pair.attribute
+      }));
+  };
+
+  const downloadFile = (content, type, filename) => {
+    const blob = new Blob([content], { type });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  
+  const handleDownloadHTML = async () => {
+    const triples = createTriplets();
+    const htmlContent = await convertTriplesToHTML(triples);
+    downloadFile(htmlContent, "text/html", "result.html");
+  };
+
+  const handleDownloadJSONLD = async () => {
+    const triples = createTriplets();
+    const jsonLDContent = await convertTriplesToJSONLD(triples);
+    downloadFile(jsonLDContent, "application/json", "result.jsonld");
+  };
+
+  const handleDownloadCSV = async () => {
+    const triples = createTriplets();
+    const csvContent = await convertTriplesToCSV(triples);
+    downloadFile(csvContent, "text/csv", "result.csv");
+  };
+
   return (
     <div className="operations-classify-section">
+      <div className="download-links">
+        <a href="#" onClick={handleDownloadHTML}>Download as HTML</a> |{" "}
+        <a href="#" onClick={handleDownloadJSONLD}>Download as JSON-LD</a> |{" "}
+        <a href="#" onClick={handleDownloadCSV}>Download as CSV</a>
+      </div>
       <div className="dropdown-containers">
         {pairs.map((pair, index) => (
           <div key={index} className="pair-wrapper">

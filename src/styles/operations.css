@@ -234,3 +234,7 @@
 .operations-match-align-section > #toggles-local-section {
   margin: 0;
 }
+
+.download-links {
+  margin-bottom: 5px;
+}

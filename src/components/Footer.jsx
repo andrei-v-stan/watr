@@ -10,7 +10,6 @@ function callCookie() {
     method: 'GET',
     credentials: 'include',
   }).then(response => response.json())
-    .then(data => console.log('Cookie refreshed:', data));
 }
 
 setInterval(() => {

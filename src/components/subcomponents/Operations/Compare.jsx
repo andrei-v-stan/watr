@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Select from "react-select";
+import { convertTriplesToHTML, convertTriplesToJSONLD, convertTriplesToCSV } from "/src/utils/convertResult.js"
 
 const HOST = import.meta.env.VITE_HOST_ADDR;
 const PORT = import.meta.env.VITE_PORT_API;
@@ -89,8 +90,38 @@ function OperationsCompareSection({ file }) {
     label: extractLastPath(predicate),
   }));
 
+  const downloadFile = (content, type, filename) => {
+    const blob = new Blob([content], { type });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  
+  const handleDownloadHTML = async () => {
+    const htmlContent = await convertTriplesToHTML(triples);
+    downloadFile(htmlContent, "text/html", "result.html");
+  };
+
+  const handleDownloadJSONLD = async () => {
+    const jsonLDContent = await convertTriplesToJSONLD(triples);
+    downloadFile(jsonLDContent, "application/json", "result.jsonld");
+  };
+
+  const handleDownloadCSV = async () => {
+    const csvContent = await convertTriplesToCSV(triples);
+    downloadFile(csvContent, "text/csv", "result.csv");
+  };
+
   return (
     <div className="operations-compare-section">
+      <div className="download-links">
+        <a href="#" onClick={handleDownloadHTML}>Download as HTML</a> |{" "}
+        <a href="#" onClick={handleDownloadJSONLD}>Download as JSON-LD</a> |{" "}
+        <a href="#" onClick={handleDownloadCSV}>Download as CSV</a>
+      </div>
       <button onClick={handleViewModeToggle}>
         Compare mode: {viewMode === "subjects" ? "Subjects" : "Predicates"}
       </button>

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect, useRef, useState } from "react";
 import Select from "react-select";
+import { convertTriplesToHTML, convertTriplesToJSONLD, convertTriplesToCSV } from "/src/utils/convertResult.js"
 
 OperationsMatchAlignSection.propTypes = {
   file: PropTypes.func.isRequired,
@@ -93,7 +94,7 @@ function OperationsMatchAlignSection({ file }) {
   const handlePredicateChange = (selectedOption, index) => {
     const newPairs = [...pairs];
     newPairs[index].predicate = selectedOption.value;
-    newPairs[index].attribute = null; // Reset attribute when predicate changes
+    newPairs[index].attribute = null;
     setPairs(newPairs);
     fetchAttributes(selectedOption.value, index);
   };
@@ -178,8 +179,49 @@ function OperationsMatchAlignSection({ file }) {
     }
   };
 
+  const createTriplets = () => {
+    return pairs.map(pair => ({
+        subject: pair.attribute,
+        predicate: pair.predicate,
+        object: pair.attribute
+    }));
+};
+
+  const downloadFile = (content, type, filename) => {
+    const blob = new Blob([content], { type });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleDownloadHTML = async () => {
+    const triples = createTriplets();
+    const htmlContent = await convertTriplesToHTML(triples);
+    downloadFile(htmlContent, "text/html", "result.html");
+  };
+
+  const handleDownloadJSONLD = async () => {
+    const triples = createTriplets();
+    const jsonLDContent = await convertTriplesToJSONLD(triples);
+    downloadFile(jsonLDContent, "application/json", "result.jsonld");
+  };
+
+  const handleDownloadCSV = async () => {
+    const triples = createTriplets();
+    const csvContent = await convertTriplesToCSV(triples);
+    downloadFile(csvContent, "text/csv", "result.csv");
+  };
+
   return (
     <div className="operations-match-align-section">
+      <div className="download-links">
+        <a href="#" onClick={handleDownloadHTML}>Download as HTML</a> |{" "}
+        <a href="#" onClick={handleDownloadJSONLD}>Download as JSON-LD</a> |{" "}
+        <a href="#" onClick={handleDownloadCSV}>Download as CSV</a>
+      </div>
       <div id="toggles-local-section">
         <h2>Match with:</h2>
         <div className="input-with-icon" ref={dropdownRef}>
