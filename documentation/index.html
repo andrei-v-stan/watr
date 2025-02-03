@@ -66,16 +66,40 @@
   <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
     <h2>Abstract</h2>
     <p>
-      This paper details the conceptualization and realization of a service-oriented web application designed to process and analyze structured metadata encoded in RDFa and HTML5 microdata formats. The system accommodates user-provided datasets and performs various operations such as visualization, classification, comparison, and matching/alignment of metadata. By leveraging a modular approach, the application ensures scalability and flexibility in handling diverse data sources.
+      This paper details the conceptualization and realization of a service-oriented web application designed to process
+      and analyze structured metadata encoded in RDFa and HTML5 microdata formats. The system accommodates user-provided
+      datasets and performs various operations such as visualization, classification, comparison, and matching/alignment
+      of metadata. By leveraging a modular approach, the application ensures scalability and flexibility in handling
+      diverse data sources.
     </p>
     <p>
-      The backend of the system is built using Node.js and Express.js, providing a robust platform for querying SPARQL endpoints, processing RDF data, and exposing RESTful APIs. Key technologies and packages used include SPARQL.js, RDFLib, JsonLD, rdfxml-streaming-parser, and rdf-validate-shacl. The frontend is developed using modern web technologies such as HTML5, CSS3, JavaScript, Vite, and Tailwind CSS, offering a user-friendly interface for interacting with the backend services.
+      The backend of the system is built using Node.js and Express.js, providing a robust platform for querying SPARQL
+      endpoints,
+      processing RDF data, and exposing RESTful APIs. Key technologies and packages used include SPARQL.js, RDFLib,
+      JsonLD,
+      rdfxml-streaming-parser, and rdf-validate-shacl. The frontend is developed using modern web technologies such as
+      HTML5, CSS3,
+      JavaScript, Vite, and Tailwind CSS, offering a user-friendly interface for interacting with the backend services.
     </p>
     <p>
-      The system supports the acquisition of metadata from various sources, including remote SPARQL endpoints and local RDF files in multiple formats such as JSON-LD, RDF/XML, Turtle, and TriX. The data is processed using SPARQL queries and N3 parsers to extract, transform, and load (ETL) relevant information for further analysis. Additionally, the system exposes various statistics modeled with the RDF Data Cube vocabulary, providing valuable insights into the metadata.
+      The system supports the acquisition of metadata from various sources, including remote SPARQL endpoints and local
+      RDF
+      files in multiple formats such as JSON-LD, RDF/XML, Turtle, and TriX. The data is processed using SPARQL queries
+      and N3
+      parsers to extract, transform, and load (ETL) relevant information for further analysis. Additionally, the system
+      exposes
+      various statistics modeled with the RDF Data Cube vocabulary, providing valuable insights into the metadata.
     </p>
     <p>
-      This technical report provides a comprehensive overview of the watr system, including its internal data structures, API technical aspects, RDF-based knowledge models, and the pragmatic use of external data sources. The report also includes a user guide with case studies to demonstrate the system's capabilities and practical applications. By achieving its objectives, watr aims to become a comprehensive tool for researchers, data scientists, and developers working with structured metadata, enabling them to efficiently process, analyze, and derive meaningful insights from the data.
+      This technical report provides a comprehensive overview of the watr system, including its internal data
+      structures, API
+      technical aspects, RDF-based knowledge models, and the pragmatic use of external data sources. The report also
+      includes
+      a user guide with case studies to demonstrate the system's capabilities and practical applications. By achieving
+      its objectives,
+      watr aims to become a comprehensive tool for researchers, data scientists, and developers working with structured
+      metadata,
+      enabling them to efficiently process, analyze, and derive meaningful insights from the data.
     </p>
   </section>
   <section id="introduction" role="doc-introduction">
@@ -144,6 +168,11 @@
   </section>
   <section id="structure">
     <h2>Project structure</h2>
+    <p>
+      The project is comprised of several key components, including the backend, frontend, uploads folder, and data
+      module. Each component plays a crucial role in the overall functionality of the system, enabling users to interact
+      with the data and perform various operations.
+    </p>
     <section id="backend">
       <h3>Backend</h3>
       <p>
@@ -156,8 +185,7 @@
         parsing
         and executing SPARQL queries; RDFLib, a library for working with RDF data in JavaScript; JsonLD, a library for
         working with JSON-LD data; rdfxml-streaming-parser, a library for parsing RDF/XML data; and rdf-validate-shacl,
-        a
-        library for validating RDF data against SHACL shapes.
+        a library for validating RDF data against SHACL shapes.
       </p>
       <p>
         The backend is structured into several modules, including services, controllers, routes, and utilities. The
@@ -179,13 +207,16 @@
         builds; and Tailwind CSS, a utility-first CSS framework for rapidly building custom user interfaces.
       </p>
       <p>
-        The frontend is structured into several components, including pages, components, assets, and services. The pages
-        component contains the main pages of the application, such as the home page, visualization page, and comparison
-        page. The components module includes reusable UI components such as headers, footers, and data tables. The
-        assets
+        The frontend is a single-page application, structured into several components, including panels, components,
+        assets, and services.
+        The functionalities are modeled by the <strong>Operations</strong> components such as Classify, Compare,
+        MatchAlign and Visualize.
+        The components module includes reusable UI components such as headers, footers, and data tables. The assets
         module contains static assets such as images and stylesheets. The services module provides functions for making
         API calls to the backend. The frontend communicates with the backend through RESTful APIs, allowing users to
-        perform various operations such as querying data, visualizing metadata, and comparing datasets.
+        perform various operations such as querying data, visualizing metadata, and comparing datasets. The
+        <strong>config</strong> contains the
+        <strong>urls.json</strong> with predefined remote datasets and queries.
       </p>
     </section>
     <section id="uploads-folder">
@@ -202,6 +233,110 @@
   </section>
   <section id="data">
     <h2>Data</h2>
+    <p>
+      The watr system supports the acquisition of metadata from various sources, including remote SPARQL endpoints and
+      local RDF files in multiple formats such as JSON-LD, RDF/XML, Turtle, and TriX. The data is processed using SPARQL
+      queries and N3 parsers to extract, transform, and load (ETL) relevant information for further analysis. Between
+      the
+      back-end and front-end of the application, the data is modeled in various shapes in order to better suite the
+      action performed.
+      The local data files are firstly parsed using the <a href="https://www.npmjs.com/package/n3/v/0.8.2">n3</a> and
+      <a href="https://www.npmjs.com/package/rdfxml-streaming-parser">RdfXmlParser</a> JavaScript packages, depending on
+      their format.
+    </p>
+    <section id="data-visualize">
+      <h3>Visualize data</h3>
+      Having selected an uploaded dataset, the user can visualize the data in a user-friendly manner. The data is
+      displayed in a tabular format,
+      each triple of subject-predicate-object being represented in a row. Data received by the front-end consists of an
+      array of objects, each object
+      having the following structure, with the values on each row in the table:
+      <pre>
+        <code>
+          {
+            subject: string,
+            predicate: string,
+            object: string
+          }
+        </code>
+      </pre>
+    </section>
+    <section id="data-compare">
+      <h3>Compare data</h3>
+      Regarding the compare data, the structure is similar to the visualize data. The difference that the data is
+      displayed more or less detailes on multiple
+      columns, depending on the filters selected by the user.
+    </section>
+    <section id="data-classify">
+      <h3>Classify data</h3>
+      The classify data is a bit different from the previous two. Even though the end representation of the data is
+      simpler, consisting of a subjects table,
+      various configurations are sent to the back-end in order to filter the data in a JSON format in the API request
+      body. The data is then processed and returned in a simpler format.
+      <pre>
+        <h4>Data sent</h4>
+        <code>
+          {
+            file: string, // the dataset
+            operation: string, // the operation, Union/Intersection
+            pairs: [
+              {
+                predicate: string, // the predicate to filter by
+                attribute: string // the attribute to filter by
+              }
+            ]
+          }
+        </code>
+      </pre>
+      <pre>
+        <h4>Data received</h4>
+        <code>
+          {
+            subjects: string[] // the subjects that match the filter
+          }
+        </code>
+      </pre>
+    </section>
+    <section id="data-match-align">
+      <h3>Match and align data</h3>
+      The match and align data is the most complex of the four. The data is sent to the back-end in a JSON format in the
+      API request body, containing the two datasets to be matched and aligned and also the criteria to filter matched subjects by.
+      The data is then processed and returned in a more complex format, containing the matched and aligned data.
+      <h4>Data sent</h4>
+      <pre>
+        <code>
+          {
+            file: string, // the first dataset
+            otherFile: string, // the second dataset
+            pairs: [
+              {
+                predicate: string, // the predicate to filter subjects by
+                attribute: string // the predicate to filter subjects by
+              }
+            ]
+          }
+        </code>
+      </pre>
+      <h4>Data received</h4>
+      <pre>
+        <code>
+          {
+            matched: [
+              {
+                subject1: string, // the subject in the first dataset
+                subject2: string // the subject in the second dataset
+              }
+            ],
+            aligned: [
+              {
+                subject1: string, // the subject in the first dataset
+                subject2: string // the subject in the second dataset
+              }
+            ]
+          }
+        </code>
+      </pre>
+    </section>
   </section>
   <section id="design-and-architecure">
     <h2>Design and architecture</h2>
