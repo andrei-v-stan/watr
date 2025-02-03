@@ -301,7 +301,7 @@ npm -v
 
 ## :cd: Usage
 
-See the [Scholarly technical report](https://github.com/andrei-v-stan/watr/blob/main/documentation/Scholarly/index.html) for an in-depth view of the watr project.
+See the [Scholarly technical report](https://raw.githack.com/andrei-v-stan/watr/main/documentation/Scholarly/index.html) for an in-depth view of the watr project.
 
 <br>
 
