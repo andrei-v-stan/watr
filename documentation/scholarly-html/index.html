@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Scholarly HTML</title>
+  <link rel="stylesheet" href="css/scholarly.min.css">
+  <script src="js/scholarly.min.js"></script>
+</head>
+
+<body prefix="schema: http://schema.org">
+  <header>
+    <div class="banner">
+      <img src="scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
+      <div class="status">Community Draft</div>
+    </div>
+    <h1>Scholarly HTML</h1>
+  </header>
+  <!--
+      XXX
+      - check refs
+      - the math example has too much maths
+      - bring back some of the old style
+      - make semantics, validation, processing sub-sections of each structural element
+      - have a section before that for general constructs
+        - explain why use RDFa
+        - explain our patterns: RDFa, roles
+      - figure captions need to get set throughout
+      - dedication? see doc-dedication
+      - syntactic constraints (prefix)
+      - needs more sthenurines
+      - examples of everything
+      - some notes on using Semantic CSS
+      - needs more RDFa in the spec itself
+    -->
+  <div role="contentinfo">
+    <dl>
+      <dt>Authors</dt>
+      <dd>
+        <a href="https://github.com/andrei-v-stan">Stan Andrei-Vlăduț</a>
+        &amp;
+        <a href="https://github.com/andrei-dascalu3">Dascălu Andrei</a>
+      </dd>
+      <dt>Project Location</dt>
+      <dd>
+        <a href="https://github.com/andrei-v-stan/watr/tree/main">WATR Github Repository</a>
+      </dd>
+      <dt>Contact</dt>
+      <dd>
+        <a href="fii.watr@gmail.com">fii.watr@gmail.com</a> [Official project email]
+      </dd>
+      <dd>
+        <a href="andreistan9@gmail.com">andreistan9@gmail.com</a> [Stan Andrei's personal email address]
+      </dd>
+      <dd>
+        <a href="andrei.dascalu2@gmail.com">andrei.dascalu2@gmail.com</a> [Dascalu Andrei's personal email
+        address]
+      </dd>
+      <dt>License</dt>
+      <dd>
+        <a href="https://github.com/andrei-v-stan/watr/blob/main/LICENSE">MIT License</a>
+      </dd>
+    </dl>
+  </div>
+  <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+    <h2>Abstract</h2>
+    <p>
+      This paper details the conceptualization and realization of a service-oriented web application designed to process and analyze structured metadata encoded in RDFa and HTML5 microdata formats. The system accommodates user-provided datasets and performs various operations such as visualization, classification, comparison, and matching/alignment of metadata. By leveraging a modular approach, the application ensures scalability and flexibility in handling diverse data sources.
+    </p>
+    <p>
+      The backend of the system is built using Node.js and Express.js, providing a robust platform for querying SPARQL endpoints, processing RDF data, and exposing RESTful APIs. Key technologies and packages used include SPARQL.js, RDFLib, JsonLD, rdfxml-streaming-parser, and rdf-validate-shacl. The frontend is developed using modern web technologies such as HTML5, CSS3, JavaScript, Vite, and Tailwind CSS, offering a user-friendly interface for interacting with the backend services.
+    </p>
+    <p>
+      The system supports the acquisition of metadata from various sources, including remote SPARQL endpoints and local RDF files in multiple formats such as JSON-LD, RDF/XML, Turtle, and TriX. The data is processed using SPARQL queries and N3 parsers to extract, transform, and load (ETL) relevant information for further analysis. Additionally, the system exposes various statistics modeled with the RDF Data Cube vocabulary, providing valuable insights into the metadata.
+    </p>
+    <p>
+      This technical report provides a comprehensive overview of the watr system, including its internal data structures, API technical aspects, RDF-based knowledge models, and the pragmatic use of external data sources. The report also includes a user guide with case studies to demonstrate the system's capabilities and practical applications. By achieving its objectives, watr aims to become a comprehensive tool for researchers, data scientists, and developers working with structured metadata, enabling them to efficiently process, analyze, and derive meaningful insights from the data.
+    </p>
+  </section>
+  <section id="introduction" role="doc-introduction">
+    <h2>Introduction</h2>
+    <p>
+      The rapid growth of the web has led to an explosion of data available online. However, much of this data is
+      unstructured and difficult to process automatically.
+      To address this challenge, web semantics and structured data formats such as RDFa and HTML5 microdata have
+      been developed.
+      These formats enable the embedding of rich metadata within web pages, making it easier for machines to
+      understand and process the information.
+    </p>
+    <p>
+      The Web Data Commons project collects structured data from the web and makes it available for analysis. This
+      data includes metadata in RDFa and HTML5 microdata formats,
+      which can be used to gain insights into various domains such as e-commerce, social media, and scientific
+      research.
+      However, efficiently processing and analyzing this data requires specialized tools and techniques.
+    </p>
+    <p>
+      The Web Data Commons Analyzer (watr) is a microservice-based web system designed to address this need. By
+      leveraging a modular approach, watr implements a set of useful
+      operations to visualize, classify, compare, and match/align metadata. The system performs queries by invoking
+      a SPARQL endpoint, with results available in both HTML and
+      JSON-LD formats. Additionally, various statistics modeled with the RDF Data Cube vocabulary are exposed,
+      providing valuable insights into the data.
+    </p>
+    <p>
+      This technical report provides a comprehensive overview of the watr system, including its internal data
+      structures, API technical aspects, RDF-based knowledge models,
+      and the pragmatic use of external data sources. The report also includes a user guide with case studies to
+      demonstrate the system's capabilities and practical applications.
+    </p>
+  </section>
+  <section id="objectives">
+    <h2>Objectives</h2>
+    <p>
+      The primary objective of the Web Data Commons Analyzer (watr) is to provide a robust and efficient platform
+      for processing and analyzing structured metadata available
+      in RDFa and HTML5 microdata formats. The system aims to achieve specific objectives.
+    </p>
+    <p>
+      Firstly, the project enables the acquisition of metadata from various sources, including remote SPARQL
+      endpoints and local RDF files in multiple formats such as JSON-LD,
+      RDF/XML, Turtle, and TriX. This data is then conveniently handled using SPARQL queries and N3 parsers to
+      extract, transform, and load (ETL) relevant information for further analysis.
+    </p>
+    <p>
+      Secondly, watr provides tools for visualizing the metadata in a user-friendly manner, allowing users to gain
+      insights into the data through graphical representations.
+      Furthermore, the system implements mechanisms for classifying the metadata based on predefined criteria,
+      enabling users to categorize and organize the data effectively.
+    </p>
+    <p>
+      Data can also be compared using watr, identifying similarities and differences to support data-driven
+      decision-making. The system offers functionalities for matching metadata from
+      different sources, ensuring data consistency and interoperability. Additionally, various statistics modeled
+      with the RDF Data Cube vocabulary are exposed, providing valuable insights.
+    </p>
+    <p>
+      By achieving these objectives, watr aims to become a comprehensive tool for researchers, data scientists, and
+      developers working with structured metadata. The system enables users to
+      efficiently process, analyze, and derive meaningful insights from the data, supporting advanced data analysis
+      and decision-making.
+    </p>
+  </section>
+  <section id="structure">
+    <h2>Project structure</h2>
+    <section id="backend">
+      <h3>Backend</h3>
+      <p>
+        The backend of the watr system is built using Node.js and Express.js, providing a robust and scalable platform
+        for
+        handling HTTP requests and performing various data processing tasks. The backend is responsible for querying
+        SPARQL endpoints, processing RDF data, and exposing RESTful APIs for the frontend to interact with. Key
+        technologies and packages used in the backend include Express.js, a minimal and flexible Node.js web application
+        framework that provides a robust set of features for web and mobile applications; SPARQL.js, a library for
+        parsing
+        and executing SPARQL queries; RDFLib, a library for working with RDF data in JavaScript; JsonLD, a library for
+        working with JSON-LD data; rdfxml-streaming-parser, a library for parsing RDF/XML data; and rdf-validate-shacl,
+        a
+        library for validating RDF data against SHACL shapes.
+      </p>
+      <p>
+        The backend is structured into several modules, including services, controllers, routes, and utilities. The
+        services module contains the core logic for querying SPARQL endpoints and processing RDF data. The controllers
+        module defines the endpoints and handles incoming HTTP requests. The routes module sets up the routes for the
+        various endpoints. The utilities module provides utility functions for data conversion and manipulation.
+      </p>
+    </section>
+    <section id="frontend">
+      <h3>Frontend</h3>
+      <p>
+        The frontend of the watr system is built using modern web technologies to provide a user-friendly interface for
+        interacting with the backend services. The frontend is responsible for displaying the data, visualizing the
+        metadata, and providing tools for classification, comparison, and matching. Key technologies used in the
+        frontend
+        include HTML5, the standard markup language for creating web pages; CSS3, a style sheet language used for
+        describing the presentation of a document written in HTML; JavaScript, a programming language that enables
+        interactive web pages; Vite, a build tool that provides a fast development environment and optimized production
+        builds; and Tailwind CSS, a utility-first CSS framework for rapidly building custom user interfaces.
+      </p>
+      <p>
+        The frontend is structured into several components, including pages, components, assets, and services. The pages
+        component contains the main pages of the application, such as the home page, visualization page, and comparison
+        page. The components module includes reusable UI components such as headers, footers, and data tables. The
+        assets
+        module contains static assets such as images and stylesheets. The services module provides functions for making
+        API calls to the backend. The frontend communicates with the backend through RESTful APIs, allowing users to
+        perform various operations such as querying data, visualizing metadata, and comparing datasets.
+      </p>
+    </section>
+    <section id="uploads-folder">
+      <h3>Uploads Folder</h3>
+      <p>
+        The watr system includes an uploads folder that contains RDF files in different formats. This folder is used to
+        store user-provided datasets that can be processed and analyzed by the system. Examples of RDF formats supported
+        include JSON-LD, RDF/XML, Turtle, and TriX. These files can be uploaded to the system and then queried using
+        SPARQL, allowing users to extract, transform, and load (ETL) relevant information for further analysis. The
+        uploads folder plays a crucial role in enabling the system to handle diverse data sources and formats, ensuring
+        flexibility and extensibility in data processing.
+      </p>
+    </section>
+  </section>
+  <section id="data">
+    <h2>Data</h2>
+  </section>
+  <section id="design-and-architecure">
+    <h2>Design and architecture</h2>
+  </section>
+  <section id="use-cases">
+    <h2>Use cases</h2>
+  </section>
+  <section id="linked-data-principles">
+    <h2>Linked data principles</h2>
+  </section>
+  <section id="acks">
+    <h2>Acknowledgements</h2>
+    <p>
+      Scholarly HTML would like to thank <a href="http://scholarlyhtml.org/">Scholarly HTML</a>
+      (you read that right) for blazing the trail perhaps a few years too soon. Particularly,
+      the following people were particularly kind and helpful:
+      <a href="https://twitter.com/ptsefton">Peter Sefton</a>,
+      <a href="https://twitter.com/blahah404">Richard Smith-Unna</a>, and
+      <a href="https://twitter.com/petermurrayrust">Peter Murray-Rust</a>.
+    </p>
+    <p>
+      PLOS has a
+      <a href="http://blogs.plos.org/mfenner/2011/03/19/a-very-brief-history-of-scholarly-html/">short
+        history of Scholarly HTML</a> that is worth reading (and would be worth updating).
+    </p>
+    <p>
+      Dan Brickley was kind enough to drop by the office to chat about our usage of
+      <a href="http://schema.org">schema.org</a> even though he was tired and hungry. As
+      always, examples involving fish tanks are the most helpful. Dave Cramer shared ideas
+      that we happily stole.
+    </p>
+    <p>
+      Patrick Johnston’s input has been crucial, notably in modeling authoring. We can only
+      hope that getting those details exactly right have not caused him to lose too much
+      sleep.
+    </p>
+    <p>
+      We also received very useful feedback and pointers from: Kjetil Kjernsmo (DAHUT!),
+      Silvio Peroni, Justin Johansson, Alf Eaton, Raniere Silvia, Kaveh Bazargan and Mike
+      Smith. We are very much indebted to the help provided us by Ivan Herman.
+    </p>
+    <p>
+      If we somehow forgot you in this list and you are too gracious to complain, we love you
+      all the same.
+    </p>
+  </section>
+</body>
+
+</html>

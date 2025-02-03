@@ -1,0 +1,692 @@
+From: <Saved by Blink>
+  Snapshot-Content-Location: https://w3c.github.io/scholarly-html/
+  Subject: Scholarly HTML
+  Date: Fri, 31 Jan 2025 23:18:10 +0200
+  MIME-Version: 1.0
+  Content-Type: multipart/related;
+  type="text/html";
+  boundary="----MultipartBoundary--IMn2Ijbpj7Pe7AThbBCVqw7AWf42SWpY7h8ZEIuxAI----"
+
+
+  ------MultipartBoundary--IMn2Ijbpj7Pe7AThbBCVqw7AWf42SWpY7h8ZEIuxAI----
+  Content-Type: text/html
+  Content-ID: <frame-09793AA5C97593EE5322730E69CF36E2@mhtml.blink>
+    Content-Transfer-Encoding: quoted-printable
+    Content-Location: https://w3c.github.io/scholarly-html/
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+      <meta http-equiv=3D"Content-Type" content=3D"tex=t/html; charset=3DUTF-8">
+      <link rel=3D"stylesheet" type=3D"text/css" href=3D="cid:css-bd045f45-3432-46c0-bdbd-d79567d9c52d@mhtml.blink" />
+      <link rel=3D"s=tylesheet" type=3D"text/css" href=3D"cid:css-4f0922bc-1bcb-4df9-ad51-e4de7c=72802e@mhtml.blink" />
+      =20
+      <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale==3D1.0, user-scalable=3Dyes">
+      <title>Scholarly HTML</title>
+      <link rel=3D"stylesheet" href=3D"https://w3c.github.io/scholarly-html/c=ss/scholarly.min.css">
+      =20
+    </head>
+
+    <body prefix=3D"schema: http://schema.org">
+      <header>
+        <h1>Scholarly HTML</h1>
+      </header>
+      <!--
+      XXX
+      - check refs
+      - the math example has too much maths
+      - bring back some of the old style
+      - make semantics, validation, processing sub-sections of each structu=
+ral element
+      - have a section before that for general constructs
+        - explain why use RDFa
+        - explain our patterns: RDFa, roles
+      - figure captions need to get set throughout
+      - dedication? see doc-dedication
+      - syntactic constraints (prefix)
+      - needs more sthenurines
+      - examples of everything
+      - some notes on using Semantic CSS
+      - needs more RDFa in the spec itself
+    -->
+      <div role=3D"contentinfo">
+        <ol role=3D"directory">
+          <li><a href=3D"https:/=/w3c.github.io/scholarly-html/#abstract"><span>1. </span>Abstract</a></li>
+          <= li><a href=3D"https://w3c.github.io/scholarly-html/#introduction"><span>2. =
+              </span>Introduction</a></li>
+            <li><a href=3D"https://w3c.github.io/scholarly-=html/#structure"><span>3. </span>Structure</a>
+              <ol role=3D"directory">
+                <li>
+                  <a= href=3D"https://w3c.github.io/scholarly-html/#Root"><span>3.1 </span>The r=
+                    oot and <code>head</code></a>
+                </li>
+                <li><a href=3D"https://w3c.github.io/scho=larly-html/#article"><span>3.2 </span>The
+                    <code>article</code></a></li>
+                <li>=
+                  <a href=3D"https://w3c.github.io/scholarly-html/#hunk"><span>3.3 </span>Hun=
+                    k Elements</a>
+                  <ol role=3D"directory">
+                    <li><a href=3D"https://w3c.github.io/s=cholarly-html/#figures"><span>3.3.1 </span>Figures</a></li>
+                  </ol>
+                </li>
+                <li>
+                  <a= href=3D"https://w3c.github.io/scholarly-html/#inline"><span>3.4 </span>Inl=
+                    ine Elements</a>
+                </li>
+                <li><a href=3D"https://w3c.github.io/scholarly-html/#r=eferences"><span>3.5 </span>References</a></li>
+                <li><a href=3D"https://w3c.g=ithub.io/scholarly-html/#interactive"><span>3.6 </span>Interactive
+                    Elements=
+                  </a></li>
+                <li><a href=3D"https://w3c.github.io/scholarly-html/#HTMLRoles">
+                    <s= pan>3.7 </span>HTML Roles
+                  </a></li>
+                <li><a href=3D"https://w3c.github.io/scho=larly-html/#validate"><span>3.8 </span>Validation</a></li>
+              </ol>
+            </li>
+            <li><a=href=3D"https://w3c.github.io/scholarly-html/#semantics"><span>4. </span>Se=
+                mantics Overlay</a>
+              <ol role=3D"directory">
+                <li><a href=3D"https://w3c.github=.io/scholarly-html/#person-org"><span>4.1 </span>Persons &amp;
+                    Organization=
+                    s</a></li>
+                <li><a href=3D"https://w3c.github.io/scholarly-html/#typing-secti=ons"><span>4.2 </span>Typing
+                    Sections</a></li>
+                <li><a href=3D"https://w3c.gi=thub.io/scholarly-html/#roles"><span>4.3 </span>Schema Roles</a></li>
+                <li>
+                  <a= href=3D"https://w3c.github.io/scholarly-html/#actions"><span>4.4 </span>Ac=
+                    tions</a>
+                </li>
+                <li><a href=3D"https://w3c.github.io/scholarly-html/#article-=title-semantics"><span>4.5 </span>Article
+                    and Title Semantics</a></li>
+                <li>
+                  <= a href=3D"https://w3c.github.io/scholarly-html/#contentinfo-semantics">
+                    <spa= n>4.6 </span>The <code>contentinfo</code> Region Semantics</a>
+                      <ol role=3D"d=irectory">
+                        <li><a href=3D"https://w3c.github.io/scholarly-html/#authors">
+                            <sp= an>4.6.1 </span>Authors &amp; Contributors
+                          </a></li>
+                        <li><a href=3D"https://w=3c.github.io/scholarly-html/#affiliations"><span>4.6.2
+                            </span>Affiliations<= /a>
+                        </li>
+                        <li><a href=3D"https://w3c.github.io/scholarly-html/#abstract-etc">=
+                            <span>4.6.3 </span>License, Copyright, Keywords, and Abstract</a></li>
+                        <li>
+                          <= a href=3D"https://w3c.github.io/scholarly-html/#meta-notes"><span>4.6.4 </s= pan>Notes</a>
+                        </li>
+                      </ol>
+                </li>
+                <li><a href=3D"https://w3c.github.io/scholarly-=html/#flavored-links"><span>4.7 </span>Flavored
+                    Links</a></li>
+                <li><a href==3D"https://w3c.github.io/scholarly-html/#citations"><span>4.8 </span>Citat=
+                    ions &amp; References</a></li>
+                <li><a href=3D"https://w3c.github.io/scholarl=y-html/#footnotes"><span>4.9 </span>Footnotes &amp;
+                    Endnotes</a></li>
+                <li>
+                  <a= href=3D"https://w3c.github.io/scholarly-html/#funding"><span>4.10 </span>F=
+                    unding Information</a>
+                </li>
+                <li><a href=3D"https://w3c.github.io/scholarly-h=tml/#disclosures"><span>4.11 </span>Disclosures</a>
+                </li>
+                <li><a href=3D"http=s://w3c.github.io/scholarly-html/#acknowledgements"><span>4.12 </span>Ackno=
+                    wledgements</a></li>
+              </ol>
+            </li>
+            <li><a href=3D"https://w3c.github.io/scholarl=y-html/#scholarly-article"><span>5. </span>Scholarly Article
+                Vocabulary</a>=
+            </li>
+            <li><a href=3D"https://w3c.github.io/scholarly-html/#hypermedia">
+                <span=>6. </span>Hypermedia Controls
+              </a></li>
+            <li><a href=3D"https://w3c.github.io=/scholarly-html/#processing-model"><span>7. </span>Processing Model</a>
+              </li=>
+            <li><a href=3D"https://w3c.github.io/scholarly-html/#acks"><span>8. </span=>Acknowledgements</a></li>
+            <li><a href=3D"https://w3c.github.io/scholarly-ht=ml/#biblio-references"><span>9. </span>References</a></li>
+        </ol>
+        <dl>
+          <dt>Authors</dt>
+          <dd>
+            <a href="https://github.com/andrei-v-stan">Stan Andrei-Vlăduț</a>
+            &amp;
+            <a href="https://github.com/andrei-dascalu3">Dascălu Andrei</a>
+          </dd>
+          <dt>Project Location</dt>
+          <dd>
+            <a href=3D"https://github.com/andrei-v-stan/watr/tree/main">WATR Github Repository</a>
+          </dd>
+          <dt>Contact</dt>
+          <dd>
+            <a href=3D"fii.watr@gmail.com">fii.watr@gmail.com</a> [Official project email]
+          </dd>
+          <dd>
+            <a href=3D"andreistan9@gmail.com">andreistan9@gmail.com</a> [Stan Andrei's personal email address]
+          </dd>
+          <dd>
+            <a href=3D"andrei.dascalu2@gmail.com">andrei.dascalu2@gmail.com</a> [Dascalu Andrei's personal email
+            address]
+          </dd>
+          <dt>License</dt>
+          <dd>
+            <a href=3D"https://github.com/andrei-v-stan/watr/blob/main/LICENSE">MIT License</a>
+          </dd>
+        </dl>
+      </div>
+      <section typeof=3D"sa:Abstract" id=3D"abstract" role=3D"doc-abstract">
+        <h2><span>1. </span>Abstract</h2>
+        <p>
+          This paper details the conceptualizeation and realization of a service-oriented web application
+          designed to process and analyze stuctured metadata encoded in RDFa and HTML5 microdata formats.
+          The system accommodates user-provided datasets
+
+        </p>
+      </section>
+      <section id=3D"introduction" role=3D"doc-introduction">
+        <h2><span>2. </span>Introduction</h2>
+        <p>
+          The rapid growth of the web has led to an explosion of data available online. However, much of this data is
+          unstructured and difficult to process automatically.
+          To address this challenge, web semantics and structured data formats such as RDFa and HTML5 microdata have
+          been developed.
+          These formats enable the embedding of rich metadata within web pages, making it easier for machines to
+          understand and process the information.
+        </p>
+        <p>
+          The Web Data Commons project collects structured data from the web and makes it available for analysis. This
+          data includes metadata in RDFa and HTML5 microdata formats,
+          which can be used to gain insights into various domains such as e-commerce, social media, and scientific
+          research.
+          However, efficiently processing and analyzing this data requires specialized tools and techniques.
+        </p>
+        <p>
+          The Web Data Commons Analyzer (watr) is a microservice-based web system designed to address this need. By
+          leveraging a modular approach, watr implements a set of useful
+          operations to visualize, classify, compare, and match/align metadata. The system performs queries by invoking
+          a SPARQL endpoint, with results available in both HTML and
+          JSON-LD formats. Additionally, various statistics modeled with the RDF Data Cube vocabulary are exposed,
+          providing valuable insights into the data.
+        </p>
+        <p>
+          This technical report provides a comprehensive overview of the watr system, including its internal data
+          structures, API technical aspects, RDF-based knowledge models,
+          and the pragmatic use of external data sources. The report also includes a user guide with case studies to
+          demonstrate the system's capabilities and practical applications.
+        </p>
+      </section>
+      <section id=3D"objectives">
+        <h2><span>3. </span>Objectives</h2>
+        <p>
+          The primary objective of the Web Data Commons Analyzer (watr) is to provide a robust and efficient platform
+          for processing and analyzing structured metadata available
+          in RDFa and HTML5 microdata formats. The system aims to achieve specific objectives.
+        </p>
+        <p>
+          Firstly, the project enables the acquisition of metadata from various sources, including remote SPARQL
+          endpoints and local RDF files in multiple formats such as JSON-LD,
+          RDF/XML, Turtle, and TriX. This data is then conveniently handled using SPARQL queries and N3 parsers to
+          extract, transform, and load (ETL) relevant information for further analysis.
+        </p>
+        <p>
+          Secondly, watr provides tools for visualizing the metadata in a user-friendly manner, allowing users to gain
+          insights into the data through graphical representations.
+          Furthermore, the system implements mechanisms for classifying the metadata based on predefined criteria,
+          enabling users to categorize and organize the data effectively.
+        </p>
+        <p>
+          Data can also be compared using watr, identifying similarities and differences to support data-driven
+          decision-making. The system offers functionalities for matching metadata from
+          different sources, ensuring data consistency and interoperability. Additionally, various statistics modeled
+          with the RDF Data Cube vocabulary are exposed, providing valuable insights.
+        </p>
+        <p>
+          By achieving these objectives, watr aims to become a comprehensive tool for researchers, data scientists, and
+          developers working with structured metadata. The system enables users to
+          efficiently process, analyze, and derive meaningful insights from the data, supporting advanced data analysis
+          and decision-making.
+        </p>
+      </section>
+      <section id=3D"structure">
+        <h2><span>4. </span>Project structure</h2>
+        <h3><span>4.1 </span>Backend</h3>
+          <p>
+            The backend of the watr system is built using Node.js and Express.js, providing a robust and scalable platform for handling HTTP requests and performing various data processing tasks. The backend is responsible for querying SPARQL endpoints, processing RDF data, and exposing RESTful APIs for the frontend to interact with. Key technologies and packages used in the backend include Express.js, a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications; SPARQL.js, a library for parsing and executing SPARQL queries; RDFLib, a library for working with RDF data in JavaScript; JsonLD, a library for working with JSON-LD data; rdfxml-streaming-parser, a library for parsing RDF/XML data; and rdf-validate-shacl, a library for validating RDF data against SHACL shapes.
+          </p>
+          <p>
+            The backend is structured into several modules, including services, controllers, routes, and utilities. The services module contains the core logic for querying SPARQL endpoints and processing RDF data. The controllers module defines the endpoints and handles incoming HTTP requests. The routes module sets up the routes for the various endpoints. The utilities module provides utility functions for data conversion and manipulation.
+          </p>
+
+          <h3><span>4.2 </span>Frontend</h3>
+          <p>
+            The frontend of the watr system is built using modern web technologies to provide a user-friendly interface for interacting with the backend services. The frontend is responsible for displaying the data, visualizing the metadata, and providing tools for classification, comparison, and matching. Key technologies used in the frontend include HTML5, the standard markup language for creating web pages; CSS3, a style sheet language used for describing the presentation of a document written in HTML; JavaScript, a programming language that enables interactive web pages; Vite, a build tool that provides a fast development environment and optimized production builds; and Tailwind CSS, a utility-first CSS framework for rapidly building custom user interfaces.
+          </p>
+          <p>
+            The frontend is structured into several components, including pages, components, assets, and services. The pages component contains the main pages of the application, such as the home page, visualization page, and comparison page. The components module includes reusable UI components such as headers, footers, and data tables. The assets module contains static assets such as images and stylesheets. The services module provides functions for making API calls to the backend. The frontend communicates with the backend through RESTful APIs, allowing users to perform various operations such as querying data, visualizing metadata, and comparing datasets.
+          </p>
+
+          <h3><span>4.3 </span>Uploads Folder</h3>
+          <p>
+            The watr system includes an uploads folder that contains RDF files in different formats. This folder is used to store user-provided datasets that can be processed and analyzed by the system. Examples of RDF formats supported include JSON-LD, RDF/XML, Turtle, and TriX. These files can be uploaded to the system and then queried using SPARQL, allowing users to extract, transform, and load (ETL) relevant information for further analysis. The uploads folder plays a crucial role in enabling the system to handle diverse data sources and formats, ensuring flexibility and extensibility in data processing.
+          </p>
+      </section>
+      <section id=3D"data">
+        <h2><span>5. </span>Data</h2>
+      </section>
+      <section id=3D"design-and-architecure">
+        <h2><span>6. </span>Design and architecture</h2>
+      </section>
+      <section id=3D"use-cases">
+        <h2><span>7. </span>Use cases</h2>
+      </section>
+      <section id=3D"linked-data-principles">
+        <h2><span>8. </span>Linked data principles</h2>
+      </section>
+      <section id=3D"acks">
+        <!-- review? -->
+        <h2><span>9. </span>Acknowledgements</h2>
+        <p>
+          Scholarly HTML would like to thank <a href=3D"http://scholarlyhtml.=org/">Scholarly HTML</a>
+          (you read that right) for blazing the trail perhaps a few years too=
+          soon. Particularly,
+          the following people were particularly kind and helpful:
+          <a href=3D"https://twitter.com/ptsefton">Peter Sefton</a>,
+          <a href=3D"https://twitter.com/blahah404">Richard Smith-Unna</a>, a=
+          nd
+          <a href=3D"https://twitter.com/petermurrayrust">Peter Murray-Rust</= a>.
+        </p>
+        <p>
+          PLOS has a
+          <a href=3D"http://blogs.plos.org/mfenner/2011/03/19/a-very-brief-hi=story-of-scholarly-html/">short
+            history of Scholarly HTML</a> that is worth reading (and would be w=
+          orth updating).
+        </p>
+        <p>
+          Dan Brickley was kind enough to drop by the office to chat about ou=
+          r usage of
+          <a href=3D"http://schema.org/">schema.org</a> even though he was ti=
+          red and hungry. As
+          always, examples involving fish tanks are the most helpful. Dave Cr=
+          amer shared ideas
+          that we happily stole.
+        </p>
+        <p>
+          Patrick Johnston=E2=80=99s input has been crucial, notably in model=
+          ing authoring. We can only
+          hope that getting those details exactly right have not caused him t=
+          o lose too much
+          sleep.
+        </p>
+        <p>
+          We also received very useful feedback and pointers from: Kjetil Kje=
+          rnsmo (DAHUT!),
+          Silvio Peroni, Justin Johansson, Alf Eaton, Raniere Silvia, Kaveh B=
+          azargan and Mike
+          Smith. We are very much indebted to the help provided us by Ivan He=
+          rman.
+        </p>
+        <p>
+          If we somehow forgot you in this list and you are too gracious to c=
+          omplain, we love you
+          all the same.
+        </p>
+      </section>
+      =20
+
+      <section id=3D"biblio-references">
+        <h2><span>10. </span>References</h2>
+        <dl>
+          <d= t id=3D"ref-NYT">NYT</dt>
+            <dd property=3D"schema:citation" typeof=3D"schema:=ScholarlyArticle"
+              resource=3D"http://www.scribd.com/doc/224608514/The-Full-=New-York-Times-Innovation-Report">
+              <cite property=3D"schema:name"><a
+                  href=3D"http://www.scribd.com/doc/224=608514/The-Full-New-York-Times-Innovation-Report">The
+                  Full New York Times Innovation Report</a></cite>,
+              by
+              <span property=3D"schema:author" typeof=3D"schema:Person">
+                <span property=3D"schema:name">New York Times</span>
+              </span>;
+              <time property=3D"schema:datePublished" datetime=3D"2014-03" datatype==3D"xsd:gYearMonth">2014 Mar</time>.
+            </dd>
+            <dt id=3D"ref-HTML">HTML</dt>
+            <dd property=3D"schema:citation" typeof==3D"schema:WebPage" resource=3D"http://www.w3.org/TR/html5/">
+              <cite property=3D"schema:name"><a href=3D"http://www.w3.org/TR/html5/">=
+                  One of the HTML
+                  Specifications</a></cite>.
+            </dd>
+            <dt id=3D"ref-WAI-ARIA">WAI-ARIA</dt>
+            <dd property=3D"schema:citation=" typeof=3D" schema:WebPage"
+              resource=3D"https://www.w3.org/TR/wai-aria/comp=lete">
+              <cite property=3D"schema:name"><a href=3D"https://www.w3.org/TR/wai-ari=a/complete">Accessible Rich
+                  Internet Applications (WAI-ARIA) 1.0</a></cite>.
+            </dd>
+            <dt id=3D"ref-DPUB-ARIA">DPUB-ARIA</dt>
+            <dd property=3D"schema:citati=on" typeof=3D"schema:WebPage"
+              resource=3D"http://w3c.github.io/aria/aria/dp=ub.html">
+              <cite property=3D"schema:name"><a href=3D"http://w3c.github.io/aria/ari=a/dpub.html">Digital
+                  Publishing WAI-ARIA Module 1.0</a></cite>.
+            </dd>
+            <dt id=3D"ref-RDFa">RDFa</dt>
+            <dd property=3D"schema:citation" typeof==3D"schema:WebPage" resource=3D"https://www.w3.org/TR/rdfa-primer/">
+              <cite property=3D"schema:name"><a href=3D"https://www.w3.org/TR/rdfa-pr=imer/">RDFa 1.1
+                  Primer</a></cite>.
+            </dd>
+            <dt id=3D"ref-schema.org">schema.org</dt>
+            <dd property=3D"schema:cita=tion" typeof=3D"schema:WebPage" resource=3D"http://schema.org/">
+              <cite property=3D"schema:name"><a href=3D"http://schema.org/">schema.or=
+                  g</a></cite>.
+            </dd>
+            <dt id=3D"ref-CSL">CSL</dt>
+            <dd property=3D"schema:citation" typeof==3D"schema:WebPage" resource=3D"http://citationstyles.org/">
+              <cite property=3D"schema:name"><a href=3D"http://citationstyles.org/">C=
+                  itation Styles
+                  Language</a></cite>.
+            </dd>
+        </dl>
+      </section>
+    </body>
+
+    </html>
+    ------MultipartBoundary--IMn2Ijbpj7Pe7AThbBCVqw7AWf42SWpY7h8ZEIuxAI----
+    Content-Type: text/css
+    Content-Transfer-Encoding: quoted-printable
+    Content-Location: cid:css-bd045f45-3432-46c0-bdbd-d79567d9c52d@mhtml.blink
+
+    @charset "utf-8";
+
+    video { filter: -opera-shader(url(data:text/plain;base64,Ly8gaHR0cHM6Ly9naX=
+    RodWIuY29tL0dQVU9wZW4tRWZmZWN0cy9GaWRlbGl0eUZYLUNBUwovLyB2MwoKdW5pZm9ybSBza=
+    GFkZXIgaUNodW5rOwp1bmlmb3JtIGZsb2F0MiBpQ2h1bmtTaXplOwp1bmlmb3JtIGZsb2F0MiBp=
+    TW91c2U7CnVuaWZvcm0gZmxvYXQgaUFyZ3NbMV07Cgpjb25zdCBmbG9hdCBFUFNJT04gPSAwLjE=
+    7CmNvbnN0IGZsb2F0IFZfTUlOID0gMDsKY29uc3QgZmxvYXQgVl9MT1cgPSAwLjI1Owpjb25zdC=
+    BmbG9hdCBWX01FRCA9IDAuNTsKY29uc3QgZmxvYXQgVl9ISUdIID0gMC43NTsKY29uc3QgZmxvY=
+    XQgVl9NQVggPSAxOwoKY29uc3QgZmxvYXQgVEhSRVNIT0xEX0FSRUEgPSA4MDAgKiA2MDA7CmNv=
+    bnN0IGZsb2F0IE1JTl9BUkVBID0gNDAwICogMTAwOwpjb25zdCBmbG9hdCBNSU5fU1RSSVAgPSA=
+    yMDsKY29uc3QgZmxvYXQgTUFSR0lOID0gMTsKCmZsb2F0MyBwaXhlbChpbnQgeCwgaW50IHksIG=
+    Zsb2F0MiB4eSkgewogICAgcmV0dXJuIGlDaHVuay5ldmFsKHh5ICsgZmxvYXQyKHgsIHkpKS5yZ=
+    2I7Cn0KCmZsb2F0MyBzaGFycGVuKGZsb2F0MiB4eSkgewogICAgZmxvYXQzIGYgPQogICAgICAg=
+    IHBpeGVsKC0xLCAtMSwgeHkpICogIDEgKwogICAgICAgIHBpeGVsKCAwLCAtMSwgeHkpICogLTE=
+    gKwogICAgICAgIHBpeGVsKCAxLCAtMSwgeHkpICogIDEgKwoKICAgICAgICBwaXhlbCgtMSwgMC=
+    wgeHkpICogLTEgICsKICAgICAgICBwaXhlbCggMCwgMCwgeHkpICogLTEgICsKICAgICAgICBwa=
+    XhlbCggMSwgMCwgeHkpICogLTEgICsKCiAgICAgICAgcGl4ZWwoLTEsIDEsIHh5KSAqIDEgICAr=
+    CiAgICAgICAgcGl4ZWwoIDAsIDEsIHh5KSAqIC0xICArCiAgICAgICAgcGl4ZWwoIDEsIDEsIHh=
+    5KSAqIDE7CiAgICByZXR1cm4gZiAvIC0xOwp9CgpmbG9hdDQgUkdYMihmbG9hdDIgeHkpIHsKIC=
+    AgIGZsb2F0NCBjb2xvciA9IGlDaHVuay5ldmFsKHh5KTsKCiAgICBpZiAoaUNodW5rU2l6ZS54I=
+    CogaUNodW5rU2l6ZS55IDwgTUlOX0FSRUEpIHsKICAgICAgICByZXR1cm4gY29sb3I7CiAgICB9=
+    CgogICAgaWYgKGlDaHVua1NpemUueSA8IE1JTl9TVFJJUCB8fCBpQ2h1bmtTaXplLnggPCBNSU5=
+    fU1RSSVApIHsKICAgICAgICByZXR1cm4gY29sb3I7CiAgICB9CgogICAgaWYgKHh5LnggPCBNQV=
+    JHSU4gfHwgeHkueCA+IChpQ2h1bmtTaXplLnggLSBNQVJHSU4pIHx8CiAgICAgICAgeHkueSA8I=
+    E1BUkdJTiB8fCB4eS55ID4gKGlDaHVua1NpemUueSAtIE1BUkdJTikpIHsKICAgICAgICByZXR1=
+    cm4gY29sb3I7CiAgICB9CgogICAgcmV0dXJuIGZsb2F0NChzaGFycGVuKHh5KSwgMSk7Cn0KCmZ=
+    sb2F0IG1pbjMoZmxvYXQgeCwgZmxvYXQgeSwgZmxvYXQgeikgewogICAgcmV0dXJuIG1pbih4LC=
+    BtaW4oeSwgeikpOwp9CgpmbG9hdCBtYXgzKGZsb2F0IHgsIGZsb2F0IHksIGZsb2F0IHopIHsKI=
+    CAgIHJldHVybiBtYXgoeCwgbWF4KHksIHopKTsKfQoKZmxvYXQgcmNwKGZsb2F0IHYpIHsKICAg=
+    IHJldHVybiAxIC8gdjsKfQoKZmxvYXQzIFJHWDMoZmxvYXQyIHh5LCBmbG9hdCBzdHJlbmd0aCk=
+    gewogICAgZmxvYXQzIGEgPSBwaXhlbCgtMSwgLTEsIHh5KTsKICAgIGZsb2F0MyBiID0gcGl4ZW=
+    woIDAsIC0xLCB4eSk7CiAgICBmbG9hdDMgYyA9IHBpeGVsKCAxLCAtMSwgeHkpOwoKICAgIGZsb=
+    2F0MyBkID0gcGl4ZWwoLTEsIDAsIHh5KTsKICAgIGZsb2F0MyBlID0gcGl4ZWwoIDAsIDAsIHh5=
+    KTsKICAgIGZsb2F0MyBmID0gcGl4ZWwoIDEsIDAsIHh5KTsKCiAgICBmbG9hdDMgZyA9IHBpeGV=
+    sKC0xLCAxLCB4eSk7CiAgICBmbG9hdDMgaCA9IHBpeGVsKCAwLCAxLCB4eSk7CiAgICBmbG9hdD=
+    MgaSA9IHBpeGVsKCAxLCAxLCB4eSk7CgogICAgZmxvYXQgbW5SID0gbWluMyhtaW4zKGQuciwgZ=
+    S5yLCBmLnIpLCBiLnIsIGgucik7CiAgICBmbG9hdCBtbkcgPSBtaW4zKG1pbjMoZC5nLCBlLmcs=
+    IGYuZyksIGIuZywgaC5nKTsKICAgIGZsb2F0IG1uQiA9IG1pbjMobWluMyhkLmIsIGUuYiwgZi5=
+    iKSwgYi5iLCBoLmIpOwoKICAgIGZsb2F0IG1uUjIgPSBtaW4zKG1pbjMobW5SLCBhLnIsIGMuci=
+    ksIGcuciwgaS5yKTsKICAgIGZsb2F0IG1uRzIgPSBtaW4zKG1pbjMobW5HLCBhLmcsIGMuZyksI=
+    GcuZywgaS5nKTsKICAgIGZsb2F0IG1uQjIgPSBtaW4zKG1pbjMobW5CLCBhLmIsIGMuYiksIGcu=
+    YiwgaS5iKTsKCiAgICBtblIgPSBtblIgKyBtblIyOwogICAgbW5HID0gbW5HICsgbW5HMjsKICA=
+    gIG1uQiA9IG1uQiArIG1uQjI7CgogICAgZmxvYXQgbXhSID0gbWF4MyhtYXgzKGQuciwgZS5yLC=
+    BmLnIpLCBiLnIsIGgucik7CiAgICBmbG9hdCBteEcgPSBtYXgzKG1heDMoZC5nLCBlLmcsIGYuZ=
+    yksIGIuZywgaC5nKTsKICAgIGZsb2F0IG14QiA9IG1heDMobWF4MyhkLmIsIGUuYiwgZi5iKSwg=
+    Yi5iLCBoLmIpOwoKICAgIGZsb2F0IG14UjIgPSBtYXgzKG1heDMobXhSLCBhLnIsIGMuciksIGc=
+    uciwgaS5yKTsKICAgIGZsb2F0IG14RzIgPSBtYXgzKG1heDMobXhHLCBhLmcsIGMuZyksIGcuZy=
+    wgaS5nKTsKICAgIGZsb2F0IG14QjIgPSBtYXgzKG1heDMobXhCLCBhLmIsIGMuYiksIGcuYiwga=
+    S5iKTsKCiAgICBteFIgPSBteFIgKyBteFIyOwogICAgbXhHID0gbXhHICsgbXhHMjsKICAgIG14=
+    QiA9IG14QiArIG14QjI7CgogICAgZmxvYXQgcmNwTVIgPSByY3AobXhSKTsKICAgIGZsb2F0IHJ=
+    jcE1HID0gcmNwKG14Ryk7CiAgICBmbG9hdCByY3BNQiA9IHJjcChteEIpOwoKICAgIGZsb2F0IG=
+    FtcFIgPSBzYXR1cmF0ZShtaW4obW5SLCAyIC0gbXhSKSAqIHJjcE1SKTsKICAgIGZsb2F0IGFtc=
+    EcgPSBzYXR1cmF0ZShtaW4obW5HLCAyIC0gbXhHKSAqIHJjcE1HKTsKICAgIGZsb2F0IGFtcEIg=
+    PSBzYXR1cmF0ZShtaW4obW5CLCAyIC0gbXhCKSAqIHJjcE1CKTsKCiAgICBhbXBSID0gc3FydCh=
+    hbXBSKTsKICAgIGFtcEcgPSBzcXJ0KGFtcEcpOwogICAgYW1wQiA9IHNxcnQoYW1wQik7CgogIC=
+    AgZmxvYXQgcGVhayA9IC1yY3AobWl4KDgsIDUsIHN0cmVuZ3RoKSk7CgogICAgZmxvYXQgd1IgP=
+    SBhbXBSICogcGVhazsKICAgIGZsb2F0IHdHID0gYW1wRyAqIHBlYWs7CiAgICBmbG9hdCB3QiA9=
+    IGFtcEIgKiBwZWFrOwoKICAgIGZsb2F0IHJjcFdlaWdodFIgPSByY3AoMSArIDQgKiB3Uik7CiA=
+    gICBmbG9hdCByY3BXZWlnaHRHID0gcmNwKDEgKyA0ICogd0cpOwogICAgZmxvYXQgcmNwV2VpZ2=
+    h0QiA9IHJjcCgxICsgNCAqIHdCKTsKCiAgICByZXR1cm4gZmxvYXQzKAogICAgICAgIHNhdHVyY=
+    XRlKChiLnIgKiB3UiArIGQuciAqIHdSICsgZi5yICogd1IgKyBoLnIgKiB3UiArIGUucikgKiBy=
+    Y3BXZWlnaHRSKSwKICAgICAgICBzYXR1cmF0ZSgoYi5nICogd0cgKyBkLmcgKiB3RyArIGYuZyA=
+    qIHdHICsgaC5nICogd0cgKyBlLmcpICogcmNwV2VpZ2h0RyksCiAgICAgICAgc2F0dXJhdGUoKG=
+    IuYiAqIHdCICsgZC5iICogd0IgKyBmLmIgKiB3QiArIGguYiAqIHdCICsgZS5iKSAqIHJjcFdla=
+    WdodEIpKTsKfQoKCmZsb2F0NCBtYWluKGZsb2F0MiB4eSkgewoKICAgIGZsb2F0NCBvcmlnaW5h=
+    bENvbG9yID0gaUNodW5rLmV2YWwoeHkpOwogICAgaWYgKG9yaWdpbmFsQ29sb3IuYSA8IDEpIHs=
+    KICAgICAgICByZXR1cm4gaUNodW5rLmV2YWwoeHkpOwogICAgfQoKICAgIGZsb2F0IGludGVuc2=
+    l0eSA9IGlBcmdzWzBdOwogICAgZmxvYXQgc3RyZW5ndGggPSAwOwogICAgZmxvYXQzIGNvbG9yO=
+    woKICAgIGlmIChpbnRlbnNpdHkgPCBWX01JTiArIEVQU0lPTikgewogICAgICAgIHN0cmVuZ3Ro=
+    ID0gMC4xMDsKICAgICAgICBjb2xvciA9IFJHWDMoeHksIHN0cmVuZ3RoKTsKCiAgICB9IGVsc2U=
+    gaWYgKGludGVuc2l0eSA+IFZfTE9XIC0gRVBTSU9OICYmIGludGVuc2l0eSA8IFZfTE9XICsgRV=
+    BTSU9OKSB7CiAgICAgICAgc3RyZW5ndGggPSAwLjMzOwogICAgICAgIGNvbG9yID0gUkdYMyh4e=
+    Swgc3RyZW5ndGgpOwoKICAgIH0gZWxzZSBpZiAoaW50ZW5zaXR5ID4gVl9NRUQgLSBFUFNJT04g=
+    JiYgaW50ZW5zaXR5IDwgVl9NRUQgKyBFUFNJT04pIHsKICAgICAgICBzdHJlbmd0aCA9IDAuNTs=
+    KICAgICAgICBjb2xvciA9IFJHWDMoeHksIHN0cmVuZ3RoKTsKCiAgICB9IGVsc2UgaWYgKGludG=
+    Vuc2l0eSA+IFZfSElHSCAtIEVQU0lPTiAmJiBpbnRlbnNpdHkgPCBWX0hJR0ggKyBFUFNJT04pI=
+    HsKICAgICAgICBzdHJlbmd0aCA9IDAuOTk7CiAgICAgICAgY29sb3IgPSBSR1gzKHh5LCBzdHJl=
+    bmd0aCk7CgogICAgfSBlbHNlIGlmIChpbnRlbnNpdHkgPiBWX01BWCAtIEVQU0lPTikgewogICA=
+    gICAgIHN0cmVuZ3RoID0gMTsKICAgICAgICBjb2xvciA9IFJHWDIoeHkpLnJnYjsKICAgIH0KCi=
+    AgICByZXR1cm4gZmxvYXQ0KGNvbG9yLCBvcmlnaW5hbENvbG9yLmEpOwp9) -opera-args(1.0=
+    0 calc(env(-opera-accent-color-r, 255)/255) calc(env(-opera-accent-color-g,=
+    255)/255) calc(env(-opera-accent-color-b, 255)/255))); }
+    ------MultipartBoundary--IMn2Ijbpj7Pe7AThbBCVqw7AWf42SWpY7h8ZEIuxAI----
+    Content-Type: text/css
+    Content-Transfer-Encoding: quoted-printable
+    Content-Location: cid:css-4f0922bc-1bcb-4df9-ad51-e4de7c72802e@mhtml.blink
+
+    @charset "utf-8";
+    =0A
+    ------MultipartBoundary--IMn2Ijbpj7Pe7AThbBCVqw7AWf42SWpY7h8ZEIuxAI----
+    Content-Type: text/css
+    Content-Transfer-Encoding: quoted-printable
+    Content-Location: https://w3c.github.io/scholarly-html/css/scholarly.min.css
+
+    @charset "utf-8";
+
+    html { font-family: sans-serif; text-size-adjust: 100%; }
+
+    body { margin: 0px; }
+
+    article, aside, details, figcaption, figure, footer, header, hgroup, main, =
+    menu, nav, section, summary { display: block; }
+
+    audio, canvas, progress, video { display: inline-block; vertical-align: bas=
+    eline; }
+
+    audio:not([controls]) { display: none; height: 0px; }
+
+    [hidden], template { display: none; }
+
+    a { background-color: transparent; }
+
+    a:active, a:hover { outline: 0px; }
+
+    abbr[title] { border-bottom: 1px dotted; }
+
+    b, strong { font-weight: 700; }
+
+    dfn { font-style: italic; }
+
+    h1 { font-size: 2em; margin: 0.67em 0px; }
+
+    mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+
+    small { font-size: 80%; }
+
+    sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-ali=
+    gn: baseline; }
+
+    sup { top: -0.5em; }
+
+    sub { bottom: -0.25em; }
+
+    img { border: 0px; }
+
+    svg:not(:root) { overflow: hidden; }
+
+    figure { margin: 1em 40px; }
+
+    hr { box-sizing: content-box; height: 0px; }
+
+    pre { overflow: auto; }
+
+    code, kbd, pre, samp { font-family: monospace; font-size: 1em; }
+
+    button, input, optgroup, select, textarea { color: inherit; font: inherit; =
+    margin: 0px; }
+
+    button { overflow: visible; }
+
+    button, select { text-transform: none; }
+
+    button, html input[type=3D"button"], input[type=3D"reset"], input[type=3D"s=
+    ubmit"] { appearance: button; cursor: pointer; }
+
+    button[disabled], html input[disabled] { cursor: default; }
+
+    input { line-height: normal; }
+
+    input[type=3D"checkbox"], input[type=3D"radio"] { box-sizing: border-box; p=
+    adding: 0px; }
+
+    input[type=3D"number"]::-webkit-inner-spin-button, input[type=3D"number"]::=
+    -webkit-outer-spin-button { height: auto; }
+
+    input[type=3D"search"] { appearance: textfield; box-sizing: content-box; }
+
+    input[type=3D"search"]::-webkit-search-cancel-button, input[type=3D"search"=
+    ]::-webkit-search-decoration { appearance: none; }
+
+    fieldset { border: 1px solid silver; margin: 0px 2px; padding: 0.35em 0.625=
+    em 0.75em; }
+
+    legend { border: 0px; padding: 0px; }
+
+    textarea { overflow: auto; }
+
+    optgroup { font-weight: 700; }
+
+    table { border-collapse: collapse; border-spacing: 0px; }
+
+    td, th { padding: 0px; }
+
+    @font-face { font-family: Roboto; font-weight: 300; font-style: normal; src=
+    : local("Roboto Light"), local("Roboto-300"), url("../fonts/Roboto-300/Robo=
+    to-300.woff2") format("woff2"), url("../fonts/Roboto-300/Roboto-300.woff") =
+    format("woff"), url("../fonts/Roboto-300/Roboto-300.ttf") format("truetype"=
+    ); }
+
+    @font-face { font-family: Roboto; font-weight: 700; font-style: normal; src=
+    : local("Roboto Bold"), local("Roboto-700"), url("../fonts/Roboto-700/Robot=
+    o-700.woff2") format("woff2"), url("../fonts/Roboto-700/Roboto-700.woff") f=
+    ormat("woff"), url("../fonts/Roboto-700/Roboto-700.ttf") format("truetype")=
+    ; }
+
+    @font-face { font-family: Roboto; font-weight: 300; font-style: italic; src=
+    : local("Roboto Light Italic"), local("Roboto-300italic"), url("../fonts/Ro=
+    boto-300italic/Roboto-300italic.woff2") format("woff2"), url("../fonts/Robo=
+    to-300italic/Roboto-300italic.woff") format("woff"), url("../fonts/Roboto-3=
+    00italic/Roboto-300italic.ttf") format("truetype"); }
+
+    @font-face { font-family: Roboto; font-weight: 700; font-style: italic; src=
+    : local("Roboto Bold Italic"), local("Roboto-700italic"), url("../fonts/Rob=
+    oto-700italic/Roboto-700italic.woff2") format("woff2"), url("../fonts/Robot=
+    o-700italic/Roboto-700italic.woff") format("woff"), url("../fonts/Roboto-70=
+    0italic/Roboto-700italic.ttf") format("truetype"); }
+
+    @font-face { font-family: "Roboto Mono"; font-weight: 300; font-style: norm=
+    al; src: local("Roboto Mono Light"), local("Roboto-Mono-300"), url("../font=
+    s/Roboto-Mono-300/Roboto-Mono-300.woff2") format("woff2"), url("../fonts/Ro=
+    boto-Mono-300/Roboto-Mono-300.woff") format("woff"), url("../fonts/Roboto-M=
+    ono-300/Roboto-Mono-300.ttf") format("truetype"); }
+
+    @font-face { font-family: "Roboto Mono"; font-weight: 700; font-style: norm=
+    al; src: local("Roboto Mono Bold"), local("Roboto-Mono-700"), url("../fonts=
+    /Roboto-Mono-700/Roboto-Mono-700.woff2") format("woff2"), url("../fonts/Rob=
+    oto-Mono-700/Roboto-Mono-700.woff") format("woff"), url("../fonts/Roboto-Mo=
+    no-700/Roboto-Mono-700.ttf") format("truetype"); }
+
+    body { max-width: 21cm; margin: auto; line-height: 1.6; font-weight: 300; f=
+    ont-family: Roboto, sans-serif; }
+
+    header > h1 { margin: 0px; font-size: 3em; padding-top: 4em; }
+
+    div.banner { display: flex; justify-content: space-between; }
+
+    div.banner > img { height: 100%; }
+
+    div.banner > div.status { color: rgb(255, 255, 255); background: rgb(148, 0=
+    , 191); width: 350px; padding: 10px; text-align: right; }
+
+    h1, h2, h3, h4, h5, h6 { letter-spacing: 0.0375em; }
+
+    h1, h2 { color: rgb(75, 0, 97); }
+
+    h2 { margin-top: 3em; }
+
+    h3 { margin-top: 2.5em; }
+
+    h4 { font-weight: 300; font-size: 1.2em; font-feature-settings: "c2sc"; fon=
+    t-variant: small-caps; margin: 2em 0px 0.5em; }
+
+    [role=3D"contentinfo"] a { text-decoration: none; }
+
+    [role=3D"directory"] ol, ol[role=3D"directory"] { list-style-type: none; }
+
+    [role=3D"contentinfo"] dt { font-weight: 700; }
+
+    [role=3D"contentinfo"] dd { margin-bottom: 1em; }
+
+    a.onto { text-decoration: none; background: linear-gradient(0deg, rgba(255,=
+    0, 0, 0.4), rgba(255, 0, 0, 0.4) 15%, rgb(255, 255, 255) 16%); color: rgb(=
+    67, 67, 67); }
+
+    a.onto, code, pre { font-family: "Roboto Mono", monospace; }
+
+    p.issue { border-left: 3px solid red; padding: 0.5em 1em; }
+
+    @media screen and (max-width: 577px) {
+    div.status { width: auto; }
+    }
+
+    @media screen and (max-width: 980px) {
+    body { margin: 0px 2em; }
+    }
+    ------MultipartBoundary--IMn2Ijbpj7Pe7AThbBCVqw7AWf42SWpY7h8ZEIuxAI----
+    Content-Type: image/svg+xml
+    Content-Transfer-Encoding: quoted-printable
+    Content-Location: https://w3c.github.io/scholarly-html/scholarly-html.svg
+
+    <svg xmlns=3D"http://www.w3.org/2000/svg" x=3D"0px" y=3D"0px" viewBox=3D"0=0 327 72">
+      <g>
+        <rect fill=3D"#999" width=3D"327" height=3D"72" />
+        <g fill=3D"#fff">
+          <path d=3D"M51,53.5c-5.2,0-8.9-1.2-12.2-4.5l3.5-3.4c2.5,2.5,5.3,3.2,8=.8,3.2c4.5,0,7.1-1.9,7.1-5.2
+            c0-1.5-0.4-2.7-1.4-3.5c-0.9-0.8-1.7-1.1-3.8-1.4L49,38.1c-2.8-0.4-5-=1.3-6.5-2.7c-1.7-1.6-2.5-3.7-2.5-6.5c0-5.9,4.4-10,11.5-10
+            c4.6,0,7.8,1.1,10.7,3.9l-3.3,3.2c-2.1-2-4.6-2.6-7.5-2.6c-4.1,0-6.3,=2.3-6.3,5.3c0,1.2,0.4,2.3,1.3,3.1c0.9,0.8,2.3,1.3,3.9,1.6
+            l3.9,0.6c3.2,0.5,5,1.2,6.4,2.5c1.9,1.6,2.8,4.1,2.8,7C63.4,49.8,58.2=,53.5,51,53.5z" />
+          <path d=3D"M81,53.5c-3.6,0-6.7-1.3-9.1-3.6c-3.4-3.3-3.3-7.1-3.3-13.6s=0-10.3,3.3-13.6c2.4-2.3,5.5-3.6,9.1-3.6
+            c6.3,0,11.1,3.7,12.3,10.5H88c-0.8-3.4-3.2-5.8-7-5.8c-2,0-3.9,0.8-5.=1,2.1c-1.7,1.8-2.1,3.8-2.1,10.6s0.4,8.8,2.1,10.6
+            c1.2,1.3,3.1,2.1,5.1,2.1c3.8,0,6.2-2.4,7-5.8h5.3C92.1,49.8,87.2,53.=5,81,53.5z" />
+          <path d=3D"M118.4,53.2V38.4h-14v14.8h-5.2v-34h5.2v14.5h14V19.2h5.2v34=H118.4z" />
+          <path
+            d=3D"M152,49.9c-2.4,2.3-5.4,3.6-9.1,3.6c-3.7,0-6.7-1.3-9.1-3.6c=-3.4-3.3-3.3-7.1-3.3-13.6s0-10.3,3.3-13.6
+            c2.4-2.3,5.4-3.6,9.1-3.6c3.7,0,6.7,1.3,9.1,3.6c3.4,3.3,3.3,7.1,3.3,=13.6S155.4,46.5,152,49.9z M148,25.7
+            c-1.2-1.3-3.1-2.1-5.1-2.1s-3.9,0.8-5.1,2.1c-1.7,1.8-2,3.7-2,10.5s0.=3,8.7,2,10.5c1.2,1.3,3.1,2.1,5.1,2.1s3.9-0.8,5.1-2.1
+            c1.7-1.8,2-3.7,2-10.5S149.7,27.5,148,25.7z" />
+          <path d=3D"M162.1,53.2v-34h5.2v29.3h16.6v4.6H162.1z" />
+          <path d=3D"M211.3,53.2l-2.4-6.8h-13.6l-2.4,6.8h-5.6l12.6-34h4.2l12.6,=34H211.3z M202.2,26.9L196.9,42h10.6
+            L202.2,26.9z" />
+          <path d=3D"M241.3,53.2L234,38.9h-6.5v14.3h-5.2v-34h13.4c6.5,0,10.7,4.=2,10.7,9.9c0,4.9-3,8-6.9,9l7.9,15H241.3z
+            M235.2,23.9h-7.8v10.6h7.8c3.5,0,5.9-2,5.9-5.3S238.7,23.9,235.2,23.=9z" />
+          <path d=3D"M17.5,35.9l9.9-16.7h5.2l-9.9,16.7L33,53.2h-5.7L20.1,41L17.=5,35.9z" />
+          <polygon points=3D"297.6,27.4 302.3,19.2 308,19.2 300.4,32.1" />
+          <polygon points=3D"297.9,36.6 297.8,36.7 287.9,53.2 282.6,53.2 292.5,=36.5 282.2,19.2 287.9,19.2
+            295.1,31.6" />
+          <path d=3D"M255.6,53.2v-34h5.2v29.3h16.6v4.6H255.6z" />
+        </g>
+      </g>
+    </svg>=0A
+    ------MultipartBoundary--IMn2Ijbpj7Pe7AThbBCVqw7AWf42SWpY7h8ZEIuxAI------
