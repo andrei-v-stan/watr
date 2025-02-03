@@ -60,23 +60,25 @@
 
 # :notebook_with_decorative_cover: Table of Contents
 
-- [About the Project](#magic_wand-about-the-project)
-  * [Screenshots](#camera-screenshots)
-  * [Color Reference](#art-color-reference)
-  * [Tech Stack](#space_invader-tech-stack)
-  * [Features](#dart-features)
-  * [Environment Variables](#key-environment-variables)
-- [Getting Started](#toolbox-getting-started)
-  * [Prerequisites](#ballot_box-prerequisites)
-  * [Running Development Mode](#wrench-run-locally-development-mode)
-  * [Running Deployment Mode](#gear-deployment-mode)
-- [Usage](#cd-usage)
-- [Contributing](#card_index_dividers-contributing)
-- [Roadmap](#spiral_calendar-roadmap)
-- [FAQ](#mailbox-faq)
-- [License](#black_nib-license)
-- [Contact](#email-contact)
-- [Acknowledgements](#bookmark-acknowledgements)
+- [:notebook\_with\_decorative\_cover: Table of Contents](#notebook_with_decorative_cover-table-of-contents)
+  - [:magic\_wand: About the Project](#magic_wand-about-the-project)
+    - [:camera: Screenshots](#camera-screenshots)
+    - [:art: Color Reference](#art-color-reference)
+    - [:space\_invader: Tech Stack](#space_invader-tech-stack)
+    - [:dart: Features](#dart-features)
+    - [:key: Environment Variables](#key-environment-variables)
+  - [:toolbox: Getting Started](#toolbox-getting-started)
+    - [:ballot\_box: Prerequisites](#ballot_box-prerequisites)
+    - [:wrench: Run Locally (Development Mode)](#wrench-run-locally-development-mode)
+    - [:gear: Deployment Mode](#gear-deployment-mode)
+  - [:cd: Usage](#cd-usage)
+  - [:movie\_camera: Tutorial](#movie_camera-tutorial)
+  - [:card\_index\_dividers: Contributing](#card_index_dividers-contributing)
+  - [:spiral\_calendar: Roadmap](#spiral_calendar-roadmap)
+  - [:mailbox: FAQ](#mailbox-faq)
+  - [:black\_nib: License](#black_nib-license)
+  - [:email: Contact](#email-contact)
+  - [:bookmark: Acknowledgements](#bookmark-acknowledgements)
 
 <br>
 
@@ -84,9 +86,31 @@
 
 ### :camera: Screenshots
 
-<div align="center"> 
-  <img src="https://placehold.co/600x400?text=Your+Screenshot+here" alt="screenshot" />
-</div>
+<figure align="center">
+  <img src="documentation/Scholarly/assets/upload-files.png" alt="Upload files">
+  <figcaption>Upload files</figcaption>
+</figure>
+<figure align="center">
+  <img src="documentation/Scholarly/assets/visualize-panel.png" alt="Visualize panel">
+  <figcaption>Visualize panel</figcaption>
+</figure>
+<figure align="center">
+  <img src="documentation/Scholarly/assets/classify-panel-intersection.png" alt="Classify panel intersection">
+  <figcaption>Classify panel intersection</figcaption>
+</figure>
+<figure align="center">
+  <img src="documentation/Scholarly/assets/compare-panel-predicates.png" alt="Classify panel predicates">
+  <figcaption>Compare panel predicates</figcaption>
+</figure>
+<figure align="center">
+  <img src="documentation/Scholarly/assets/match-panel.png" alt="Match panel predicates">
+  <figcaption>Match panel</figcaption>
+</figure>
+<figure align="center">
+  <img src="documentation/Scholarly/assets/external-query.png" alt="External query">
+  <figcaption>External query</figcaption>
+</figure>
+
 
 ### :art: Color Reference
 
@@ -160,9 +184,11 @@
 
 ### :dart: Features
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Upload files (TTL, JSON-LD, OWL etc.)
+- Visualize
+- Classify by predicate-attribute filters intersection/union
+- Compare by subjects/predicates
+- Match datasets
 
 <br>
 
@@ -275,16 +301,13 @@ npm -v
 
 ## :cd: Usage
 
-Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
+See the [Scholarly technical report](https://github.com/andrei-v-stan/watr/blob/main/documentation/Scholarly/index.html) for an in-depth view of the watr project.
 
+<br>
 
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-```
+## :movie_camera: Tutorial
+[Demo on Github](https://raw.githubusercontent.com/andrei-v-stan/watr/main/documentation/Demo.mp4) 
+[HD Demo on YT](https://www.youtube.com/watch?v=v4Z6YIBrq-U)
 
 <br>
 
@@ -296,8 +319,19 @@ function App() {
 
 ## :spiral_calendar: Roadmap
 
-* [x] Todo 1
-* [ ] Todo 2
+* [x] Project setup
+* [x] Front-end file upload and cookie validation
+* [x] NodeJS back-end setup and general architecture
+* [x] Triple query implementation
+* [x] Config & toggles sections reworking
+* [x] Visualisation implementation
+* [x] Compare implementation
+* [x] Classify implementation
+* [x] Match implementation
+* [x] Type support expansion
+* [x] GCP app hosting
+* [x] OpenAPI and scholarly documentation
+* [ ] Future improvements
 
 
 ## :mailbox: FAQ

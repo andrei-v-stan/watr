@@ -119,3 +119,12 @@ a:visited {
 li a[href="#biblio-references"] {
   display: none;
 }
+
+pre {
+  background: lightgray;
+  font-size: small;
+}
+
+img {
+  max-width: 100%;
+}

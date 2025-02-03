@@ -84,125 +84,125 @@
       demonstrate the system's capabilities and practical applications.
     </p>
   </section>
-  
-<section id="objectives">
-  <h2>Objectives</h2>
-  <p>
-    The primary objective of the Web Data Commons Analyzer (watr) is to provide a robust and efficient platform
-    for processing and analyzing structured metadata available
-    in RDFa and HTML5 microdata formats. The system aims to achieve specific objectives.
-  </p>
-  <p>
-    Firstly, the project enables the acquisition of metadata from various sources, including remote SPARQL
-    endpoints and local RDF files in multiple formats such as JSON-LD,
-    RDF/XML, Turtle, and TriX. This data is then conveniently handled using SPARQL queries and N3 parsers to
-    extract, transform, and load (ETL) relevant information for further analysis.
-  </p>
-  <p>
-    Secondly, watr provides tools for visualizing the metadata in a user-friendly manner, allowing users to gain
-    insights into the data through graphical representations.
-    Furthermore, the system implements mechanisms for classifying the metadata based on predefined criteria,
-    enabling users to categorize and organize the data effectively.
-  </p>
-  <p>
-    Data can also be compared using watr, identifying similarities and differences to support data-driven
-    decision-making. The system offers functionalities for matching metadata from
-    different sources, ensuring data consistency and interoperability. Additionally, various statistics modeled
-    with the RDF Data Cube vocabulary are exposed, providing valuable insights.
-  </p>
-  <p>
-    By achieving these objectives, watr aims to become a comprehensive tool for researchers, data scientists, and
-    developers working with structured metadata. The system enables users to
-    efficiently process, analyze, and derive meaningful insights from the data, supporting advanced data analysis
-    and decision-making.
-  </p>
-</section>
-<section id="structure">
-  <h2>Project structure</h2>
-  <p>
-    The project is comprised of several key components, including the backend, frontend, uploads folder, and data
-    module. Each component plays a crucial role in the overall functionality of the system, enabling users to interact
-    with the data and perform various operations.
-  </p>
-  <section id="backend">
-    <h3>Backend</h3>
+
+  <section id="objectives">
+    <h2>Objectives</h2>
     <p>
-      The backend of the watr system is built using Node.js and Express.js, providing a robust and scalable platform
-      for
-      handling HTTP requests and performing various data processing tasks. The backend is responsible for querying
-      SPARQL endpoints, processing RDF data, and exposing RESTful APIs for the frontend to interact with. Key
-      technologies and packages used in the backend include Express.js, a minimal and flexible Node.js web application
-      framework that provides a robust set of features for web and mobile applications; SPARQL.js, a library for
-      parsing
-      and executing SPARQL queries; RDFLib, a library for working with RDF data in JavaScript; JsonLD, a library for
-      working with JSON-LD data; rdfxml-streaming-parser, a library for parsing RDF/XML data; and rdf-validate-shacl,
-      a library for validating RDF data against SHACL shapes.
+      The primary objective of the Web Data Commons Analyzer (watr) is to provide a robust and efficient platform
+      for processing and analyzing structured metadata available
+      in RDFa and HTML5 microdata formats. The system aims to achieve specific objectives.
     </p>
     <p>
-      The backend is structured into several modules, including services, controllers, routes, and utilities. The
-      services module contains the core logic for querying SPARQL endpoints and processing RDF data. The controllers
-      module defines the endpoints and handles incoming HTTP requests. The routes module sets up the routes for the
-      various endpoints. The utilities module provides utility functions for data conversion and manipulation.
+      Firstly, the project enables the acquisition of metadata from various sources, including remote SPARQL
+      endpoints and local RDF files in multiple formats such as JSON-LD,
+      RDF/XML, Turtle, and TriX. This data is then conveniently handled using SPARQL queries and N3 parsers to
+      extract, transform, and load (ETL) relevant information for further analysis.
+    </p>
+    <p>
+      Secondly, watr provides tools for visualizing the metadata in a user-friendly manner, allowing users to gain
+      insights into the data through graphical representations.
+      Furthermore, the system implements mechanisms for classifying the metadata based on predefined criteria,
+      enabling users to categorize and organize the data effectively.
+    </p>
+    <p>
+      Data can also be compared using watr, identifying similarities and differences to support data-driven
+      decision-making. The system offers functionalities for matching metadata from
+      different sources, ensuring data consistency and interoperability. Additionally, various statistics modeled
+      with the RDF Data Cube vocabulary are exposed, providing valuable insights.
+    </p>
+    <p>
+      By achieving these objectives, watr aims to become a comprehensive tool for researchers, data scientists, and
+      developers working with structured metadata. The system enables users to
+      efficiently process, analyze, and derive meaningful insights from the data, supporting advanced data analysis
+      and decision-making.
     </p>
   </section>
-  <section id="frontend">
-    <h3>Frontend</h3>
+  <section id="structure">
+    <h2>Project structure</h2>
     <p>
-      The frontend of the watr system is built using modern web technologies to provide a user-friendly interface for
-      interacting with the backend services. The frontend is responsible for displaying the data, visualizing the
-      metadata, and providing tools for classification, comparison, and matching. Key technologies used in the
-      frontend
-      include HTML5, the standard markup language for creating web pages; CSS3, a style sheet language used for
-      describing the presentation of a document written in HTML; JavaScript, a programming language that enables
-      interactive web pages; Vite, a build tool that provides a fast development environment and optimized production
-      builds; and Tailwind CSS, a utility-first CSS framework for rapidly building custom user interfaces.
+      The project is comprised of several key components, including the backend, frontend, uploads folder, and data
+      module. Each component plays a crucial role in the overall functionality of the system, enabling users to interact
+      with the data and perform various operations.
     </p>
-    <p>
-      The frontend is a single-page application, structured into several components, including panels, components,
-      assets, and services.
-      The functionalities are modeled by the <strong>Operations</strong> components such as Classify, Compare,
-      MatchAlign and Visualize.
-      The components module includes reusable UI components such as headers, footers, and data tables. The assets
-      module contains static assets such as images and stylesheets. The services module provides functions for making
-      API calls to the backend. The frontend communicates with the backend through RESTful APIs, allowing users to
-      perform various operations such as querying data, visualizing metadata, and comparing datasets. The
-      <strong>config</strong> contains the
-      <strong>urls.json</strong> with predefined remote datasets and queries.
-    </p>
+    <section id="backend">
+      <h3>Backend</h3>
+      <p>
+        The backend of the watr system is built using Node.js and Express.js, providing a robust and scalable platform
+        for
+        handling HTTP requests and performing various data processing tasks. The backend is responsible for querying
+        SPARQL endpoints, processing RDF data, and exposing RESTful APIs for the frontend to interact with. Key
+        technologies and packages used in the backend include Express.js, a minimal and flexible Node.js web application
+        framework that provides a robust set of features for web and mobile applications; SPARQL.js, a library for
+        parsing
+        and executing SPARQL queries; RDFLib, a library for working with RDF data in JavaScript; JsonLD, a library for
+        working with JSON-LD data; rdfxml-streaming-parser, a library for parsing RDF/XML data; and rdf-validate-shacl,
+        a library for validating RDF data against SHACL shapes.
+      </p>
+      <p>
+        The backend is structured into several modules, including services, controllers, routes, and utilities. The
+        services module contains the core logic for querying SPARQL endpoints and processing RDF data. The controllers
+        module defines the endpoints and handles incoming HTTP requests. The routes module sets up the routes for the
+        various endpoints. The utilities module provides utility functions for data conversion and manipulation.
+      </p>
+    </section>
+    <section id="frontend">
+      <h3>Frontend</h3>
+      <p>
+        The frontend of the watr system is built using modern web technologies to provide a user-friendly interface for
+        interacting with the backend services. The frontend is responsible for displaying the data, visualizing the
+        metadata, and providing tools for classification, comparison, and matching. Key technologies used in the
+        frontend
+        include HTML5, the standard markup language for creating web pages; CSS3, a style sheet language used for
+        describing the presentation of a document written in HTML; JavaScript, a programming language that enables
+        interactive web pages; Vite, a build tool that provides a fast development environment and optimized production
+        builds; and Tailwind CSS, a utility-first CSS framework for rapidly building custom user interfaces.
+      </p>
+      <p>
+        The frontend is a single-page application, structured into several components, including panels, components,
+        assets, and services.
+        The functionalities are modeled by the <strong>Operations</strong> components such as Classify, Compare,
+        MatchAlign and Visualize.
+        The components module includes reusable UI components such as headers, footers, and data tables. The assets
+        module contains static assets such as images and stylesheets. The services module provides functions for making
+        API calls to the backend. The frontend communicates with the backend through RESTful APIs, allowing users to
+        perform various operations such as querying data, visualizing metadata, and comparing datasets. The
+        <strong>config</strong> contains the
+        <strong>urls.json</strong> with predefined remote datasets and queries.
+      </p>
+    </section>
+    <section id="uploads-folder">
+      <h3>Uploads Folder</h3>
+      <p>
+        The watr system includes an uploads folder that contains RDF files in different formats. This folder is used to
+        store user-provided datasets that can be processed and analyzed by the system. Examples of RDF formats supported
+        include JSON-LD, RDF/XML, Turtle, and TriX. These files can be uploaded to the system and then queried using
+        SPARQL, allowing users to extract, transform, and load (ETL) relevant information for further analysis. The
+        uploads folder plays a crucial role in enabling the system to handle diverse data sources and formats, ensuring
+        flexibility and extensibility in data processing.
+      </p>
+    </section>
   </section>
-  <section id="uploads-folder">
-    <h3>Uploads Folder</h3>
+  <section id="data">
+    <h2>Data</h2>
     <p>
-      The watr system includes an uploads folder that contains RDF files in different formats. This folder is used to
-      store user-provided datasets that can be processed and analyzed by the system. Examples of RDF formats supported
-      include JSON-LD, RDF/XML, Turtle, and TriX. These files can be uploaded to the system and then queried using
-      SPARQL, allowing users to extract, transform, and load (ETL) relevant information for further analysis. The
-      uploads folder plays a crucial role in enabling the system to handle diverse data sources and formats, ensuring
-      flexibility and extensibility in data processing.
+      The watr system supports the acquisition of metadata from various sources, including remote SPARQL endpoints and
+      local RDF files in multiple formats such as JSON-LD, RDF/XML, Turtle, and TriX. The data is processed using SPARQL
+      queries and N3 parsers to extract, transform, and load (ETL) relevant information for further analysis. Between
+      the
+      back-end and front-end of the application, the data is modeled in various shapes in order to better suite the
+      action performed.
+      The local data files are firstly parsed using the <a href="https://www.npmjs.com/package/n3/v/0.8.2">n3</a> and
+      <a href="https://www.npmjs.com/package/rdfxml-streaming-parser">RdfXmlParser</a> JavaScript packages, depending on
+      their format.
     </p>
-  </section>
-</section>
-<section id="data">
-  <h2>Data</h2>
-  <p>
-    The watr system supports the acquisition of metadata from various sources, including remote SPARQL endpoints and
-    local RDF files in multiple formats such as JSON-LD, RDF/XML, Turtle, and TriX. The data is processed using SPARQL
-    queries and N3 parsers to extract, transform, and load (ETL) relevant information for further analysis. Between
-    the
-    back-end and front-end of the application, the data is modeled in various shapes in order to better suite the
-    action performed.
-    The local data files are firstly parsed using the <a href="https://www.npmjs.com/package/n3/v/0.8.2">n3</a> and
-    <a href="https://www.npmjs.com/package/rdfxml-streaming-parser">RdfXmlParser</a> JavaScript packages, depending on
-    their format.
-  </p>
-  <section id="data-visualize">
-    <h3>Visualize data</h3>
-    Having selected an uploaded dataset, the user can visualize the data in a user-friendly manner. The data is
-    displayed in a tabular format,
-    each triple of subject-predicate-object being represented in a row. Data received by the front-end consists of an
-    array of objects, each object
-    having the following structure, with the values on each row in the table:
-    <pre>
+    <section id="data-visualize">
+      <h3>Visualize data</h3>
+      Having selected an uploaded dataset, the user can visualize the data in a user-friendly manner. The data is
+      displayed in a tabular format,
+      each triple of subject-predicate-object being represented in a row. Data received by the front-end consists of an
+      array of objects, each object
+      having the following structure, with the values on each row in the table:
+      <pre>
       <code>
         {
           subject: string,
@@ -211,20 +211,20 @@
         }
       </code>
     </pre>
-  </section>
-  <section id="data-compare">
-    <h3>Compare data</h3>
-    Regarding the compare data, the structure is similar to the visualize data. The difference that the data is
-    displayed more or less detailes on multiple
-    columns, depending on the filters selected by the user.
-  </section>
-  <section id="data-classify">
-    <h3>Classify data</h3>
-    The classify data is a bit different from the previous two. Even though the end representation of the data is
-    simpler, consisting of a subjects table,
-    various configurations are sent to the back-end in order to filter the data in a JSON format in the API request
-    body. The data is then processed and returned in a simpler format.
-    <pre>
+    </section>
+    <section id="data-compare">
+      <h3>Compare data</h3>
+      Regarding the compare data, the structure is similar to the visualize data. The difference that the data is
+      displayed more or less detailes on multiple
+      columns, depending on the filters selected by the user.
+    </section>
+    <section id="data-classify">
+      <h3>Classify data</h3>
+      The classify data is a bit different from the previous two. Even though the end representation of the data is
+      simpler, consisting of a subjects table,
+      various configurations are sent to the back-end in order to filter the data in a JSON format in the API request
+      body. The data is then processed and returned in a simpler format.
+      <pre>
       <code>
         { // Data sent
           file: string, // the dataset
@@ -238,20 +238,21 @@
         }
       </code>
     </pre>
-    <pre>
+      <pre>
       <code>
         { // Data received
           subjects: string[] // the subjects that match the filter
         }
       </code>
     </pre>
-  </section>
-  <section id="data-match-align">
-    <h3>Match and align data</h3>
-    The match and align data is the most complex of the four. The data is sent to the back-end in a JSON format in the
-    API request body, containing the two datasets to be matched and aligned and also the criteria to filter matched subjects by.
-    The data is then processed and returned in a more complex format, containing the matched and aligned data.
-    <pre>
+    </section>
+    <section id="data-match-align">
+      <h3>Match and align data</h3>
+      The match and align data is the most complex of the four. The data is sent to the back-end in a JSON format in the
+      API request body, containing the two datasets to be matched and aligned and also the criteria to filter matched
+      subjects by.
+      The data is then processed and returned in a more complex format, containing the matched and aligned data.
+      <pre>
       <code>
         { // Data sent
           file: string, // the first dataset
@@ -265,7 +266,7 @@
         }
       </code>
     </pre>
-    <pre>
+      <pre>
       <code>
         { // Data received
           matched: [
@@ -283,12 +284,13 @@
         }
       </code>
     </pre>
-  </section>
-  <p>
-    The operations' services use various SPARQL queries to extract data from the selected datasets. For example, in the case 
-    of <strong>visualization</strong>, the query is as it follows, where limit is the results count.
-  </p>
-  <pre>
+    </section>
+    <p>
+      The operations' services use various SPARQL queries to extract data from the selected datasets. For example, in
+      the case
+      of <strong>visualization</strong>, the query is as it follows, where limit is the results count.
+    </p>
+    <pre>
     <code>
       PREFIX dbo: <http://dbpedia.org/ontology/>
       PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
@@ -298,8 +300,9 @@
       } LIMIT ${limit}
     </code>
   </pre>
-  <p>
-    Meanwhile, in the case of <strong>match</strong>, the query is more complex as it follows, where the pairs are the filters.
+    <p>
+      Meanwhile, in the case of <strong>match</strong>, the query is more complex as it follows, where the pairs are the
+      filters.
     <pre>
       <code>
         SELECT DISTINCT ?subject ?predicate ?object
@@ -312,20 +315,150 @@
         FILTER (?predicate = <${predicate}> && ?object = ${formatAttribute(attribute)})
       </code>
     </pre>
-  </p>
-</section>
-<section id="design-and-architecure">
-  <h2>Design and architecture</h2>
-  <p>
-    The watr system is designed using a service oriented architecture (SOA), with separate components for the backend, frontend,
-    uploads folder, and data module. This modular approach enables the system to be scalable, flexible, and extensible,
-    allowing users to interact with the data and perform various operations efficiently.
-</section>
+    </p>
+  </section>
+  <section id="design-and-architecure">
+    <h2>Design and architecture</h2>
+    <p>
+      The watr system is designed using a <i>service oriented architecture (SOA)</i>, with separate components for the
+      backend,
+      frontend, uploads folder, and data module. This modular approach enables the system to be scalable, flexible, and
+      extensible, allowing users to interact with the data and perform various operations efficiently.
+    </p>
+    <p>
+      The front-end is developed in the React framework, ensuring <i>modularization and reusability</i> of components.
+      The back-end is developed in NodeJS, using ExpressJS for handling HTTP requests and SPARQL queries. The system is
+      designed to be highly responsive and user-friendly, providing a seamless experience for users interacting with the
+      data.
+    </p>
+    <p>
+      The communication of data between the integrated ends of the application is performed through a REST paradigm
+      consisting
+      of API endpoints. The data is sent in JSON format, ensuring compatibility and ease of processing between the
+      front-end and back-end components. The system is designed to be highly scalable, allowing users to process and
+      analyze large datasets efficiently. The security of the system is ensured by <i>expiring cookies with signature
+        verification and encryption for file access</i>.
+    </p>
+    <img src="assets/watr-architecture.drawio.png" alt="watr architecture diagram" />
+    <section id="design-and-architecture-frontend">
+      <h3>Frontend</h3>
+      <p>
+        The frontend of the watr system is designed using the React framework, making use creatively a modular and
+        reusable
+        architecture for building user interfaces. The frontend consists of several components, including panels,
+        components, assets, and services, each serving a specific purpose in the system. The frontend communicates with
+        the backend through RESTful APIs, enabling users to interact with the data and perform various operations such
+        as querying data, visualizing metadata, and comparing datasets. Regarding code quality, the HTML is validated by
+        the React framework, while the CSS is validated by the Tailwind CSS framework. There is also a custom 404 page
+        in
+        case of errors.
+      </p>
+      <img src="assets/error-page.png" alt="Error page">
+      <section>
+        <h4>Upload files</h4>
+        <p>
+          The upload files component allows users to upload RDF files in various formats, including JSON-LD, RDF/XML,
+          Turtle, and TriX. The component provides a user-friendly interface for selecting and uploading files, with
+          progress indicators and error handling. The uploaded files are stored in the uploads folder, where they can be
+          processed and analyzed by the system, not before <i>validating the RDF data against SHACL shapes</i>.
+        </p>
+        <img src="assets/upload-files.png" alt="Upload files">
+      </section>
+      <section>
+        <h4>Visualize</h4>
+        <p>
+          The visualize component is responsible for displaying the data in a user-friendly manner, allowing users to
+          gain insights into the data through graphical representations. The data is displayed in a tabular format, with
+          each triple of subject-predicate-object represented in a row. The component provides tools for filtering and
+          sorting the data, enabling users to interact with the data effectively, allowing as well pagination.
+        </p>
+        <img src="assets/visualize-panel.png" alt="Visualize panel">
+      </section>
+      <section>
+        <h4>Classify</h4>
+        <p>
+          The classify component enables users to categorize and organize the data effectively, providing tools for
+          filtering and grouping the data based on predefined criteria. The component allows users to define custom
+          filters and attributes for classifying the data either by <i>a union</i> or <i>a intersection</i> of the
+          predicate-attribute pairs, enabling them to organize the data into meaningful categories.
+          The data is displayed in a tabular format, with each subject represented in a row, allowing users to interact
+          with the data effectively.
+        </p>
+        <img src="assets/classify-panel-union.png" alt="Classify panel union">
+        <img src="assets/classify-panel-intersection.png" alt="Classify panel intersection">
+      </section>
+      <section>
+        <h4>Compare</h4>
+        <p>
+          The compare component enables users to identify similarities and differences between datasets, providing tools
+          for filtering and sorting the data based on predefined criteria. The component allows users switch between
+          comparing by multiple predicates or by subjects.
+        </p>
+        <img src="assets/compare-panel-predicates.png" alt="Compare panel predicates">
+        <img src="assets/compare-panel-subjects.png" alt="Compare panel subjects">
+      </section>
+      <section>
+        <h4>Match</h4>
+        <p>
+          Finally, the match component enables users to match metadata from different sources, ensuring data consistency
+          and interoperability. The component provides tools for filtering and sorting the data based on predefined
+          criteria, allowing users to identify matching subjects between datasets. The data is similarly displayed in a
+          tabular format.
+        </p>
+        <img src="assets/match-panel.png" alt="Match panel">
+      </section>
+    </section>
+    <section id="design-and-architecture-backend">
+      <h3>Backend</h3>
+      <p>
+        The backend of the watr system is designed using Node.js and Express.js, providing a robust and scalable
+        platform
+        for handling HTTP requests and performing various data processing tasks, being is responsible for querying
+        SPARQL endpoints, processing RDF data, and exposing RESTful APIs for the frontend to interact with. The backend
+        is structured into several modules, including services, controllers, routes, and utilities, each serving a
+        specific purpose in the system. The backend uses SPARQL.js, RDFLib, JsonLD, rdfxml-streaming-parser, and
+        rdf-validate-shacl libraries for working with RDF data in JavaScript, ensuring compatibility and ease of
+        processing between the front-end and back-end components.
+      </p>
+    </section>
+    <section id="design-and-architecure-deploy">
+      <h3>Remote deployment</h3>
+      <p>
+        The watr system is deployed on the Google Cloud Platform (GCP), ensuring high availability and scalability for
+        users. More specifically, the system is deployed on a compute engine instance running Linux, hosted at this
+        <a href="https://fii-watr-0204-72417052488.europe-central2.run.app/">URL</a>.
+      </p>
+    </section>
+  </section>
   <section id="use-cases">
     <h2>Use cases</h2>
+    <p>
+      Inside the watr application, the user can perform various operations on the data, such as visualizing,
+      classifying, comparing, and matching metadata. Apart from the ones presented above in the <strong>Frontend
+        architecture</strong>
+      section, the user can as well execute SPARQL queries on external data. The user will select a remote dataset, a
+      predefined query, while the results are available in different formats as downloaded files.:
+    <ul>
+      <li>TTL</li>
+      <li>JSON-LD</li>
+      <li>OWL</li>
+      <li>TriX</li>
+      <li>etc.</li>
+    </ul>
+    </p>
+    <img src="assets/external-query.png" alt="External query">
   </section>
   <section id="linked-data-principles">
     <h2>Linked data principles</h2>
+    <p>
+      If we talk about the <i>Linked Data Principles</i>, the watr system is designed to adhere to this set of practices
+      coined by Tim Berners-Lee.
+      In the display of the data, things and concepts are identified by URIs, while the data is linked to other data.
+      The data can also be exported in different formats, such as JSON-LD, HTML and CSV on any operation
+      available in the application. For exmample, the following data will be exported to the JSON snippet below:
+      <img src="assets/export-html-view.png" alt="Export HTML view">
+      <img src="assets/json-export-snippet.png" alt="JSON export snippet">
+    </p>
   </section>
 
   <section id="bugs-and-tests">
@@ -333,10 +466,14 @@
     <strong>
       <p>We have extensively tested the system and addressed most of the issues identified during development. </p>
     </strong>
-    <p>From varying dataset sizes and sources to different SPARQL queries, naming conventions, and more, all while remaining largely bug-free.</p>
-    <i><p>However, a few challenges remain:</p></i>
+    <p>From varying dataset sizes and sources to different SPARQL queries, naming conventions, and more, all while
+      remaining largely bug-free.</p>
+    <i>
+      <p>However, a few challenges remain:</p>
+    </i>
     <ul>
-      <li>There are certain inconsistencies in the backend parser and file conversion process, particularly when handling non-alphanumeric characters.</li>
+      <li>There are certain inconsistencies in the backend parser and file conversion process, particularly when
+        handling non-alphanumeric characters.</li>
     </ul>
   </section>
 
@@ -346,10 +483,13 @@
       <p>Several enhancements are planned to improve functionality and user experience:</p>
     </strong>
     <ul>
-      <li>Implementing clearer visual indicators for issues such as invalid SPARQL queries or improperly formatted datasets.</li>
-      <li>Developing an interactive GUI tool that enables users to select elements for extracting subject-predicate-object triples, with dropdowns displaying all available elements, their tags, and values.</li>
+      <li>Implementing clearer visual indicators for issues such as invalid SPARQL queries or improperly formatted
+        datasets.</li>
+      <li>Developing an interactive GUI tool that enables users to select elements for extracting
+        subject-predicate-object triples, with dropdowns displaying all available elements, their tags, and values.</li>
       <li>Exploring the potential for mapping relationships between subjects, predicates, and objects.</li>
-      <li>Utilizing charts to visualize the number of connections associated with specific subjects, predicates, or objects.</li>
+      <li>Utilizing charts to visualize the number of connections associated with specific subjects, predicates, or
+        objects.</li>
       <li>Expanding support for additional SPARQL endpoint connections and queries.</li>
     </ul>
   </section>
@@ -357,46 +497,58 @@
   <section id="acknowledgements">
     <h2>Acknowledgements</h2>
     <p style="margin-bottom: -1em">
-      <strong>Libraries and Frameworks:</strong> 
-      <ul>
-        <li><a href="https://reactjs.org/">React</a></li>
-        <li><a href="https://expressjs.com/">Express.js</a></li>
-        <li><a href="https://vite.dev/">Vite</a></li>
-        <li><a href="https://eslint.org/">ESLint</a></li>
-        <li><a href="https://github.com/andrei-v-stan/watr?tab=readme-ov-file#space_invader-tech-stack"><i>More in our repository's README</i></a></li>
-      </ul>
+      <strong>Libraries and Frameworks:</strong>
+    <ul>
+      <li><a href="https://reactjs.org/">React</a></li>
+      <li><a href="https://expressjs.com/">Express.js</a></li>
+      <li><a href="https://vite.dev/">Vite</a></li>
+      <li><a href="https://eslint.org/">ESLint</a></li>
+      <li><a href="https://github.com/andrei-v-stan/watr?tab=readme-ov-file#space_invader-tech-stack"><i>More in our
+            repository's README</i></a></li>
+    </ul>
     </p>
     <p style="margin-bottom: -1em">
-      <strong>Tools and Services:</strong> 
-      <ul>
-        <li><a href="https://github.com/">GitHub</a></li>
-        <li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
-        <li><a href="https://www.postman.com/">Postman</a></li>
-      </ul>
+      <strong>Tools and Services:</strong>
+    <ul>
+      <li><a href="https://github.com/">GitHub</a></li>
+      <li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+      <li><a href="https://www.postman.com/">Postman</a></li>
+    </ul>
     </p>
     <p style="margin-bottom: -1em">
-      <strong>Academic Institutions / Professors:</strong> 
-      <ul>
-        <li><a href="https://profs.info.uaic.ro/sabin.buraga/">Prof. Dr. Habil. Sabin-Corneliu Buraga</a></li>
-        <li><a href="https://www.info.uaic.ro/">Faculty of Computer Science Iași</a></li>
-        <li><a href="https://www.uaic.ro/">Alexandru Ioan Cuza University</a></li>
-      </ul>
+      <strong>Academic Institutions / Professors:</strong>
+    <ul>
+      <li><a href="https://profs.info.uaic.ro/sabin.buraga/">Prof. Dr. Habil. Sabin-Corneliu Buraga</a></li>
+      <li><a href="https://www.info.uaic.ro/">Faculty of Computer Science Iași</a></li>
+      <li><a href="https://www.uaic.ro/">Alexandru Ioan Cuza University</a></li>
+    </ul>
     </p>
   </section>
 
   <section id="references">
     <h2>References</h2>
     <p>
-      <ul>
-        <li><a href="https://profs.info.uaic.ro/sabin.buraga/teach/courses/wade/web-film.html#week3">Web engineering practices</a></li>
-        <li><a href="https://link.springer.com/chapter/10.1007/11574620_21">Ontology Design Patterns for Semantic Web Content</a></li>
-        <li><a href="https://cdn.aaai.org/ojs/17816/17816-13-21310-1-2-20210518.pdf">Empirical Best Practices On Using Product-Specific Schema.org</a></li>
-        <li><a href="https://opensource.org/license/mit">Open Source Initiative - The MIT License</a></li>
-        <li><a href="https://cloud.google.com/">Google Cloud Platform</a></li>
-        <li><a href="https://technical-reference.readthedocs.io/en/latest/quality/software-checklist.html">Software Quality Checklist</a></li>
-        <li><a href="https://www.toptal.com/developers/webdevchecklist">Web Developer Checklist</a></li>
-        <li><a href="https://instadeq.com/blog/posts/things-end-users-care-about-but-programmers-dont/">No-code Data Analysis & Interactive Visualizations</a></li>
-      </ul>
+    <ul>
+      <li><a href="https://github.com/andrei-v-stan/watr/blob/main/README.md">watr README</a></li>
+      <li><a href="https://github.com/andrei-v-stan/watr/blob/main/documentation/openapi.yaml">OpenAPI YAML</a></li>
+    </ul>
+    </p>
+    <p>
+    <ul>
+      <li><a href="https://profs.info.uaic.ro/sabin.buraga/teach/courses/wade/web-film.html#week3">Web engineering
+          practices</a></li>
+      <li><a href="https://link.springer.com/chapter/10.1007/11574620_21">Ontology Design Patterns for Semantic Web
+          Content</a></li>
+      <li><a href="https://cdn.aaai.org/ojs/17816/17816-13-21310-1-2-20210518.pdf">Empirical Best Practices On Using
+          Product-Specific Schema.org</a></li>
+      <li><a href="https://opensource.org/license/mit">Open Source Initiative - The MIT License</a></li>
+      <li><a href="https://cloud.google.com/">Google Cloud Platform</a></li>
+      <li><a href="https://technical-reference.readthedocs.io/en/latest/quality/software-checklist.html">Software
+          Quality Checklist</a></li>
+      <li><a href="https://www.toptal.com/developers/webdevchecklist">Web Developer Checklist</a></li>
+      <li><a href="https://instadeq.com/blog/posts/things-end-users-care-about-but-programmers-dont/">No-code Data
+          Analysis & Interactive Visualizations</a></li>
+    </ul>
     </p>
   </section>
 </body>
